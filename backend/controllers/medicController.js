@@ -57,8 +57,9 @@ function show(req, res) {
 
 //Store
 function store(req, res) {
+    req.body.telefono = '+39' + req.body.telefono;
     const { email, nome, cognome, telefono, indirizzo, specializzazione } = req.body
-
+    
     const sql = "INSERT INTO medici (email, nome, cognome, telefono, indirizzo, specializzazione) VALUES (?, ?, ?, ?, ?, ?)"
     connection.query(sql, [email, nome, cognome, telefono, indirizzo, specializzazione], (err, results) => {
         if (err) return res.status(500).json({ message: err.message })
