@@ -1,14 +1,14 @@
-function checkInput(req, res, next){
-    const { title, director, genre, release_year, abstract, image } = req.body
+function checkInput(req, res, next) {
+    const { nome, testo, voto } = req.body
 
-    if( !title || !director || !genre || !release_year || !abstract || !image){
+    if (!nome || !testo || !voto) {
         return res.status(500).json({
-            error: 'invalid request',
-            message: 'dati incompleti',
-    })
+            error: "invalid request",
+            message: "dati incompleti"
+        })
     }
 
-    next();
+    next()
 }
 
 module.exports = { checkInput }

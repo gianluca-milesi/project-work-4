@@ -22,7 +22,7 @@ function show(req, res) {
     const id = req.params.id
 
     let sql = `
-        SELECT medici.*,  Coalesce( Avg( voto ), 0 ) As avgVote
+        SELECT medici.*, Coalesce( Avg( voto ), 0 ) As avgVote
         FROM medici
         left JOIN recensioni
         ON medici.id = recensioni.medico_id
@@ -55,4 +55,24 @@ function show(req, res) {
 }
 
 
-module.exports = { index, show }
+
+
+
+
+
+//Store Review
+function storeReview(req, res) {
+    const id = req.params.id
+
+    const { nome, testo, voto } = req.body
+
+    const sql = "INSERT INTO recensioni (nome, testo, voto, medico_id) VALUES (?, ?, ?, ?)"
+    connection.query(sql, [nome, testo, voto, id], (err, results) => {
+        if (err) return res.status(500).json({ message: err.message })
+        res.status(201).json({ message: "Review added" })
+    })
+}
+
+
+
+module.exports = { index, show, storeReview }
