@@ -1,6 +1,6 @@
 const express = require("express")
 const router = express.Router()
-import { checkInput } from "../middlewares/checkInput.js"
+import { checkInput } from "../middlewares/utils.js"
 
 const medicController = require("../controllers/medicController.js")
 
