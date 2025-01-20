@@ -27,30 +27,45 @@ function checkVoidInputsReview(req, res, next) {
 function checkValueInputReview(req, res, next){
     const { name, vote} = req.body
     req.body.vote = parseInt(vote)
-    if( isNaN(vote)||(vote > 5 || vote < 0)|| name.length > 255 || typeof name!== 'string'){
+
+    const regExp = /^[A-Za-zÀ-ÿ']+([ -][A-Za-zÀ-ÿ']+)*$/;
+    if(regExp.test(nome) && isNaN(vote) && (vote > 5 || vote < 0)){
+        if(name.length < 255 && typeof name === 'string'){
+            next();
+        }else{
+            return res.status(500).json({
+                error: 'invalid request',
+                message: 'nome non corretto',
+            })  
+        }
+    }else{
         return res.status(500).json({
             error: 'invalid request',
-            message: 'dati non corretti',
+            message: 'voto non corretto',
         })
     }
-
-    next();
 }
 function checkValuesInputDoctor(req, res, next){
-    const { nome, cognome, telefono, specializzazione } = req.body
-
-    if( nome.length > 255 || typeof nome!== 'string' 
-        || cognome.length > 255 || typeof cognome!== 'string'
-        || specializzazione.length > 255 || typeof specializzazione!== 'string'
-        || isNaN(telefono) || telefono.length!=10
-    ){
+    
+    const { telefono, specializzazione } = req.body
+    
+    const numberTelReg = /\+?\d{1,3}?[ .-]?\(?\d{2,4}\)?[ .-]?\d{3,4}[ .-]?\d{4}/
+    const stringRegExp = /^[a-zA-ZàèéìòùÀÈÉÌÒÙ\s]+$/;
+    if(stringRegExp.test(specializzazione) && specializzazione.length < 255 && typeof specializzazione === 'string'){
+        if(numberTelReg.test(telefono) && telefono.length==10){
+            next();
+        }else{
+            return res.status(500).json({
+                error: 'invalid request',
+                message: 'telefono non valido',
+            }) 
+        }
+    }else{
         return res.status(500).json({
             error: 'invalid request',
-            message: 'dati non corretti',
+            message: 'specializzazione non valida',
         })
     }
-
-    next();
 }
 function checkEmail(req, res, next){
     const {email} = req.body
@@ -78,4 +93,25 @@ function checkAddress(req, res, next){
     }  
 }
 
-module.exports = { checkVoidInputsDoctor, checkVoidInputsReview , checkValueInputReview, checkValuesInputDoctor, checkEmail, checkAddress}
+function checkNameSurname(req, res, next) {
+    const { nome, cognome } = req.body;
+    const regExp = /^[A-Za-zÀ-ÿ']+([ -][A-Za-zÀ-ÿ']+)*$/;
+
+    if (regExp.test(nome) && nome.length <255 && typeof nome === 'string' ) {
+        if(regExp.test(cognome) && cognome.length < 255 && typeof cognome === 'string'){
+           next(); 
+        }else{
+            return res.status(400).json({
+                error: 'invalid request',
+                message: 'Cognome non valido',
+            });
+        }     
+    } else {
+        return res.status(400).json({
+            error: 'invalid request',
+            message: 'Nome non valido',
+        });
+    }
+}
+
+module.exports = { checkVoidInputsDoctor, checkVoidInputsReview , checkValueInputReview, checkValuesInputDoctor, checkEmail, checkAddress, checkNameSurname}
