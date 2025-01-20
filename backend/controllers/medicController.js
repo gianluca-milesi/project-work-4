@@ -55,9 +55,16 @@ function show(req, res) {
 }
 
 
+//Store
+function store(req, res) {
+    const { email, nome, cognome, telefono, indirizzo, specializzazione } = req.body
 
-
-
+    const sql = "INSERT INTO medici (email, nome, cognome, telefono, indirizzo, specializzazione) VALUES (?, ?, ?, ?, ?, ?)"
+    connection.query(sql, [email, nome, cognome, telefono, indirizzo, specializzazione], (err, results) => {
+        if (err) return res.status(500).json({ message: err.message })
+        res.status(201).json({ message: "Medic added" })
+    })
+}
 
 
 //Store Review
@@ -75,4 +82,4 @@ function storeReview(req, res) {
 
 
 
-module.exports = { index, show, storeReview }
+module.exports = { index, show, store, storeReview }

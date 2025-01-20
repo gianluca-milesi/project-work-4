@@ -11,8 +11,8 @@ router.get("/", medicController.index)
 //Show
 router.get("/:id", medicController.show)
 
-// //Store
-// router.post("/", checkInput, medicController.store)
+//Store
+router.post("/", medicController.store)
 
 //Store
 router.post("/:id/review", checkInput, medicController.storeReview)
