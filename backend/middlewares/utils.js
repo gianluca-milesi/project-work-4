@@ -29,8 +29,8 @@ function checkValueInputReview(req, res, next){
     req.body.vote = parseInt(vote)
 
     const regExp = /^[A-Za-zÀ-ÿ']+([ -][A-Za-zÀ-ÿ']+)*$/;
-    if(regExp.test(nome) && isNaN(vote) && (vote > 5 || vote < 0)){
-        if(name.length < 255 && typeof name === 'string'){
+    if(isNaN(vote) && (vote > 5 || vote < 0)){
+        if(regExp.test(nome) && name.length < 255 && typeof name === 'string'){
             next();
         }else{
             return res.status(500).json({
@@ -82,7 +82,7 @@ function checkEmail(req, res, next){
 
 function checkAddress(req, res, next){
     const {indirizzo} = req.body
-    const regExp = /^([Vv]ia|[Cc]orso|[Pp]iazza|[Vv]iale|[Ll]argo|[Ss]trada|[Cc]ont[tr]ada|[Ff]razione|[Bb]orgo)\s+[A-Za-zÀ-ÿ\s']+(?:\s+\d+[A-Za-z]?)?,?\s*\d{5}\s+[A-Za-zÀ-ÿ\s]+$/;;
+    const regExp = /^([Vv]ia|[Cc]orso|[Pp]iazza|[Vv]iale|[Ll]argo|[Ss]trada|[Cc]ont[tr]ada|[Ff]razione|[Bb]orgo)\s+[A-Za-zÀ-ÿ\s']+(?:\s+\d+[A-Za-z]?)?,?\s*(\d{5}\s+)?[A-Za-zÀ-ÿ\s]+$/;
     if(regExp.test(indirizzo)){
         next();
     }else{
