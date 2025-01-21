@@ -1,0 +1,16 @@
+/* reset rules */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* variables */
+
+:root {
+  --color-primary: rgb(0, 195, 165);
+  --color-secondary: rgb(224, 247, 244);
+  --color-tertiary: rgb(213, 213, 213) ;
+}
+
