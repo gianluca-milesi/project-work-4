@@ -30,5 +30,3 @@ app.use(notFound)
 app.listen(port, () => {
     console.log(`Server port: ${port}`)
 })
-
-console.log('miao')
