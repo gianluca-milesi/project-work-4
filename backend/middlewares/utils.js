@@ -1,4 +1,4 @@
-const { connection } = require('../data/db')
+const  connection  = require('../data/db')
 
 //Controllo campi incompleti
 function checkVoidInputsDoctor(req, res, next) {
@@ -123,7 +123,8 @@ function checkNameSurname(req, res, next) {
 
 function checkExistingEmail(req, res, next){
     const {email} = req.body
-    const query = `SELECT * FROM medici`
+    console.log(email)
+    const query = `SELECT email FROM medici`
     connection.query(query, (err, results)=>{
 
         if(err){
