@@ -12,9 +12,9 @@ function checkVoidInputsDoctor(req, res, next) {
 }
 
 function checkVoidInputsReview(req, res, next) {
-    const { nome, testo, voto } = req.body
+    const { nome, voto } = req.body
 
-    if (!nome || !testo || !voto) {
+    if (!nome || !voto) {
         return res.status(500).json({
             error: "invalid request",
             message: "dati incompleti"
@@ -25,12 +25,12 @@ function checkVoidInputsReview(req, res, next) {
 }
 
 function checkValueInputReview(req, res, next){
-    const { name, vote} = req.body
-    req.body.vote = parseInt(vote)
-
+    const { nome, voto} = req.body
+    req.body.vote = parseInt(voto)
+    
     const regExp = /^[A-Za-zÀ-ÿ']+([ -][A-Za-zÀ-ÿ']+)*$/;
-    if(isNaN(vote) && (vote > 5 || vote < 0)){
-        if(regExp.test(nome) && name.length < 255 && typeof name === 'string'){
+    if(!isNaN(voto) && (voto < 5 || voto > 0)){
+        if(regExp.test(nome) && nome.length < 255 && typeof nome === 'string'){
             next();
         }else{
             return res.status(500).json({
