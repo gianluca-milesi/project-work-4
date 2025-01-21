@@ -1,3 +1,5 @@
+const { connection } = require('../data/db')
+
 //Controllo campi incompleti
 function checkVoidInputsDoctor(req, res, next) {
     const { email, nome, cognome, telefono, indirizzo, specializzazione } = req.body
@@ -119,5 +121,23 @@ function checkNameSurname(req, res, next) {
     }
 }
 
+function checkExistingEmail(req, res, next){
+    const {email} = req.body
+    const query = `SELECT * FROM medici`
+    connection.query(query, (err, results)=>{
 
-module.exports = { checkVoidInputsDoctor, checkVoidInputsReview, checkValueInputReview, checkValuesInputDoctor, checkEmail, checkAddress, checkNameSurname }
+        if(err){
+            return res.status(500).json({ error: 'Database query failed' });
+        }
+
+        const isPresent = results.find(doc => doc.email == email)
+
+        if(isPresent){
+            return res.json({ error: 'email gia pesente' });
+        } 
+
+        next();
+    })
+}
+
+module.exports = { checkVoidInputsDoctor, checkVoidInputsReview, checkValueInputReview, checkValuesInputDoctor, checkEmail, checkAddress, checkNameSurname, checkExistingEmail }

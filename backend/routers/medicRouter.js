@@ -7,7 +7,8 @@ const {checkVoidInputsDoctor,
        checkValuesInputDoctor, 
        checkEmail, 
        checkAddress, 
-       checkNameSurname} = require("../middlewares/utils.js")
+       checkNameSurname,
+       checkExistingEmail} = require("../middlewares/utils.js")
 
 
 //Index
@@ -17,7 +18,7 @@ router.get("/", medicController.index)
 router.get("/:id", medicController.show)
 
 //Store
-router.post("/", checkVoidInputsDoctor, checkNameSurname, checkEmail, checkAddress, checkValuesInputDoctor, medicController.store)
+router.post("/", checkVoidInputsDoctor, checkNameSurname, checkEmail, checkAddress, checkValuesInputDoctor, checkExistingEmail, medicController.store)
 
 //Store
 router.post("/:id/review", checkVoidInputsReview, checkValueInputReview, medicController.storeReview)
