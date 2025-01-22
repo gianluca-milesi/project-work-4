@@ -6,6 +6,7 @@ import GlobalContext from "./contexts/GlobalContext.js"
 import { useState } from "react"
 //Layouts
 import DefaultLayout from "./layouts/DefaultLayout.jsx"
+import BlankLayout from "./layouts/BlankLayout.jsx"
 //Pages
 import HomePage from "./pages/HomePage.jsx"
 import AboutPage from "./pages/AboutPage.jsx"
@@ -13,6 +14,7 @@ import ContactPage from "./pages/ContactPage.jsx"
 import SearchDocPage from "./pages/SearchDocPage.jsx"
 import DocDetailsPage from "./pages/DocDetailsPage.jsx"
 import DocRegistrationPage from "./pages/DocRegistrationPage.jsx"
+import NotFound from "./pages/NotFound.jsx"
 
 
 function App() {
@@ -30,6 +32,9 @@ function App() {
               <Route path="/search" element={<SearchDocPage />} />
               <Route path="/doctor/:id" element={<DocDetailsPage />} />
               <Route path="/registration" element={<DocRegistrationPage />} />
+            </Route>
+            <Route element={<BlankLayout />}>
+              <Route path="*" element={<NotFound />}></Route>
             </Route>
           </Routes>
         </BrowserRouter>
