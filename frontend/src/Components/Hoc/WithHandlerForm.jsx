@@ -15,7 +15,7 @@ export function WithHandlerForm(Component, baseForm){
         }
         function handleFile(event) {
           const file = event.target.files[0]; // Prendi il primo file selezionato
-          console.log(file)
+          
           if (file) {
             setData((prevData) => ({
               ...prevData,
@@ -23,6 +23,7 @@ export function WithHandlerForm(Component, baseForm){
             }));
           }
         }
+        
         function resetForm() {
           setData(baseForm);
         }

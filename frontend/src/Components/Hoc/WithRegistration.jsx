@@ -27,7 +27,7 @@ export function WithRegistrationForm(Component){
                 formData.append(key, data[key]);
             });
 
-            if(data.immagine){
+            if(data.immagine){// se il file esiste lo metto come campo
                 formData.append("immagine", data.immagine); 
             }
 
@@ -37,7 +37,7 @@ export function WithRegistrationForm(Component){
             if(result.valid){
              try{
                 const result = await axios.post(insertDoctorUrl, formData,{ headers: {
-                    "Content-Type": "multipart/form-data",
+                    "Content-Type": "multipart/form-data",//serve a far capire al be che c'è la possibilita che ci siano file
                 },})
                 setSeeToast(true)
                 setMsgToast(result.data.message)
