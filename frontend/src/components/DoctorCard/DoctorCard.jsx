@@ -1,10 +1,11 @@
 import style from "./DoctorCard.module.css"
+import docImage from "../../assets/DottoreQuindici.jpg"
 
 function DoctorCard() {
     return (
         <div className={style.card}>
             <figure>
-                <img src="..." />
+                <img className={style.doc_image} src={docImage} />
             </figure>
             <div className={style.card_body}>
                 <h3 className="text-lg font-semibold">Nome Cognome</h3>
