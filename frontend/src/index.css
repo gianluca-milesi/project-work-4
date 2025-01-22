@@ -1,5 +1,11 @@
-/* reset rules */
+/* variables */
+:root {
+  --color-primary: rgb(0, 195, 165);
+  --color-secondary: rgb(224, 247, 244);
+  --color-tertiary: rgb(213, 213, 213);
+}
 
+/* reset rules */
 * {
   margin: 0;
   padding: 0;
@@ -17,12 +23,6 @@ a {
   text-decoration: none;
 }
 
-
-/* variables */
-
-:root {
-  --color-primary: rgb(0, 195, 165);
-  --color-secondary: rgb(224, 247, 244);
-  --color-tertiary: rgb(213, 213, 213) ;
+img {
+  max-width: 100%;
 }
-
