@@ -9,7 +9,7 @@ function index(req, res) {
 
         //riscrivere la proprietà image per far combaciare il path per il forntend
         results.forEach((medic) => {
-            medic.immagine = `${process.env.BE_HOST}public/img/${medic.immagine}`
+            medic.immagine = `${process.env.BE_HOST}public/DoctorImg/${medic.immagine}`
         })
 
         res.json(results)
@@ -42,7 +42,7 @@ function show(req, res) {
 
         const medic = results[0]
         //riscrivere la proprietà image per far combaciare il path per il forntend
-        medic.immagine = `${process.env.BE_HOST}/img/${medic.immagine}`
+        medic.immagine = `${process.env.BE_HOST}/DoctorImg/${medic.immagine}`
 
         let sql = `SELECT * FROM recensioni WHERE medico_id = ?`
         connection.query(sql, [id], (err, results) => {
