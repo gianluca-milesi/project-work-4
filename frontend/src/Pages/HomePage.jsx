@@ -5,8 +5,8 @@ function HomePage() {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-6"><DoctorCard /></div>
-                <div className="col-6"><DoctorCard /></div>
+                <div className="sm:col-12 md:col-6"><DoctorCard /></div>
+                <div className="sm:col-12 md:col-6"><DoctorCard /></div>
             </div>
         </div>
     )

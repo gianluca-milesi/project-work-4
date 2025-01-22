@@ -4,15 +4,15 @@ import { Link } from "react-router-dom"
 
 function DoctorCard() {
     return (
-        <div className={style.card}>
-            <figure>
-                <img className={style.doc_image} src={docImage} />
+        <div className={`${style.card} lg:flex lg:items-center`}>
+            <figure className="">
+                <img className={`${style.doc_image} md:w-80 lg:w-96 xl:w-52`} src={docImage} />
             </figure>
             <div className={style.card_body}>
                 <h3 className="text-lg font-semibold">Nome Cognome</h3>
                 <div className={style.doc_contacts}>
                     <h5>Contatti</h5>
-                    <div className="flex gap-3">
+                    <div className="xl:flex gap-3">
                         <p className="text-sm flex items-center gap-0.5">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
@@ -25,13 +25,13 @@ function DoctorCard() {
                             <span className="italic text-neutral-500">Telefono: </span> +39 3438283932</p>
                     </div>
                 </div>
-                <div className={style.doc_details}>
+                <div className={`${style.doc_details} flex flex-col xl:flex-row justify-between gap-2`}>
                     <div className="flex-col">
                         <h5>Dettagli</h5>
                         <p className="text-sm text-neutral-500"><span className="italic">Indirizzo: </span> Via da qui, Roma</p>
                         <p className="text-sm"><span className="font-semibold">Specializzazione</span>: Ginecologo</p>
                     </div>
-                    <Link className="self-end" to="/doctor/id"><button className={style.details_button}>Scheda dottore</button></Link>
+                    <Link className="xl:self-end" to="/doctor/id"><button className={style.details_button}>Scheda dottore</button></Link>
                 </div>
             </div>
         </div>

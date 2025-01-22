@@ -1,6 +1,4 @@
 .card {
-    display: flex;
-    align-items: center;
     margin: 1rem;
     background-color: rgb(213, 213, 213);
     border-radius: 20px;
@@ -14,7 +12,6 @@
 
 .doc_image {
     display: block;
-    width: 220px;
     border-radius: 20px 0 0 20px;
 }
 
@@ -26,13 +23,13 @@
     width: 100%;
 }
 
-.doc_details {
-    display: flex;
-    justify-content: space-between;
-}
-
 .details_button {
     padding: 0.25rem 0.5rem;
     background-color: rgb(224, 247, 244);
     border-radius: 10px;
+    transition: 0.2s;
+}
+
+.details_button:hover{
+    background-color: rgb(216, 233, 231);
 }
