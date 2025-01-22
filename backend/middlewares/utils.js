@@ -154,15 +154,15 @@ function checkNameSurname(req, res, next) {
 function checkExistingEmail(req, res, next){
     const {email} = req.body
     console.log(email)
-    const query = `SELECT email FROM medici`
+    const query = `SELECT * FROM medici`
     connection.query(query, (err, results)=>{
 
         if(err){
             return res.status(500).json({ error: 'Database query failed' });
         }
 
-        const isPresent = results.find(doc => doc.email == email)
-
+        const isPresent = results.find(doc =>doc.email == email )
+        console.log(isPresent)
         if(isPresent){
             return res.status(500).json({ error: 'email gia pesente' });
         } 

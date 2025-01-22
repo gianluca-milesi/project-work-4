@@ -20,7 +20,6 @@ export function WithRegistrationForm(Component){
             //trim input
             data.nome =  data.nome.trim()
             data.cognome = data.cognome.trim()
-            data.email = data.email.trim()
             data.telefono = data.telefono.trim()
             
             data.specializzazione = data.specializzazione.trim()
@@ -30,17 +29,14 @@ export function WithRegistrationForm(Component){
             if(result.valid){
              try{
                 const result = await axios.post(insertDoctorUrl, data)
-                console.log(result)
-                console.log("err")
                 setSeeToast(true)
-                //setMsgToast()
+                setMsgToast(result.data.message)
                 resetForm()
-             }catch(err){//se chiamata va male mando a schermo messaggio
+             }catch({response}){//se chiamata va male mando a schermo messaggio
                 setSeeToast(true)
-                setMsgToast(err.message) 
+                setMsgToast(response.data.error) 
              }
             }else{ //output errore validazione
-                console.log("err validazione")
                 setSeeToast(true)
                 setMsgToast(result.msg) 
             }

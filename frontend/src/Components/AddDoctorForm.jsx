@@ -52,8 +52,7 @@ export function AddDoctorForm({ data, handlerInput, sender}) {
           onChange={(e) => handlerInput(e)}
           className="border-2 mx-5 w-3/12"
           placeholder="inserisci telefono..."
-          minLength="9"
-          maxLength="10"
+          pattern="\d{10}"
           required
         />
         <input
