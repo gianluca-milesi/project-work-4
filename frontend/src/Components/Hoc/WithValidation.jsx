@@ -15,30 +15,22 @@ export function WithValidation(Component){
         function validateAddress(address) {
           // Regex per il prefisso della via
           const prefixRegex = /^(Via|Corso|Piazza|Viale|Largo|Strada|Frazione|Borgo)/i;
-          const matchPrefix = address.match(prefixRegex);
-          if (!matchPrefix) {
+          const streetNameRegex = /[A-Za-zÀ-ÿ\s]+/;
+          const cityRegex = /(?:,\s*| )([A-Za-zÀ-ÿ\s]+)$/;
+        
+          if (!address.match(prefixRegex)) {
             return { valid: false, msg: "Prefisso della via non valido" };
           }
           // Regex per la parte del nome della via
-          const streetNameRegex = /[A-Za-zÀ-ÿ\s]+/;
-          const matchStreetName = address.match(streetNameRegex);
-          if (!matchStreetName) {
+          if (!address.match(streetNameRegex)) {
             return { valid: false, msg: "Nome della via non valido" };
           }
-          // Regex per il numero civico (con "n" o "n." o numeri civici) - facoltativo
-          const numberRegex = /(?:n\.?\s?|\s)?\d+[A-Za-z]*/;
-          const matchNumber = address.match(numberRegex);
-          // Se ci sono numeri civici e "n" o "n.", facciamo il controllo
-          const isNumberValid = matchNumber || true; // È facoltativo, quindi può anche essere "true"
-          if (!isNumberValid) {
-            return { valid: false, msg: "Numero civico non valido" };
-          }
-          // Regex per la città (almeno una parola dopo la virgola)
-          const cityRegex = /,\s*([A-Za-zÀ-ÿ\s]+)/;
-          const matchCity = address.match(cityRegex);
-          if (!matchCity) {
+        
+          // Regex per la città (con o senza virgola)
+          if (!address.match(cityRegex)) {
             return { valid: false, msg: "Città non valida" };
           }
+        
           return { valid: true, msg: "Indirizzo valido" };
         }
         
@@ -47,7 +39,7 @@ export function WithValidation(Component){
              return {valid: false , msg: 'nome non valido'}
             }
             if(!nameSurnameRegEx.test(cognome)){
-             return {msg: 'nome non valido'}
+             return {msg: 'cognome non valido'}
             }
             if(!isEmail(email)){
               return {valid: false , msg: 'email non valida'}  
