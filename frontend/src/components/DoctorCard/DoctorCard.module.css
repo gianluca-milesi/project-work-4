@@ -1,0 +1,12 @@
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: gray;
+    border-radius: 20px;
+}
+
+.card_body {
+    background-color: goldenrod;
+    padding: 1rem;
+}

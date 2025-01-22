@@ -1,6 +1,15 @@
+
+import DoctorCard from "../components/DoctorCard/DoctorCard.jsx"
+
 function HomePage() {
     return (
-        <div>Home Page</div>
+        <div>Home Page
+            <div className="container">
+                <div className="row">
+                    <div className="col-6"><DoctorCard /></div>
+                </div>
+            </div>
+        </div>
     )
 }
 
