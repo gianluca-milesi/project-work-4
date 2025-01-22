@@ -11,16 +11,11 @@ const baseForm = {
   specializzazione: "",
 };
 
-export function AddDoctorForm({ data, handlerInput, Validation }) {
+export function AddDoctorForm({ data, handlerInput, sender}) {
   const { nome, cognome, email, telefono, indirizzo, specializzazione } = data;
-
-  function puzzo(event){
-    event.preventDefault()
-    console.log(Validation())
-  }
   return (
     <div className="container">
-      <form className="flex flex-col gap-4 justify-center items-center my-10" onSubmit={puzzo}>
+      <form className="flex flex-col gap-4 justify-center items-center my-10" onSubmit={(e)=>sender(e)}>
         <input
           type="text"
           name="nome"
@@ -87,6 +82,6 @@ export function AddDoctorForm({ data, handlerInput, Validation }) {
   );
 }
 
-const FinalAddDoctorForm = WithHandlerForm(WithValidation(AddDoctorForm), baseForm);
+const FinalAddDoctorForm = WithHandlerForm(WithValidation(WithRegistrationForm(AddDoctorForm)), baseForm);
 
 export { FinalAddDoctorForm };

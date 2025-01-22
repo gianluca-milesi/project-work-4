@@ -89,8 +89,38 @@ function checkEmail(req, res, next) {
 
 function checkAddress(req, res, next) {
     const { indirizzo } = req.body
-    const regExp = /^([Vv]ia|[Cc]orso|[Pp]iazza|[Vv]iale|[Ll]argo|[Ss]trada|[Cc]ont[tr]ada|[Ff]razione|[Bb]orgo)\s+[A-Za-zÀ-ÿ\s']+(?:\s+\d+[A-Za-z]?)?,?\s*(\d{5}\s+)?[A-Za-zÀ-ÿ\s]+$/;
-    if (regExp.test(indirizzo)) {
+    function validateAddress(address) {
+      // Regex per il prefisso della via
+      const prefixRegex = /^(Via|Corso|Piazza|Viale|Largo|Strada|Frazione|Borgo)/i;
+      const matchPrefix = address.match(prefixRegex);
+      if (!matchPrefix) {
+        return { valid: false, msg: "Prefisso della via non valido" };
+      }
+      // Regex per la parte del nome della via
+      const streetNameRegex = /[A-Za-zÀ-ÿ\s]+/;
+      const matchStreetName = address.match(streetNameRegex);
+      if (!matchStreetName) {
+        return { valid: false, msg: "Nome della via non valido" };
+      }
+      // Regex per il numero civico (con "n" o "n." o numeri civici) - facoltativo
+      const numberRegex = /(?:n\.?\s?|\s)?\d+[A-Za-z]*/;
+      const matchNumber = address.match(numberRegex);
+      // Se ci sono numeri civici e "n" o "n.", facciamo il controllo
+      const isNumberValid = matchNumber || true; // È facoltativo, quindi può anche essere "true"
+      if (!isNumberValid) {
+        return { valid: false, msg: "Numero civico non valido" };
+      }
+      // Regex per la città (almeno una parola dopo la virgola)
+      const cityRegex = /,\s*([A-Za-zÀ-ÿ\s]+)/;
+      const matchCity = address.match(cityRegex);
+      if (!matchCity) {
+        return { valid: false, msg: "Città non valida" };
+      }
+      return { valid: true, msg: "Indirizzo valido" };
+    }
+
+
+    if (validateAddress(indirizzo).valid) {
         next();
     } else {
         return res.status(500).json({
@@ -134,7 +164,7 @@ function checkExistingEmail(req, res, next){
         const isPresent = results.find(doc => doc.email == email)
 
         if(isPresent){
-            return res.json({ error: 'email gia pesente' });
+            return res.status(500).json({ error: 'email gia pesente' });
         } 
 
         next();
