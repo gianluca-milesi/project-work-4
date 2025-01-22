@@ -1,4 +1,4 @@
-function DoctorCard(){
+function DoctorCard() {
 
 }
 export default DoctorCard;
