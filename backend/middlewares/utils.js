@@ -1,5 +1,6 @@
 const  connection  = require('../data/db')
 
+const uploadsPath = __dirname + '/public/DoctorImg'
 //Controllo campi incompleti
 function checkVoidInputsDoctor(req, res, next) {
     const { email, nome, cognome, telefono, indirizzo, specializzazione } = req.body
@@ -153,7 +154,6 @@ function checkNameSurname(req, res, next) {
 
 function checkExistingEmail(req, res, next){
     const {email} = req.body
-    console.log(email)
     const query = `SELECT * FROM medici`
     connection.query(query, (err, results)=>{
 
@@ -162,13 +162,13 @@ function checkExistingEmail(req, res, next){
         }
 
         const isPresent = results.find(doc =>doc.email == email )
-        console.log(isPresent)
+
         if(isPresent){
-            return res.status(500).json({ error: 'email gia pesente' });
+            return res.status(500).json({ error: 'invalid request', message: 'email gia pesente', });
         } 
 
         next();
     })
 }
 
-module.exports = { checkVoidInputsDoctor, checkVoidInputsReview, checkValueInputReview, checkValuesInputDoctor, checkEmail, checkAddress, checkNameSurname, checkExistingEmail }
+module.exports = { checkVoidInputsDoctor, checkVoidInputsReview, checkValueInputReview, checkValuesInputDoctor, checkEmail, checkAddress, checkNameSurname, checkExistingEmail, uploadsPath }

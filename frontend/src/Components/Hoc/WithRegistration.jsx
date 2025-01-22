@@ -21,7 +21,7 @@ export function WithRegistrationForm(Component){
             data.cognome = data.cognome.trim()
             data.telefono = data.telefono.trim()
             data.specializzazione = data.specializzazione.trim()
-            console.log(data)
+            
             const formData = new FormData(); //creo oggetto form data
             Object.keys(data).forEach((key) => { //aggiungo i dati del form a formData
                 formData.append(key, data[key]);

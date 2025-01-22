@@ -23,9 +23,13 @@ export function WithHandlerForm(Component, baseForm){
             }));
           }
         }
-        
+
         function resetForm() {
-          setData(baseForm);
+          setData({
+            ...baseForm,
+            immagine: null, // Reimposta immagine come null o valore vuoto
+          });
+
         }
         
         return <Component //con questo io ritorno il componente arricchito di nuove props, create in questo componente ma usufruibili nell'import  

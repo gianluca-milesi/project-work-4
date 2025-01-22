@@ -1,4 +1,5 @@
 const connection = require('../data/db.js')
+const uploadsPath = require('../middlewares/utils.js')
 
 
 //Index
@@ -57,12 +58,22 @@ function show(req, res) {
 
 //Store
 function store(req, res) {
-    const { email, nome, cognome, telefono, indirizzo, specializzazione } = req.body
-    
-    const sql = "INSERT INTO medici (email, nome, cognome, telefono, indirizzo, specializzazione) VALUES (?, ?, ?, ?, ?, ?)"
-    connection.query(sql, [email, nome, cognome, telefono, indirizzo, specializzazione], (err, results) => {
+    const { email, nome, cognome, telefono, indirizzo, specializzazione} = req.body
+    const {immagine} = req.files
+
+    const sql = "INSERT INTO medici (email, nome, cognome, telefono, indirizzo, specializzazione, immagine) VALUES (?, ?, ?, ?, ?, ?, ?)"
+    connection.query(sql, [email, nome, cognome, telefono, indirizzo, specializzazione, immagine[0].name], (err, results) => {
         if (err) return res.status(500).json({ message: err.message })
-        res.status(201).json({ message: "Medic added" })
+
+        const imagefinalPath = uploadsPath +'/'+ immagine[0].name
+        
+        console.log(imagefinalPath)
+        immagine[0].mv(imagefinalPath, (err)=>{
+            if (err) return res.status(500).json({ message: err.message })
+
+            res.status(201).json({ message: "Medic added" })
+        })
+
     })
 }
 
