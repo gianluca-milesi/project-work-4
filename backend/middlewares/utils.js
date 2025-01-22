@@ -1,7 +1,6 @@
 const  connection  = require('../data/db')
 
-const uploadsPath = __dirname + '/public/DoctorImg'
-//Controllo campi incompleti
+//Controllo campi incompleti 
 function checkVoidInputsDoctor(req, res, next) {
     const { email, nome, cognome, telefono, indirizzo, specializzazione } = req.body
 
@@ -171,4 +170,4 @@ function checkExistingEmail(req, res, next){
     })
 }
 
-module.exports = { checkVoidInputsDoctor, checkVoidInputsReview, checkValueInputReview, checkValuesInputDoctor, checkEmail, checkAddress, checkNameSurname, checkExistingEmail, uploadsPath }
+module.exports = { checkVoidInputsDoctor, checkVoidInputsReview, checkValueInputReview, checkValuesInputDoctor, checkEmail, checkAddress, checkNameSurname, checkExistingEmail }
