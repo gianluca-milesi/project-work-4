@@ -1,8 +1,11 @@
-import style from "./DoctorCard.module.css";
-import docImage from "../../assets/DottoreQuindici.jpg";
-import { Link } from "react-router-dom";
+import style from "./DoctorCard.module.css"
+import docImage from "../../assets/DottoreQuindici.jpg"
+import { Link } from "react-router-dom"
 
-function DoctorCard() {
+function DoctorCard({ item = {} }) {
+
+  const { nome, cognome, biografia, specializzazione } = item
+
   return (
     <Link to="/doctor/id">
       <div className={`${style.card} lg:flex lg:items-center`}>
@@ -14,11 +17,11 @@ function DoctorCard() {
         </figure>
         <div className={style.card_body}>
           <div className="doc_description flex-col">
-            <h3 className="text-lg font-semibold">Nome Cognome</h3>
-            <p className="text-sm text-neutral-500 italic">Il Dott. Nome Cognome è un medico specializzato in Medicina Interna con oltre 15 anni di esperienza. Attore rinomato per le sue comparse in film dedicati in ambiente medico</p>
+            <h3 className="text-lg font-semibold">{nome} {cognome}</h3>
+            <p className="text-sm text-neutral-500 italic">{biografia}</p>
           </div>
           <div className="doc_specialization flex text-sm">
-            <p className="font-semibold">Specializzazione</p><span>: Ginecologo</span>
+            <p className="font-semibold">Specializzazione</p><span>: {specializzazione}</span>
           </div>
 
           {/* <div className={style.doc_contacts}>
