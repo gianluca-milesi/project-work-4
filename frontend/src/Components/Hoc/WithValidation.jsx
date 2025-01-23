@@ -7,7 +7,7 @@ import isEmail from 'validator/lib/isEmail';
 
 export function WithValidation(Component){
     return ({data, ...other}) =>{
-      const {nome,cognome, email, telefono, indirizzo, specializzazione, immagine, text, vote} = data
+      const {nome, cognome, email, telefono, indirizzo, specializzazione, immagine, text, voto} = data
         const nameSurnameRegEx = /^[A-Za-zÀ-ÿ']+([ -][A-Za-zÀ-ÿ']+)*$/;                                
         const stringRegEx = /^[a-zA-ZàèéìòùÀÈÉÌÒÙ\s]+$/;
 
@@ -42,7 +42,6 @@ export function WithValidation(Component){
         function inputValidation(){
           
             if(!nameSurnameRegEx.test(nome)){
-             console.log(nome)
              return {valid: false , msg: 'nome non valido'}
             }
             if(!nameSurnameRegEx.test(cognome)){
@@ -52,7 +51,7 @@ export function WithValidation(Component){
               return {valid: false , msg: 'email non valida'}  
             }
             if(!isMobilePhone(telefono) || telefono.length != 10){
-                return {valid: false , msg: 'telefono non valido'}  
+              return {valid: false , msg: 'telefono non valido'}  
             }
             if(!validateAddress(indirizzo).valid){
               return {valid: false , msg: 'indirizzo non valido'}  
@@ -67,16 +66,19 @@ export function WithValidation(Component){
         }
 
         function inputReviewValidation(){
+          
           if(!nameSurnameRegEx.test(nome)){
-            console.log(nome)
             return {valid: false , msg: 'nome non valido'}
           }
-          if(text && (text.length<2000 && text.length>4)){
-            return {valid: false ,msg: 'testo non valido'}
+          if(text){
+            if(!(text.length<2000 && text.length>4)){
+             return {valid: false ,msg: 'testo non valido'}
+            }
           }
-          if(!vote>=1 && !vote<=5){
-            return {valid: false , msg: 'email non valida'}  
+          if(!(voto>=1 && voto<=5)){
+            return {valid: false , msg: 'voto non valido'}  
           }
+          return {valid:true, msg:'tutto ok'}
         }
 
         return <Component validation={inputValidation} validationRev={inputReviewValidation} data = {data} {...other}/>

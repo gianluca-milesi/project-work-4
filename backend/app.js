@@ -21,12 +21,7 @@ app.use(fileUpload())
 app.get("/", (req, res) => {
     res.send("Root")
 })
-app.get("/cercapercorso",(req, res)=> {
-    const uploadsPath = __dirname + "/public/DoctorImg"
-    console.log(__dirname)
-    console.log(uploadsPath)
-    res.send(uploadsPath)
-})
+
 app.use("/api/doctors", medicRouter)
 
 app.use(errorsHandler)

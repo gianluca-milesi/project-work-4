@@ -16,7 +16,6 @@ function checkVoidInputsDoctor(req, res, next) {
 
 function checkVoidInputsReview(req, res, next) {
     const { nome, voto } = req.body
-
     if (!nome || !voto) {
         return res.status(500).json({
             error: "invalid request",
@@ -30,10 +29,10 @@ function checkVoidInputsReview(req, res, next) {
 function checkValueInputReview(req, res, next){
     const { nome, voto} = req.body
     req.body.vote = parseInt(voto)
-    
+
     const regExp = /^[A-Za-zÀ-ÿ']+([ -][A-Za-zÀ-ÿ']+)*$/;
-    if(!isNaN(voto) && (voto < 5 || voto > 0)){
-        if(regExp.test(nome) && nome.length < 255 && typeof nome === 'string'){
+    if(!isNaN(voto) && (voto <= 5 || voto >= 1)){
+        if(regExp.test(nome) && (nome.length<2000 && nome.length>4) && typeof nome === 'string'){
             next();
         } else {
             return res.status(500).json({

@@ -11,7 +11,7 @@ import { useParams } from 'react-router-dom';
 
 
 export function WithRegistrationForm(Component){
-    return ({data, validation, resetForm, ...other})=>{
+    return ({data, validation, resetForm, validationRev, ...other})=>{
 
         const {setMsgToast, setSeeToast} = useContext(GlobalContext)
         
@@ -54,12 +54,14 @@ export function WithRegistrationForm(Component){
         }
 
         async function sendReview(event){
-            const {id} = useParams();
+            //const {id} = useParams();
             event.preventDefault()
-            const result = validation()
+            const id = 3;
+            console.log(insertDoctorUrl+`/${id}/review`)
+            const result = validationRev()
             if(result.valid){
              try{
-                const result = await axios.post(insertDoctorUrl+`${id}/review`, data)
+                const result = await axios.post(insertDoctorUrl+`/${id}/review`, data)
                 setSeeToast(true)
                 setMsgToast(result.data.message)
                 resetForm()
@@ -72,7 +74,6 @@ export function WithRegistrationForm(Component){
                 setMsgToast(result.msg) 
             }
         }
-
         return <Component sender={sendDoctor} reviewSender={sendReview} data={data} {...other}/>
     }
 }

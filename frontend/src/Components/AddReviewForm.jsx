@@ -5,16 +5,16 @@ import { WithValidation } from "./Hoc/WithValidation";
 
 const baseForm={
     text:"",
-    vote:"",
-    name:""
+    voto:"",
+    nome:""
 }
 
-export function AddReviewForm({data, handlerInput, sendReview}){
+export function AddReviewForm({data, handlerInput, reviewSender}){
 
-    const {text, vote, name} = data
+    const {text, voto, nome} = data
     return(
         <div className="container">
-        <form className="flex flex-col gap-4 justify-center items-center my-10" encType="multipart/form-data" onSubmit={(e)=>sendReview(e)}>
+        <form className="flex flex-col gap-4 justify-center items-center my-10" encType="multipart/form-data" onSubmit={(e)=>reviewSender(e)}>
           <textarea
             name="text"
             id="textarea"
@@ -25,8 +25,8 @@ export function AddReviewForm({data, handlerInput, sendReview}){
           ></textarea>
           <input
             type="number"
-            name="vote"
-            value={vote}
+            name="voto"
+            value={voto}
             onChange={(e) => handlerInput(e)}
             className="border-2 mx-5 w-3/12"
             placeholder="inserisci valutazione.."
@@ -36,8 +36,8 @@ export function AddReviewForm({data, handlerInput, sendReview}){
           />
           <input
             type="text"
-            name="name"
-            value={name}
+            name="nome"
+            value={nome}
             onChange={(e) => handlerInput(e)}
             className="border-2 mx-5 w-3/12"
             placeholder="inserisci il tuo nome..."
