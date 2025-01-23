@@ -13,7 +13,7 @@ function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <header className="flex justify-between items-center text-white py-6 px-8 md:px-32 background">
+        <header className="flex justify-between items-center text-white py-4 px-8 md:px-6 background">
             <Link to="/">
                 <span className="text-3xl font-bold">LOGO</span>
             </Link>
