@@ -5,7 +5,7 @@ function hero() {
   return (
     <div className="hero-container p-4 mb-8">
       <div className="container">
-        <div className=" m-8 hero relative p-8 pb-0">
+        <div className="hero relative p-8 pb-0">
           <div>
             <h1 className="text-3xl hero__title">
               Trova lo specialista che fa per te!
