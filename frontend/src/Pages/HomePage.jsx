@@ -1,6 +1,15 @@
+import Hero from "../layouts/Hero";
+
+import Banner from "../components/Banner/Banner"
+
 function HomePage() {
     return (
-        <div>Home Page</div>
+        <div>
+            
+            <Hero />
+        
+            <Banner></Banner>
+        </div>
     )
 }
 

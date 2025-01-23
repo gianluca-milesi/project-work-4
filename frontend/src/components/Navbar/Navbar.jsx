@@ -36,7 +36,7 @@ function Navbar() {
                 </Link>
             </ul>
 
-            <div className="relative hidden lg:flex items-center gap-12 font-semibold text-base justify-center">
+            <div className="relative hidden lg:flex items-center gap-2 font-semibold text-base justify-center">
                 <button className="py-2 px-5 backgroundTwo text-black rounded-lg focus:bg-slate-300">
                     Log In
                 </button>
