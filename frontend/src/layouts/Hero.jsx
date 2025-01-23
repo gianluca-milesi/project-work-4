@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 function hero() {
   return (
-    <>
-      <div className=" m-8 hero relative p-8">
+    <div className="hero-container p-4 mb-8">
+      <div className=" m-8 hero relative p-4">
         <div>
           <h1 className="text-3xl hero__title">
             Trova lo specialista che fa per te!
@@ -41,7 +41,7 @@ function hero() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
