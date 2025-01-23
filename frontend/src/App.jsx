@@ -1,18 +1,46 @@
+//React Router
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+//Context
+import GlobalContext from "./contexts/GlobalContext.js"
+//Hooks
 import { useState } from "react"
-import { GlobalContext } from "./Utils/GlobalContext"
-import { Toast} from "./Components/MsgToast"
-import {FinalAddDoctorForm} from './Components/AddDoctorForm'
+//Layouts
+import DefaultLayout from "./layouts/DefaultLayout.jsx"
+import BlankLayout from "./layouts/BlankLayout.jsx"
+//Pages
+import HomePage from "./pages/HomePage.jsx"
+import AboutPage from "./pages/AboutPage.jsx"
+import ContactPage from "./pages/ContactPage.jsx"
+import SearchDocPage from "./pages/SearchDocPage.jsx"
+import DocDetailsPage from "./pages/DocDetailsPage.jsx"
+import DocRegistrationPage from "./pages/DocRegistrationPage.jsx"
+import NotFound from "./pages/NotFound.jsx"
+
+
 function App() {
-  const [seeToast, setSeeToast]  = useState(false)
-  const [msgToast, setMsgToast]  = useState('')
+  const [isLoading, setIsLoading] = useState(false);
+
   return (
-    <GlobalContext.Provider value={{
-      seeToast, setSeeToast,
-      msgToast, setMsgToast}}>
-    <FinalAddDoctorForm/>
-    <Toast/>
-    </GlobalContext.Provider>
-  )
+    <>
+      <GlobalContext.Provider value={{ isLoading, setIsLoading }}>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<DefaultLayout />}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/search" element={<SearchDocPage />} />
+              <Route path="/doctor/:id" element={<DocDetailsPage />} />
+              <Route path="/registration" element={<DocRegistrationPage />} />
+            </Route>
+            <Route element={<BlankLayout />}>
+              <Route path="*" element={<NotFound />}></Route>
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </GlobalContext.Provider>
+    </>
+  );
 }
 
-export default App
+export default App;
