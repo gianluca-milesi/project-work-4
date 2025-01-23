@@ -1,6 +1,10 @@
+import Hero from "../layouts/Hero";
+
 function HomePage() {
     return (
-        <div>Home Page</div>
+        <div>
+            <Hero />
+        </div>
     )
 }
 
