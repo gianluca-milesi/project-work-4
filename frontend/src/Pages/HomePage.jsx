@@ -38,7 +38,7 @@ function HomePage() {
                     <h2 className="text-2xl">I nostri migliori medici</h2>
                     <div className="row">
                         {doctors.map(doc => (
-                            <div key={doc.id} className="col-6">
+                            <div key={doc.id} className="col-12 sm:col-6">
                                 <DoctorCard item={doc} />
                             </div>
                         ))}
