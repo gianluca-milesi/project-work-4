@@ -1,7 +1,7 @@
 .card {
     margin: 0.75rem;
     background-color: white;
-    border-radius: 100px 0 0 100px;
+    border-radius: 80px 0 0 80px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
     cursor: pointer;
     transition: 0.2s;
@@ -13,7 +13,7 @@
 
 .doc_image {
     display: block;
-    border-radius: 100px 0 0 100px;
+    border-radius: 80px 0 0 80px;
 }
 
 .card_body {
