@@ -21,7 +21,7 @@ function Navbar() {
             <ul className="hidden lg:flex items-center gap-12 font-semibold text-base">
                 <Link to="/">
                     <li className="p-2 hover:bg-green-400 rounded-md transition-all cursor-pointer text-xl">
-                         Home
+                        Home
                     </li>
                 </Link>
                 <Link to="/contact">
@@ -53,18 +53,18 @@ function Navbar() {
             </i>
 
             <div
-                className={`absolute lg:hidden top-24 right-0 h-full w-2/4 bg-white flex flex-col items-center font-semibold text-lg transform transition-transform backgroundTwo ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+                className={`absolute lg:hidden top-24 right-0 h-full w-2/4 bg-white flex flex-col items-center font-semibold text-lg transform transition-transform backgroundTwo z-40 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
                     }`}
                 style={{ transition: 'transform 0.3s ease-in-out' }}
             >      <div className='mb-20'>
                     <Link to="https://boroktimes.com/storage/2023/07/channels4_profile-1200x1200.jpeg">
                         <li className="list-none w-full text-center p-4 cursor-pointer text-black border-b border-white flex items-center gap-2 justify-center text-2xl">
-                        <CiLogin /> Login
+                            <CiLogin /> Login
                         </li>
                     </Link>
                     <Link to="/about">
                         <li className="list-none w-full text-center p-4 cursor-pointer text-black border-b border-white flex items-center gap-2 justify-center text-2xl">
-                        <MdNewLabel /> Registrati
+                            <MdNewLabel /> Registrati
                         </li>
                     </Link>
                 </div>
@@ -76,13 +76,13 @@ function Navbar() {
                     </Link>
 
                     <Link to="/contact">
-                        <li className="list-none w-full text-center p-4 cursor-pointer text-black border-b border-white flex items-center gap-2 justify-center text-2xl">    
-                        <RiContactsBook2Fill />Contatti
+                        <li className="list-none w-full text-center p-4 cursor-pointer text-black border-b border-white flex items-center gap-2 justify-center text-2xl">
+                            <RiContactsBook2Fill />Contatti
                         </li>
                     </Link>
                     <Link to="/about">
                         <li className="list-none w-full text-center p-4 cursor-pointer text-black border-b border-white flex items-center gap-2 justify-center text-2xl">
-                        <FaCircleInfo />About
+                            <FaCircleInfo />About
                         </li>
                     </Link>
                 </div>
