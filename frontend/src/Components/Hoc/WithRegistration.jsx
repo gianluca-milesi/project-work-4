@@ -5,8 +5,8 @@
 import {insertDoctorUrl} from "../../Utils/utils"
 import { useNavigate } from "react-router";
 import axios from "axios";
-import { useContext } from "react";
-import { GlobalContext } from "../../Utils/GlobalContext";
+import { useContext, useEffect, useState } from "react";
+import GlobalContext from "../../contexts/GlobalContext";
 
 
 export function WithRegistrationForm(Component){
@@ -29,10 +29,6 @@ export function WithRegistrationForm(Component){
 
             if(data.immagine){// se il file esiste lo metto come campo
                 formData.append("immagine", data.immagine); 
-            }
-
-            for (let [key, value] of formData.entries()) {
-                console.log(`${key}: ${value}`);
             }
             
             //eseguo la validazione

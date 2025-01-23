@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { GlobalContext } from "../Utils/GlobalContext"
+import GlobalContext from "../contexts/GlobalContext";
 import 'animate.css';
 
 export function Toast(){

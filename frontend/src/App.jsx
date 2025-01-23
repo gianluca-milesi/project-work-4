@@ -19,10 +19,12 @@ import NotFound from "./pages/NotFound.jsx"
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
-
+  const [seeToast, setSeeToast]  = useState(false)
+  const [msgToast, setMsgToast]  = useState('')
   return (
     <>
-      <GlobalContext.Provider value={{ isLoading, setIsLoading }}>
+      <GlobalContext.Provider value={{ isLoading, setIsLoading, seeToast, setSeeToast,
+        msgToast, setMsgToast}}>
         <BrowserRouter>
           <Routes>
             <Route element={<DefaultLayout />}>

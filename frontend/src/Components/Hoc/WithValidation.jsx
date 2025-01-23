@@ -7,11 +7,17 @@ import isEmail from 'validator/lib/isEmail';
 
 export function WithValidation(Component){
     return ({data, ...other}) =>{
-      const {nome,cognome, email, telefono, indirizzo, specializzazione} = data
+      const {nome,cognome, email, telefono, indirizzo, specializzazione, immagine} = data
       
         const nameSurnameRegEx = /^[A-Za-zÀ-ÿ']+([ -][A-Za-zÀ-ÿ']+)*$/;                                
         const stringRegEx = /^[a-zA-ZàèéìòùÀÈÉÌÒÙ\s]+$/;
 
+        function validateImageExtension(file) {
+          const allowedExtensions = ["jpg", "jpeg", "png"];
+          const extension = file.name.split('.').pop().toLowerCase();
+          return allowedExtensions.indexOf(extension) !== -1;
+        }
+        
         function validateAddress(address) {
           // Regex per il prefisso della via
           const prefixRegex = /^(Via|Corso|Piazza|Viale|Largo|Strada|Frazione|Borgo)/i;
@@ -30,12 +36,13 @@ export function WithValidation(Component){
           if (!address.match(cityRegex)) {
             return { valid: false, msg: "Città non valida" };
           }
-        
+    
           return { valid: true, msg: "Indirizzo valido" };
         }
         
         function inputValidation(){
             if(!nameSurnameRegEx.test(nome)){
+             console.log(nome)
              return {valid: false , msg: 'nome non valido'}
             }
             if(!nameSurnameRegEx.test(cognome)){
@@ -53,7 +60,9 @@ export function WithValidation(Component){
             if(!stringRegEx.test(specializzazione)){
               return {valid: false , msg: 'specializzazione non valida'}  
             }
-
+            if(!validateImageExtension(immagine)){
+              return { valid: false, msg: "file non valido, inserisci foto" };
+            }
             return {valid:true, msg:'tutto ok'}
         }
 
