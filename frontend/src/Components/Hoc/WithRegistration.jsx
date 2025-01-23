@@ -7,6 +7,7 @@ import { useNavigate } from "react-router";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import GlobalContext from "../../contexts/GlobalContext";
+import { useParams } from 'react-router-dom';
 
 
 export function WithRegistrationForm(Component){
@@ -51,7 +52,27 @@ export function WithRegistrationForm(Component){
                 setMsgToast(result.msg) 
             }
         }
-        
-        return <Component sender={sendDoctor} data={data} {...other}/>
+
+        async function sendReview(event){
+            const {id} = useParams();
+            event.preventDefault()
+            const result = validation()
+            if(result.valid){
+             try{
+                const result = await axios.post(insertDoctorUrl+`${id}/review`, data)
+                setSeeToast(true)
+                setMsgToast(result.data.message)
+                resetForm()
+             }catch({response}){//se chiamata va male mando a schermo messaggio
+                setSeeToast(true)
+                setMsgToast(response.data.message) 
+             }
+            }else{ //output errore validazione
+                setSeeToast(true)
+                setMsgToast(result.msg) 
+            }
+        }
+
+        return <Component sender={sendDoctor} reviewSender={sendReview} data={data} {...other}/>
     }
 }
