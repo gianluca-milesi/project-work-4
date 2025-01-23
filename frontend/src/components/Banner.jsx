@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 
-const textResponsive = "text-sm md:text-lg lg:text-xl";
+const textResponsive = "text-sm md:text-xl lg:text-2xl";
 
 function Banner(){
     return(
