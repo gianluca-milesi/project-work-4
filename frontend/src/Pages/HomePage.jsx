@@ -8,6 +8,7 @@ function HomePage() {
             <section className="hero">
                 <Hero />
             </section>
+
             <section className="card_section">
                 <div className="container">
                     <div className="row">
@@ -26,8 +27,11 @@ function HomePage() {
                     </div>
                 </div>
             </section>
+
             <section className="banner">
-                <Banner />
+                <div className="container">
+                    <Banner />
+                </div>
             </section>
         </div>
     )
