@@ -3,6 +3,7 @@
     background-color: rgb(213, 213, 213);
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
     transition: 0.2s;
 }
 
@@ -18,7 +19,8 @@
 .card_body {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    justify-content: center;
+    gap: 1rem;
     padding: 0.5rem 1rem;
     width: 100%;
 }

@@ -4,16 +4,24 @@ import { Link } from "react-router-dom";
 
 function DoctorCard() {
   return (
-    <div className={`${style.card} lg:flex lg:items-center`}>
-      <figure className="">
-        <img
-          className={`${style.doc_image} md:w-80 lg:w-96 xl:w-52`}
-          src={docImage}
-        />
-      </figure>
-      <div className={style.card_body}>
-        <h3 className="text-lg font-semibold">Nome Cognome</h3>
-        <div className={style.doc_contacts}>
+    <Link to="/doctor/id">
+      <div className={`${style.card} lg:flex lg:items-center`}>
+        <figure className="">
+          <img
+            className={`${style.doc_image} md:w-80 lg:w-96 xl:w-52`}
+            src={docImage}
+          />
+        </figure>
+        <div className={style.card_body}>
+          <div className="doc_description flex-col">
+            <h3 className="text-lg font-semibold">Nome Cognome</h3>
+            <p className="text-sm text-neutral-500 italic">Il Dott. Nome Cognome è un medico specializzato in Medicina Interna con oltre 15 anni di esperienza. Attore rinomato per le sue comparse in film dedicati in ambiente medico</p>
+          </div>
+          <div className="doc_specialization flex text-sm">
+            <p className="font-semibold">Specializzazione</p><span>: Ginecologo</span>
+          </div>
+
+          {/* <div className={style.doc_contacts}>
           <h5>Contatti</h5>
           <div className="xl:flex gap-3">
             <p className="text-sm flex items-center gap-0.5">
@@ -53,26 +61,15 @@ function DoctorCard() {
               3438283932
             </p>
           </div>
-        </div>
-        <div
-          className={`${style.doc_details} flex flex-col xl:flex-row justify-between gap-2`}
-        >
-          <div className="flex-col">
-            <h5>Dettagli</h5>
-            <p className="text-sm text-neutral-500">
-              <span className="italic">Indirizzo: </span> Via da qui, Roma
-            </p>
-            <p className="text-sm">
-              <span className="font-semibold">Specializzazione</span>:
-              Ginecologo
-            </p>
-          </div>
-          <Link className="xl:self-end" to="/doctor/id">
+        </div> */}
+
+          {/* <Link className="xl:self-end" to="/doctor/id">
             <button className={style.details_button}>Scheda dottore</button>
-          </Link>
+          </Link> */}
+
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 export default DoctorCard;
