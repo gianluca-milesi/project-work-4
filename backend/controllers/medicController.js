@@ -79,29 +79,32 @@ function show(req, res) {
 
 function store(req, res) {
     const { email, nome, cognome, telefono, indirizzo, specializzazione } = req.body;
-    const { immagine } = req.files;
-    //creo il percorso concatenando il path name, torno indietro di una directory perche altrimenti entra in controller, 
-    // gli dico di aggiungere public e doctorimg 
-    const uploadsPath = path.join(__dirname, '..', 'public', 'DoctorImg', immagine[0].name);
-    
-    // Sposta il file prima di salvare nel database
-    immagine[0].mv(uploadsPath, (err) => {
-        if (err) {
-            return res.status(500).json({ message: "Errore nel caricamento dell'immagine: " + err.message });
-        }
-
-        console.log("Immagine caricata con successo: ", imagefinalPath);
-
+    let finalImg = null
+     if(req.files){
+     const { immagine } = req.files;
+     finalImg = immagine[0].name
+     //creo il percorso concatenando il path name, torno indietro di una directory perche altrimenti entra in controller, 
+     // gli dico di aggiungere public e doctorimg 
+     const uploadsPath = path.join(__dirname, '..', 'public', 'DoctorImg', immagine[0].name);
+     
+     // Sposta il file prima di salvare nel database
+     immagine[0].mv(uploadsPath, (err) => {
+         if (err) {
+             return res.status(500).json({ message: "Errore nel caricamento dell'immagine: " + err.message });
+         }
+         
+         console.log("Immagine caricata con successo: ", uploadsPath);
+    });}
         // Dopo aver spostato il file, inserisci nel database
         const sql = "INSERT INTO medici (email, nome, cognome, telefono, indirizzo, specializzazione, immagine) VALUES (?, ?, ?, ?, ?, ?, ?)";
-        connection.query(sql, [email, nome, cognome, telefono, indirizzo, specializzazione, immagine[0].name], (err, results) => {
+        connection.query(sql, [email, nome, cognome, telefono, indirizzo, specializzazione, finalImg], (err, results) => {
             if (err) {
                 return res.status(500).json({ message: "Errore nel salvataggio nel database: " + err.message });
             }
 
             res.status(201).json({ message: "Medico aggiunto con successo!" });
         });
-    });
+    
 }
 
 //Store Review

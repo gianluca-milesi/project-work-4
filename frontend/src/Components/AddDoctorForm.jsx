@@ -16,7 +16,7 @@ export function AddDoctorForm({ data, handlerInput, sender, handleFile}) {
   const { nome, cognome, email, telefono, indirizzo, specializzazione} = data;
   return (
     <div className="container">
-      <form className="flex flex-col gap-4 justify-center items-center my-10" onSubmit={(e)=>sender(e)}>
+      <form className="flex flex-col gap-4 justify-center items-center my-10" encType="multipart/form-data" onSubmit={(e)=>sender(e)}>
         <input
           type="text"
           name="nome"

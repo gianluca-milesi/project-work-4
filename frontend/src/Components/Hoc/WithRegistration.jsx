@@ -31,6 +31,10 @@ export function WithRegistrationForm(Component){
                 formData.append("immagine", data.immagine); 
             }
 
+            for (let [key, value] of formData.entries()) {
+                console.log(`${key}: ${value}`);
+            }
+            
             //eseguo la validazione
             const result = validation()
             //se validazione va bene faccio chiamata

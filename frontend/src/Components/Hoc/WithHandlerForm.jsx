@@ -21,15 +21,26 @@ export function WithHandlerForm(Component, baseForm){
               ...prevData,
               immagine: file, // Memorizza l'oggetto File
             }));
+          } else {
+            // Se non c'è nessun file selezionato (ad esempio l'utente ha deselezionato)
+            setData((prevData) => ({
+              ...prevData,
+              immagine: null, // Rimuovi il file
+            }));
           }
         }
 
         function resetForm() {
           setData({
             ...baseForm,
-            immagine: null, // Reimposta immagine come null o valore vuoto
+            immagine: null, // Reimposta immagine come null
           });
-
+        
+          // Resetta manualmente il valore dell'input file (se presente)
+          const fileInput = document.querySelector("input[type='file']");
+          if (fileInput) {
+            fileInput.value = ""; // Reimposta il campo file
+          }
         }
         
         return <Component //con questo io ritorno il componente arricchito di nuove props, create in questo componente ma usufruibili nell'import  
