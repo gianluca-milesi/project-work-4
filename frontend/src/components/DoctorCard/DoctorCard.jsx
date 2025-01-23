@@ -1,19 +1,15 @@
 import style from "./DoctorCard.module.css"
-import docImage from "../../assets/DottoreQuindici.jpg"
 import { Link } from "react-router-dom"
 
 function DoctorCard({ item = {} }) {
 
-  const { nome, cognome, biografia, specializzazione } = item
+  const { nome, cognome, biografia, specializzazione, immagine } = item
 
   return (
     <Link to="/doctor/id">
       <div className={`${style.card} lg:flex lg:items-center`}>
-        <figure className="">
-          <img
-            className={`${style.doc_image} md:w-80 lg:w-96 xl:w-52`}
-            src={docImage}
-          />
+        <figure className={style.doc_figures}>
+          <img className={`${style.doc_image} md:w-80 lg:w-96 xl:w-52`} src={immagine} />
         </figure>
         <div className={style.card_body}>
           <div className="doc_description flex-col">

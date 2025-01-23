@@ -1,19 +1,29 @@
 .card {
     margin: 0.75rem;
     background-color: white;
-    border-radius: 80px 0 0 80px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
     cursor: pointer;
     transition: 0.2s;
 }
 
 .card:hover {
-    scale: 1.025;
+    scale: 1.03;
+}
+
+.doc_figures {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    display: block;
+    position: relative;
 }
 
 .doc_image {
     display: block;
-    border-radius: 80px 0 0 80px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
 }
 
 .card_body {
@@ -32,6 +42,6 @@
     transition: 0.2s;
 }
 
-.details_button:hover{
+.details_button:hover {
     background-color: rgb(216, 233, 231);
 }
