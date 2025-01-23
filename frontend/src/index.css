@@ -8,7 +8,7 @@
   --color-primary: rgb(0, 195, 165);
   --color-secondary: rgb(224, 247, 244);
   --color-tertiary: rgb(213, 213, 213);
-  --color-buttons:rgb(255, 127, 80);
+  --color-buttons: rgb(47, 87, 174);
 }
 
 /* reset rules */
@@ -33,25 +33,26 @@ img {
   max-width: 100%;
 }
 
-
 /* styles */
 
-.hero{
+.hero {
   background-color: var(--color-secondary);
   position: relative;
   border-radius: 15px;
+
 }
 
-.custom-search-hero{
+.custom-search-hero {
   background-color: var(--color-buttons);
-  border-radius: 15px;
+  color: white;
+  border-radius: 1px;
   padding: 30px;
 }
 
-.hero-container{
+.hero-container {
   background-color: var(--color-primary);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .button-hero-container {
@@ -77,49 +78,37 @@ img {
   opacity: 1;
 }
 
-
-
-
-
-
 @media (max-width: 820px) {
   .hide-on-mobile {
     display: none;
   }
-  .custom-search-hero{
-    width: 160px;
-    
-  }
-  .layout-mediaQ{
+ 
+  .layout-mediaQ {
     justify-content: center;
     margin: 20px;
   }
-  .hero__subtitle{
+  .hero__subtitle {
     font-size: 0.9rem;
   }
-  .hero__title{
+  .hero__title {
     font-size: 1.9rem;
     padding-bottom: 5px;
   }
 }
 
-
 /* styles */
 
-.hero{
+.hero {
   background-color: var(--color-secondary);
   position: relative;
   border-radius: 15px;
 }
 
-.custom-search-hero{
+.custom-search-hero {
   background-color: var(--color-buttons);
-  border-radius: 15px;
+  border-radius: 999px;
   padding: 30px;
 }
-
-
-
 
 .button-hero-container {
   position: relative;
@@ -144,27 +133,18 @@ img {
   opacity: 1;
 }
 
-
-
-
-
-
-@media (max-width: 820px) {
+@media (max-width: 862px) {
   .hide-on-mobile {
     display: none;
   }
-  .custom-search-hero{
-    width: 160px;
-    
-  }
-  .layout-mediaQ{
+  .layout-mediaQ {
     justify-content: center;
     margin: 20px;
   }
-  .hero__subtitle{
+  .hero__subtitle {
     font-size: 0.9rem;
   }
-  .hero__title{
+  .hero__title {
     font-size: 1.9rem;
     padding-bottom: 5px;
   }
