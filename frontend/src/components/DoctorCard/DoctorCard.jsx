@@ -1,12 +1,13 @@
+/* eslint-disable react/prop-types */
 import style from "./DoctorCard.module.css"
 import { Link } from "react-router-dom"
 
 function DoctorCard({ item = {} }) {
 
-  const { nome, cognome, biografia, specializzazione, immagine } = item
+  const { nome, cognome, biografia, specializzazione, immagine, id } = item
 
   return (
-    <Link to="/doctor/id">
+    <Link to={`/doctor/${id}`}>
       <div className={`${style.card} lg:flex lg:items-center`}>
         <figure className={style.doc_figures}>
           <img className={`${style.doc_image} md:w-80 lg:w-96 xl:w-52`} src={immagine} />
