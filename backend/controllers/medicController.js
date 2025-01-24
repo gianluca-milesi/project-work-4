@@ -9,7 +9,7 @@ function index(req, res) {
 
         //riscrivere la proprietà image per far combaciare il path per il forntend
         results.forEach((medic) => {
-            medic.immagine = `${process.env.BE_HOST}public/DoctorImg/${medic.immagine}`
+            medic.immagine = `${process.env.BE_HOST}/DoctorImg/${medic.immagine}`
         })
 
         res.json(results)
