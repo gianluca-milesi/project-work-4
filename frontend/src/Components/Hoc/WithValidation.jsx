@@ -7,7 +7,7 @@ import isEmail from 'validator/lib/isEmail';
 
 export function WithValidation(Component){
     return ({data, ...other}) =>{
-      const {nome, cognome, email, telefono, indirizzo, specializzazione, immagine, text, voto} = data
+      const {nome, cognome, email, telefono, indirizzo, specializzazione, immagine, biografia, text, voto} = data
         const nameSurnameRegEx = /^[A-Za-zÀ-ÿ']+([ -][A-Za-zÀ-ÿ']+)*$/;                                
         const stringRegEx = /^[a-zA-ZàèéìòùÀÈÉÌÒÙ\s]+$/;
 
@@ -61,6 +61,9 @@ export function WithValidation(Component){
             }
             if(!validateImageExtension(immagine)){
               return { valid: false, msg: "file non valido, inserisci foto" };
+            }
+            if(!(biografia.length<2000 && biografia.length>4)){
+             return {valid: false , msg: 'biografia non valida'}
             }
             return {valid:true, msg:'tutto ok'}
         }

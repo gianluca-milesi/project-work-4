@@ -2,9 +2,9 @@ const  connection  = require('../data/db')
 
 //Controllo campi incompleti 
 function checkVoidInputsDoctor(req, res, next) {
-    const { email, nome, cognome, telefono, indirizzo, specializzazione } = req.body
+    const { email, nome, cognome, telefono, indirizzo, specializzazione, biografia } = req.body
 
-    if (!email || !nome || !cognome || !telefono || !indirizzo || !specializzazione) {
+    if (!email || !nome || !cognome || !telefono || !indirizzo || !specializzazione || !biografia) {
         return res.status(500).json({
             error: "invalid request",
             message: "dati incompleti"
@@ -50,13 +50,20 @@ function checkValueInputReview(req, res, next){
 
 function checkValuesInputDoctor(req, res, next) {
 
-    const { telefono, specializzazione } = req.body
+    const { telefono, specializzazione, biografia} = req.body
 
     const numberTelReg = /\+?\d{1,3}?[ .-]?\(?\d{2,4}\)?[ .-]?\d{3,4}[ .-]?\d{4}/
     const stringRegExp = /^[a-zA-ZàèéìòùÀÈÉÌÒÙ\s]+$/;
     if (stringRegExp.test(specializzazione) && specializzazione.length < 255 && typeof specializzazione === 'string') {
         if (numberTelReg.test(telefono) && telefono.length == 10) {
-            next();
+            if(biografia.length<2000 && biografia.length>4){
+                  next();
+                }else{
+                  return res.status(500).json({
+                      error: 'invalid request',
+                      message: 'biografia non valida',
+                  })
+                }  
         } else {
             return res.status(500).json({
                 error: 'invalid request',
