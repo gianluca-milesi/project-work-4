@@ -39,7 +39,6 @@ img {
   background-color: var(--color-secondary);
   position: relative;
   border-radius: 15px;
-
 }
 
 .custom-search-hero {
@@ -134,6 +133,9 @@ img {
 }
 
 @media (max-width: 862px) {
+  .pad-b{
+    padding-bottom: 30px;
+  }
   .hide-on-mobile {
     display: none;
   }
