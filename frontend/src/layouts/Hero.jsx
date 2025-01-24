@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 function hero() {
   return (
-    <div className="hero-container p-4 mb-8">
+    <div className="hero-container p-11 mb-8">
       <div className="container">
-        <div className="hero relative p-8 pb-0">
+        <div className="hero pad-b relative p-8">
           <div>
             <h1 className="text-3xl hero__title">
               Trova lo specialista che fa per te!
