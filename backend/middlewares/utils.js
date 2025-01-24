@@ -140,8 +140,8 @@ function checkNameSurname(req, res, next) {
     const { nome, cognome } = req.body;
     const regExp = /^[A-Za-zÀ-ÿ']+([ -][A-Za-zÀ-ÿ']+)*$/;
 
-    if (regExp.test(nome) && nome.length < 255 && typeof nome === 'string') {
-        if (regExp.test(cognome) && cognome.length < 255 && typeof cognome === 'string') {
+    if (regExp.test(nome) && (nome.length < 255 && nome.length >= 4 )&& typeof nome === 'string') {
+        if (regExp.test(cognome) && (cognome.length < 255 && cognome.length >= 4 ) && typeof cognome === 'string') {
             next();
         } else {
             return res.status(400).json({

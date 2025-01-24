@@ -21,7 +21,7 @@ router.get("/:id", medicController.show)
 router.post("/", checkVoidInputsDoctor, checkNameSurname, checkEmail, checkAddress, checkValuesInputDoctor, checkExistingEmail, medicController.store)
 
 //Store
-router.post("/:id/review", medicController.storeReview)
+router.post("/:id/review", checkVoidInputsReview,  checkValueInputReview, medicController.storeReview)
 
 
 module.exports = router

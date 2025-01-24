@@ -56,7 +56,7 @@ export function WithRegistrationForm(Component){
         
         async function sendReview(event){
             event.preventDefault()
-           console.log(id)
+           
             const result = validationRev()
             if(result.valid){
              try{

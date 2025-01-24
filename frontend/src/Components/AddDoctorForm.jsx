@@ -25,7 +25,7 @@ export function AddDoctorForm({ data, handlerInput, sender, handleFile}) {
           onChange={(e) => handlerInput(e)}
           className="border-2 mx-5 w-3/12"
           placeholder="inserisci nome..."
-          minLength="3"
+          minLength="4"
           required
         />
         <input
@@ -35,7 +35,7 @@ export function AddDoctorForm({ data, handlerInput, sender, handleFile}) {
           onChange={(e) => handlerInput(e)}
           className="border-2 mx-5 w-3/12"
           placeholder="inserisci cognome.."
-          minLength="3"
+          minLength="4"
           required
         />
         <input
