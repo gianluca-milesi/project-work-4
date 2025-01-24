@@ -33,9 +33,9 @@ function HomePage() {
                 <Hero />
             </section>
 
-            <section className="card_section">
-                <div className="container">
-                    <h2 className="text-2xl">I nostri migliori medici</h2>
+            <section className="card_section bgsecondary">
+                <div className="container py-10">
+                    <h2 className="text-4xl pb-3">I nostri migliori medici</h2>
                     <div className="row">
                         {doctors.map(doc => (
                             <div key={doc.id} className="col-12 sm:col-6">
@@ -47,7 +47,7 @@ function HomePage() {
             </section>
 
             <section className="banner">
-                <div className="container">
+                <div>
                     <Banner />
                 </div>
             </section>

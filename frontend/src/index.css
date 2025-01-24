@@ -35,6 +35,11 @@ img {
 
 /* styles */
 
+.bgsecondary {
+  background-color: var(--color-secondary);
+}
+
+
 .hero {
   background-color: var(--color-secondary);
   position: relative;
