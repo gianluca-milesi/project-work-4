@@ -15,7 +15,8 @@ app.use(express.static("public"))
 app.use(express.json()) //per il body nel controller
 const notFound = require("./middlewares/notFound.js")
 const errorsHandler = require("./middlewares/errorsHandler.js")
-
+const fileUpload = require("express-fileupload")
+app.use(fileUpload())
 
 app.get("/", (req, res) => {
     res.send("Root")

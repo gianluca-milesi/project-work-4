@@ -1,0 +1,1 @@
+export const insertDoctorUrl = "http://localhost:3000/api/doctors"
