@@ -17,6 +17,8 @@
     overflow: hidden;
     display: block;
     position: relative;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
 }
 
 .doc_image {
