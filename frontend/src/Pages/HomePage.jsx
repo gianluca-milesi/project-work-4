@@ -33,11 +33,11 @@ function HomePage() {
         </section>
         <section className="card_section bgsecondary">
             <div className="container py-10">
-                <h2 className="text-4xl pb-3">I nostri migliori medici</h2>
-                <div className="row">
-                {doctors.map((doc) => (
-                    <div key={doc.id} className="col-12 sm:col-6">
-                    <DoctorCard item={doc} />
+            <h2 className="text-4xl pb-3">I nostri migliori medici</h2>
+            <div className="row">
+            {doctors.map((doc) => (
+                <div key={doc.id} className="col-12 sm:col-6 lg:p-0">
+                <DoctorCard item={doc} />
                 </div>
                 ))}
                 </div>
