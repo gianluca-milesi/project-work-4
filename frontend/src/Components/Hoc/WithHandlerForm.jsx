@@ -6,6 +6,7 @@ export function WithHandlerForm(Component, baseForm){
         // eslint-disable-next-line react-hooks/rules-of-hooks
         const [data, setData] = useState(baseForm)
         function changeHandler(event) {
+          console.log(data)
             setData((review) => {
             return {
               ...review,

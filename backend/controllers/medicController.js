@@ -110,11 +110,11 @@ function store(req, res) {
 //Store Review
 function storeReview(req, res) {
     const id = req.params.id
-
-    const { nome, testo, voto } = req.body
-
+    console.log(req.params)
+    const { nome, text, voto } = req.body
+    console.log(req.body)
     const sql = "INSERT INTO recensioni (nome, testo, voto, medico_id) VALUES (?, ?, ?, ?)"
-    connection.query(sql, [nome, testo, voto, id], (err, results) => {
+    connection.query(sql, [nome, text, voto, id], (err, results) => {
         if (err) return res.status(500).json({ message: err.message })
         res.status(201).json({ message: "Review added" })
     })

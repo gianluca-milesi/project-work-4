@@ -15,6 +15,7 @@ import SearchDocPage from "./pages/SearchDocPage.jsx"
 import DocDetailsPage from "./pages/DocDetailsPage.jsx"
 import DocRegistrationPage from "./pages/DocRegistrationPage.jsx"
 import NotFound from "./pages/NotFound.jsx"
+import { Toast } from "./Components/MsgToast.jsx";
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
             </Route>
           </Routes>
         </BrowserRouter>
+        <Toast/>
       </GlobalContext.Provider>
     </>
   );

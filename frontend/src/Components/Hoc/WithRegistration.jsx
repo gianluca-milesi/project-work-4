@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/display-name */
-import {insertDoctorUrl} from "../../Utils/utils"
+import {insertDoctorUrl} from "../../utils/utils"
 import { useNavigate } from "react-router";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
@@ -12,9 +12,10 @@ import { useParams } from 'react-router-dom';
 
 export function WithRegistrationForm(Component){
     return ({data, validation, resetForm, validationRev, ...other})=>{
-
+        const {id} = useParams()
         const {setMsgToast, setSeeToast} = useContext(GlobalContext)
-        
+    
+
         async function sendDoctor(event){
             event.preventDefault()
             //trim input
@@ -22,7 +23,7 @@ export function WithRegistrationForm(Component){
             data.cognome = data.cognome ? data.cognome.trim() : "";
             data.telefono = data.telefono ? data.telefono.trim() : "";
             data.specializzazione = data.specializzazione ? data.specializzazione.trim() : "";
-            
+
             const formData = new FormData(); //creo oggetto form data
             Object.keys(data).forEach((key) => { //aggiungo i dati del form a formData
                 formData.append(key, data[key]);
@@ -52,12 +53,10 @@ export function WithRegistrationForm(Component){
                 setMsgToast(result.msg) 
             }
         }
-
+        
         async function sendReview(event){
-            //const {id} = useParams();
             event.preventDefault()
-            const id = 3;
-            console.log(insertDoctorUrl+`/${id}/review`)
+           console.log(id)
             const result = validationRev()
             if(result.valid){
              try{

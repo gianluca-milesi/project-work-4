@@ -1,6 +1,12 @@
+import {AddReviewFinalForm} from '../Components/AddReviewForm';
+
 function DocDetailsPage() {
     return (
-        <div>Detail Page</div>
+       
+        <section>
+            <AddReviewFinalForm/>
+        </section>
+        
     )
 }
 
