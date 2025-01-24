@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function hero() {
   return (
-    <div className="hero-container p-11 mb-8">
+    <div className="hero-container p-11">
       <div className="container">
         <div className="hero pad-b relative p-8">
           <div>
