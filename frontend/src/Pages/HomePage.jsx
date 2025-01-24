@@ -27,29 +27,29 @@ function HomePage() {
 
 
     return (
-      <div className="bgsecondary">
+    <div className="bgsecondary">
         <section className="hero">
-          <Hero />
+            <Hero />
         </section>
         <section className="card_section bgsecondary">
-          <div className="container py-10">
-            <h2 className="text-4xl pb-3">I nostri migliori medici</h2>
-            <div className="row">
-              {doctors.map((doc) => (
-                <div key={doc.id} className="col-12 sm:col-6">
-                  <DoctorCard item={doc} />
+            <div className="container py-10">
+                <h2 className="text-4xl pb-3">I nostri migliori medici</h2>
+                <div className="row">
+                {doctors.map((doc) => (
+                    <div key={doc.id} className="col-12 sm:col-6">
+                    <DoctorCard item={doc} />
                 </div>
-              ))}
+                ))}
+                </div>
             </div>
-          </div>
         </section>
 
         <section className="banner">
-          <div>
-            <Banner />
-          </div>
+            <div>
+                <Banner />
+            </div>
         </section>
-      </div>
+    </div>
     );
 }
 
