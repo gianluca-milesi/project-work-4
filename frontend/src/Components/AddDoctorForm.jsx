@@ -14,7 +14,7 @@ const baseForm = {
 };
 
 export function AddDoctorForm({ data, handlerInput, sender, handleFile}) {
-  const { nome, cognome, email, telefono, indirizzo, specializzazione,biografia} = data;
+  const { nome, cognome, email, telefono, indirizzo, specializzazione, biografia} = data;
   return (
     <div className="container">
       <form className="flex flex-col gap-4 justify-center items-center my-10" encType="multipart/form-data" onSubmit={(e)=>sender(e)}>
@@ -88,7 +88,7 @@ export function AddDoctorForm({ data, handlerInput, sender, handleFile}) {
           value={biografia}
           onChange={(e) => handlerInput(e)}
           className="border-2 mx-5 w-3/12"
-          placeholder="inserisci specializzazione..."
+          placeholder="inserisci biografia..."
           required
         />
         <button className="bg-cyan-300 rounded-md px-2 h-10 hover:bg-cyan-600 w-3/12">

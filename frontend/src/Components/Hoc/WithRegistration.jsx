@@ -18,10 +18,10 @@ export function WithRegistrationForm(Component){
         async function sendDoctor(event){
             event.preventDefault()
             //trim input
-            data.nome =  data.nome.trim()
-            data.cognome = data.cognome.trim()
-            data.telefono = data.telefono.trim()
-            data.specializzazione = data.specializzazione.trim()
+            data.nome = data.nome ? data.nome.trim() : "";
+            data.cognome = data.cognome ? data.cognome.trim() : "";
+            data.telefono = data.telefono ? data.telefono.trim() : "";
+            data.specializzazione = data.specializzazione ? data.specializzazione.trim() : "";
             
             const formData = new FormData(); //creo oggetto form data
             Object.keys(data).forEach((key) => { //aggiungo i dati del form a formData

@@ -40,7 +40,7 @@ export function WithValidation(Component){
         }
         
         function inputValidation(){
-          
+            
             if(!nameSurnameRegEx.test(nome)){
              return {valid: false , msg: 'nome non valido'}
             }
@@ -50,7 +50,7 @@ export function WithValidation(Component){
             if(!isEmail(email)){
               return {valid: false , msg: 'email non valida'}  
             }
-            if(!isMobilePhone(telefono) || telefono.length != 10){
+            if(!isMobilePhone(String(telefono)) || String(telefono).length != 10 || telefono == 0){
               return {valid: false , msg: 'telefono non valido'}  
             }
             if(!validateAddress(indirizzo).valid){

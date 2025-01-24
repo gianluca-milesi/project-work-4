@@ -50,8 +50,8 @@ function checkValueInputReview(req, res, next){
 
 function checkValuesInputDoctor(req, res, next) {
 
-    const { telefono, specializzazione, biografia} = req.body
-
+    const { telefono, specializzazione, biografia } = req.body
+    
     const numberTelReg = /\+?\d{1,3}?[ .-]?\(?\d{2,4}\)?[ .-]?\d{3,4}[ .-]?\d{4}/
     const stringRegExp = /^[a-zA-ZàèéìòùÀÈÉÌÒÙ\s]+$/;
     if (stringRegExp.test(specializzazione) && specializzazione.length < 255 && typeof specializzazione === 'string') {
