@@ -15,14 +15,20 @@ import SearchDocPage from "./pages/SearchDocPage.jsx"
 import DocDetailsPage from "./pages/DocDetailsPage.jsx"
 import DocRegistrationPage from "./pages/DocRegistrationPage.jsx"
 import NotFound from "./pages/NotFound.jsx"
+//Components
+import { Toast } from "./Components/MsgToast.jsx"
 
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
-
+  const [seeToast, setSeeToast] = useState(false)
+  const [msgToast, setMsgToast] = useState('')
   return (
     <>
-      <GlobalContext.Provider value={{ isLoading, setIsLoading }}>
+      <GlobalContext.Provider value={{
+        isLoading, setIsLoading, seeToast, setSeeToast,
+        msgToast, setMsgToast
+      }}>
         <BrowserRouter>
           <Routes>
             <Route element={<DefaultLayout />}>
@@ -38,6 +44,7 @@ function App() {
             </Route>
           </Routes>
         </BrowserRouter>
+        <Toast />
       </GlobalContext.Provider>
     </>
   );

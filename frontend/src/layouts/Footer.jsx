@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom'
 
 function Footer() {
     return (
-        <footer className="bg-slate-600 text-white rounded-md text-center">
-            <div className="md:flex md:justify-between md:items-center sm:px-12 px-4 background mt-10 py-7 rounded-md ">
+        <footer className="bg-slate-600 text-white text-center">
+            <div className="md:flex md:justify-between md:items-center sm:px-12 px-4 background  py-7 ">
                 <h1 className="lg:text-4xl text-3xl md:mb-0 mb-6 lg:leading-normal font-semibold md:w-2/5">
                     <span className="text-blue-600">Lo specialista </span>
                     a portata di click!</h1>
