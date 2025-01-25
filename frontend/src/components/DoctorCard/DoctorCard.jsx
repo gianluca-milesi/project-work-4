@@ -6,6 +6,7 @@ function DoctorCard({ item = {} }) {
 
   const { nome, cognome, biografia, specializzazione, immagine, id } = item
 
+  console.log(item)
   return (
     <Link to={`/doctor/${id}`}>
       <div className={`${style.card} sm:h-full lg:flex lg:items-center lg:h-auto`}>
