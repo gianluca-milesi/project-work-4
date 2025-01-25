@@ -32,7 +32,7 @@ function App() {
     try{
       const result = await axios.get('http://localhost:3000/api/doctors',{params: {search: search}} )
       setDoctors(result.data)
-      console.log(result)
+      
     }catch(error){
       setSeeToast(true)
       setMsgToast(error.message)
