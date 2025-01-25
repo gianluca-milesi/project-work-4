@@ -32,7 +32,6 @@ function App() {
     try{
       const result = await axios.get('http://localhost:3000/api/doctors',{params: {search: search}} )
       setDoctors(result.data)
-      
     }catch(error){
       setSeeToast(true)
       setMsgToast(error.message)
@@ -43,7 +42,7 @@ function App() {
     fetchDoctor()
   },[search])
 
-
+  
   return (
     <>
       <GlobalContext.Provider value={{
