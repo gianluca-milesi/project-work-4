@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import Hero from "../layouts/Hero";
 import DoctorCard from "../components/DoctorCard/DoctorCard";
 import Banner from "../components/Banner/Banner"
-
 function HomePage() {
 
     const [doctors, setDoctors] = useState([])
@@ -28,31 +27,30 @@ function HomePage() {
 
 
     return (
-        <div>
-            <section className="hero">
-                <Hero />
-            </section>
-
-            <section className="card_section">
-                <div className="container">
-                    <h2 className="text-2xl">I nostri migliori medici</h2>
-                    <div className="row">
-                        {doctors.map(doc => (
-                            <div key={doc.id} className="col-12 sm:col-6">
-                                <DoctorCard item={doc} />
-                            </div>
-                        ))}
-                    </div>
+      <div className="bgsecondary">
+        <section className="hero">
+          <Hero />
+        </section>
+        <section className="card_section bgsecondary">
+          <div className="container py-10">
+            <h2 className="text-4xl pb-3">I nostri migliori medici</h2>
+            <div className="row">
+              {doctors.map((doc) => (
+                <div key={doc.id} className="col-12 sm:col-6 lg:p-0">
+                  <DoctorCard item={doc} />
                 </div>
-            </section>
+              ))}
+            </div>
+          </div>
+        </section>
 
-            <section className="banner">
-                <div className="container">
-                    <Banner />
-                </div>
-            </section>
-        </div>
-    )
+        <section className="banner">
+          <div>
+            <Banner />
+          </div>
+        </section>
+      </div>
+    );
 }
 
 export default HomePage;

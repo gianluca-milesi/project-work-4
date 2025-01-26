@@ -1,6 +1,10 @@
+import { FinalAddDoctorForm } from "../Components/AddDoctorForm";
+
 function DocRegistrationPage() {
     return (
-        <div>Registration Page</div>
+        <section>
+         <FinalAddDoctorForm/>
+        </section>
     )
 }
 

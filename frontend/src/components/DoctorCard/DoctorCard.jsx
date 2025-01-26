@@ -1,15 +1,16 @@
+/* eslint-disable react/prop-types */
 import style from "./DoctorCard.module.css"
 import { Link } from "react-router-dom"
 
 function DoctorCard({ item = {} }) {
 
-  const { nome, cognome, biografia, specializzazione, immagine } = item
+  const { nome, cognome, biografia, specializzazione, immagine, id } = item
 
   return (
-    <Link to="/doctor/id">
-      <div className={`${style.card} lg:flex lg:items-center`}>
+    <Link to={`/doctor/${id}`}>
+      <div className={`${style.card} sm:h-full lg:flex lg:items-center lg:h-auto`}>
         <figure className={style.doc_figures}>
-          <img className={`${style.doc_image} md:w-80 lg:w-96 xl:w-52`} src={immagine} />
+          <img className={`${style.doc_image}`} src={immagine} />
         </figure>
         <div className={style.card_body}>
           <div className="doc_description flex-col">
@@ -17,7 +18,7 @@ function DoctorCard({ item = {} }) {
             <p className="text-sm text-neutral-500 italic">{biografia}</p>
           </div>
           <div className="doc_specialization flex text-sm">
-            <p className="font-semibold">Specializzazione</p><span>: {specializzazione}</span>
+            <p className="font-semibold">{specializzazione}</p>
           </div>
 
           {/* <div className={style.doc_contacts}>
