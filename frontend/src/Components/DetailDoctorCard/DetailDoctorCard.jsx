@@ -1,9 +1,11 @@
 import style from "./DetailDoctorCard.module.css"
-import randomImg from "/DottoreQuindici.jpg"
+import placeholderImg from "/DottoreQuindici.jpg"
+//Hooks
+import { Link } from "react-router-dom";
 //Icons
 import { FiPhone } from "react-icons/fi";
 import { HiOutlineMail } from "react-icons/hi";
-import { LiaMapMarkedAltSolid } from "react-icons/lia";
+import { TbMapSearch } from "react-icons/tb";
 
 
 function DetailDoctorCard({ item = {} }) {
@@ -31,13 +33,31 @@ function DetailDoctorCard({ item = {} }) {
                 <div className={style.doc_contacts}>
                     <h5>Contatti</h5>
                     <div className="sm:flex gap-3">
-                        <p className="text-sm flex items-center gap-0.5"><HiOutlineMail /><span className="italic text-neutral-500"> Email: </span>{email}</p>
-                        <p className="text-sm flex items-center gap-0.5"><FiPhone /><span className="italic text-neutral-500"> Telefono: </span>+39 {telefono}</p>
+                        <div className="text-sm flex items-center gap-0.5">
+                            <HiOutlineMail />
+                            <p><span className="italic text-neutral-500">Email: </span><Link to="https://workspace.google.com/intl/it/gmail/" target="_blank" className="hover:text-neutral-500">{email}</Link></p>
+                        </div>
+                        <div className="text-sm flex items-center gap-0.5">
+                            <FiPhone />
+                            <p><span className="italic text-neutral-500">Telefono: </span><Link to="https://image.spreadshirtmedia.com/image-server/v1/compositions/T1367A2PA2791PT32X47Y12D1050561323W15629H25000/views/1,width=550,height=550,appearanceId=2,backgroundColor=000000,noPt=true/john-pork-is-calling-shirt-john-pork-meme-wo-cotton-drawstring-bag.jpg" target="_blank" className="hover:text-neutral-500">{telefono}</Link></p>
+                        </div>
                     </div>
                 </div>
                 <div className={style.doc_details}>
                     <h5>Indirizzo</h5>
-                    <p className="text-sm flex items-center gap-0.5"><LiaMapMarkedAltSolid /><span className="italic text-neutral-500">{indirizzo}</span></p>
+                    <div className="text-sm flex items-center gap-0.5">
+                        <TbMapSearch />
+                        <p className="italic text-neutral-500">
+                            <Link
+                                to={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(indirizzo)}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="italic text-neutral-500 hover:text-blue-800"
+                            >
+                                {indirizzo}
+                            </Link>
+                        </p>
+                    </div>
                 </div>
             </div >
         </div >
