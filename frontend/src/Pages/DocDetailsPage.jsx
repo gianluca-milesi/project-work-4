@@ -29,7 +29,7 @@ function DocDetailsPage() {
 
     return (
         <>
-            <section className="doc_detail">
+            <section className="doc_detail m-5">
                 <div className="container">
                     <DetailDoctorCard item={doctor} />
                 </div>
