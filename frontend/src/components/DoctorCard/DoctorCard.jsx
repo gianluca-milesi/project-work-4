@@ -10,7 +10,7 @@ function DoctorCard({ item = {} }) {
     <Link to={`/doctor/${id}`}>
       <div className={`${style.card} sm:h-full lg:flex lg:items-center lg:h-auto`}>
         <figure className={style.doc_figures}>
-          <img className={`${style.doc_image}`} src={immagine} />
+          <img className={style.doc_image} src={immagine} />
         </figure>
         <div className={style.card_body}>
           <div className="doc_description flex-col">
