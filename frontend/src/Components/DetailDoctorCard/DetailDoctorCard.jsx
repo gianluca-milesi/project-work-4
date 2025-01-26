@@ -3,6 +3,7 @@ import randomImg from "/DottoreQuindici.jpg"
 //Icons
 import { FiPhone } from "react-icons/fi";
 import { HiOutlineMail } from "react-icons/hi";
+import { LiaMapMarkedAltSolid } from "react-icons/lia";
 
 
 function DetailDoctorCard({ item = {} }) {
@@ -36,7 +37,7 @@ function DetailDoctorCard({ item = {} }) {
                 </div>
                 <div className={style.doc_details}>
                     <h5>Indirizzo</h5>
-                    <p className="text-sm italic text-neutral-500">{indirizzo}</p>
+                    <p className="text-sm flex items-center gap-0.5"><LiaMapMarkedAltSolid /><span className="italic text-neutral-500">{indirizzo}</span></p>
                 </div>
             </div >
         </div >
