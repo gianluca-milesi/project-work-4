@@ -6,6 +6,8 @@ import { HiOutlineMail } from "react-icons/hi";
 
 
 function DetailDoctorCard({ item = {} }) {
+    //per il momento controllo rapido per far caricare i dati e far funzionare tutto
+    if (!item) { return <p>Caricamento...</p> }
 
     const { nome, cognome, immagine, biografia, specializzazione, email, telefono, indirizzo } = item
 
