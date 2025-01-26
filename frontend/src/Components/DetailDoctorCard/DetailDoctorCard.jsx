@@ -15,7 +15,7 @@ function DetailDoctorCard({ item = {} }) {
     const { nome, cognome, immagine, biografia, specializzazione, email, telefono, indirizzo } = item
 
     return (
-        <div className={style.card}>
+        <div className={`${style.card} sm:flex justify-center`}>
             <figure className={style.doc_figures}>
                 <img className={style.doc_image} src={immagine} />
             </figure>
