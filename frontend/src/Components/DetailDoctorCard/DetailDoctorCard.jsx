@@ -35,11 +35,11 @@ function DetailDoctorCard({ item = {} }) {
                     <div className="sm:flex gap-3">
                         <div className="text-sm flex items-center gap-0.5">
                             <HiOutlineMail />
-                            <p><span className="italic text-neutral-500">Email: </span><Link to="https://workspace.google.com/intl/it/gmail/" target="_blank" className="hover:text-blue-500 underline">{email}</Link></p>
+                            <p><span className="italic text-neutral-500">Email: </span><Link to="https://workspace.google.com/intl/it/gmail/" target="_blank" className="hover:text-blue-500 underline" title="Scrivi una e-mail">{email}</Link></p>
                         </div>
                         <div className="text-sm flex items-center gap-0.5">
                             <FiPhone />
-                            <p><span className="italic text-neutral-500">Telefono: </span><Link to="https://image.spreadshirtmedia.com/image-server/v1/compositions/T1367A2PA2791PT32X47Y12D1050561323W15629H25000/views/1,width=550,height=550,appearanceId=2,backgroundColor=000000,noPt=true/john-pork-is-calling-shirt-john-pork-meme-wo-cotton-drawstring-bag.jpg" target="_blank" className="hover:text-blue-500">{telefono}</Link></p>
+                            <p><span className="italic text-neutral-500">Telefono: </span><Link to="https://image.spreadshirtmedia.com/image-server/v1/compositions/T1367A2PA2791PT32X47Y12D1050561323W15629H25000/views/1,width=550,height=550,appearanceId=2,backgroundColor=000000,noPt=true/john-pork-is-calling-shirt-john-pork-meme-wo-cotton-drawstring-bag.jpg" target="_blank" className="hover:text-blue-500" title="Chiama">{telefono}</Link></p>
                         </div>
                     </div>
                 </div>
@@ -53,6 +53,7 @@ function DetailDoctorCard({ item = {} }) {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="italic text-neutral-500 hover:text-blue-500"
+                                title="Cerca su Google Maps"
                             >
                                 {indirizzo}
                             </Link>
