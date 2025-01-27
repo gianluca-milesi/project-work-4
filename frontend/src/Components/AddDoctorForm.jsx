@@ -9,21 +9,35 @@ const baseForm = {
   telefono: 0,
   indirizzo: "",
   specializzazione: "",
-  biografia :"",
-  immagine: null
+  biografia: "",
+  immagine: null,
 };
 
-export function AddDoctorForm({ data, handlerInput, sender, handleFile}) {
-  const { nome, cognome, email, telefono, indirizzo, specializzazione, biografia} = data;
+export function AddDoctorForm({ data, handlerInput, sender, handleFile }) {
+  const {
+    nome,
+    cognome,
+    email,
+    telefono,
+    indirizzo,
+    specializzazione,
+    biografia,
+  } = data;
   return (
-    <div className="container">
-      <form className="flex flex-col gap-4 justify-center items-center my-10" encType="multipart/form-data" onSubmit={(e)=>sender(e)}>
+    <div className="container text-black">
+      <form
+        className="flex flex-col gap-4 justify-center items-center custom-bg-form"
+        encType="multipart/form-data"
+        onSubmit={(e) => sender(e)}
+      >
+        <h1 className="font-medium text-white text-2xl pb-3">Inserisci qui i tuoi dati</h1>
+
         <input
           type="text"
           name="nome"
           value={nome}
           onChange={(e) => handlerInput(e)}
-          className="border-2 mx-5 w-3/12"
+          className="border-2 rounded-2xl p-3 mx-5 w-11/12"
           placeholder="inserisci nome..."
           minLength="4"
           required
@@ -33,7 +47,7 @@ export function AddDoctorForm({ data, handlerInput, sender, handleFile}) {
           name="cognome"
           value={cognome}
           onChange={(e) => handlerInput(e)}
-          className="border-2 mx-5 w-3/12"
+          className="border-2 rounded-2xl p-3 mx-5 w-11/12"
           placeholder="inserisci cognome.."
           minLength="4"
           required
@@ -43,7 +57,7 @@ export function AddDoctorForm({ data, handlerInput, sender, handleFile}) {
           name="email"
           value={email}
           onChange={(e) => handlerInput(e)}
-          className="border-2 mx-5 w-3/12"
+          className="border-2 rounded-2xl p-3 mx-5 w-11/12"
           placeholder="inserisci email..."
           required
         />
@@ -52,7 +66,7 @@ export function AddDoctorForm({ data, handlerInput, sender, handleFile}) {
           name="telefono"
           value={telefono}
           onChange={(e) => handlerInput(e)}
-          className="border-2 mx-5 w-3/12"
+          className="border-2 rounded-2xl text-black p-3 mx-5 w-11/12"
           placeholder="inserisci telefono..."
           pattern="\d{10}"
           required
@@ -62,8 +76,8 @@ export function AddDoctorForm({ data, handlerInput, sender, handleFile}) {
           name="indirizzo"
           value={indirizzo}
           onChange={(e) => handlerInput(e)}
-          className="border-2 mx-5 w-3/12"
-          placeholder="via, piazza... numero civico citta"
+          className="border-2 rounded-2xl p-3 mx-5 w-11/12"
+          placeholder="via, piazza... numero civico, citta"
           required
         />
         <input
@@ -71,7 +85,7 @@ export function AddDoctorForm({ data, handlerInput, sender, handleFile}) {
           name="specializzazione"
           value={specializzazione}
           onChange={(e) => handlerInput(e)}
-          className="border-2 mx-5 w-3/12"
+          className="border-2 rounded-2xl p-3 mx-5 w-11/12"
           placeholder="inserisci specializzazione..."
           required
         />
@@ -79,19 +93,20 @@ export function AddDoctorForm({ data, handlerInput, sender, handleFile}) {
           type="file"
           name="immagine"
           onChange={(e) => handleFile(e)}
-          className="border-2 mx-5 w-3/12"
+          className="border-2 rounded-2xl mx-5 w-10/12"
           placeholder="inserisci immagine..."
         />
-        <input
+        <textarea
           type="text"
           name="biografia"
           value={biografia}
           onChange={(e) => handlerInput(e)}
-          className="border-2 mx-5 w-3/12"
+          className="border-2 rounded-2xl p-3 mx-5 w-11/12"
           placeholder="inserisci biografia..."
+          rows="3"
           required
         />
-        <button className="bg-cyan-300 rounded-md px-2 h-10 hover:bg-cyan-600 w-3/12">
+        <button className="bg-cyan-300 text-2xl custom-button py-3 hover:bg-cyan-600 w-4/12">
           invia
         </button>
       </form>
@@ -99,6 +114,9 @@ export function AddDoctorForm({ data, handlerInput, sender, handleFile}) {
   );
 }
 
-const FinalAddDoctorForm = WithHandlerForm(WithValidation(WithRegistrationForm(AddDoctorForm)), baseForm);
+const FinalAddDoctorForm = WithHandlerForm(
+  WithValidation(WithRegistrationForm(AddDoctorForm)),
+  baseForm
+);
 
 export { FinalAddDoctorForm };

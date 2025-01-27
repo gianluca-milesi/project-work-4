@@ -1,48 +1,49 @@
-import axios from "axios"
-//Hooks
-import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
-//Components
-import DetailDoctorCard from "../components/DetailDoctorCard/DetailDoctorCard.jsx"
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import ReviewCard from '../components/ReviewCard';
 import { AddReviewFinalForm } from '../Components/AddReviewForm';
-
+import DetailDoctorCard from "../components/DetailDoctorCard/DetailDoctorCard.jsx"
+import { useContext } from "react";
+import GlobalContext from "../contexts/GlobalContext";
 
 function DocDetailsPage() {
-
-    const [doctor, setDoctor] = useState(null)
-    const { id } = useParams()
-
-    function fetchDoctor() {
-        axios.get(`http://localhost:3000/api/doctors/${id}`)
-            .then(res => {
-                setDoctor(res.data)
-            })
-            .catch(err => {
-                console.error(err)
-            })
-    }
-
-    useEffect(() => {
-        fetchDoctor()
-    }, [id])
+  const { id: doctorId } = useParams();
+  const {doctorData, setDoctorData} = useContext(GlobalContext)
 
 
-    return (
-        <>
-            <section className="doc_detail m-5">
-                <div className="container">
-                    <DetailDoctorCard item={doctor} />
-                </div>
-            </section>
+  useEffect(() => {
+    fetch(`http://localhost:3000/api/doctors/${doctorId}`)
+      .then((response) => response.json())
+      .then((data) => setDoctorData(data))
+      .catch((error) => console.error('Errore nella chiamata API:', error));
+  }, [doctorId]);
 
-            <hr />
 
-            <section>
-                <AddReviewFinalForm />
-            </section>
+  if (!doctorData) return <p>Caricamento...</p>;
 
-        </>
-    )
+  return (
+    <>
+      {/* CARDS */}
+      <section className="doc_detail m-5">
+        <div className="container">
+          <DetailDoctorCard item={doctorData} />
+        </div>
+      </section>
+
+      {/* REVIEW */}
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-10">
+        {doctorData.recensioni && doctorData.recensioni.length > 0 ? (
+          doctorData.recensioni.map((review) => (
+            <ReviewCard key={review.id} review={review} />
+          ))
+        ) : (
+          <p>Nessuna recensione disponibile.</p>
+        )}
+      </section>
+
+      <AddReviewFinalForm />
+    </>
+  );
 }
 
 export default DocDetailsPage;
