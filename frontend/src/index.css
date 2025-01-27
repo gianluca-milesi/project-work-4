@@ -33,8 +33,6 @@ img {
   max-width: 100%;
 }
 
-/* styles */
-
 
 
 /* styles */
@@ -55,7 +53,7 @@ img {
 .custom-bg-form{
   background-color: var(--color-primary);
   color: white;
-  width: 80%;
+  width: 55%;
   margin: 0 auto;
   border-radius: 15px;
   margin-top: 2rem;
@@ -90,6 +88,25 @@ img {
   visibility: visible;
   opacity: 1;
 }
+
+.hero-container{
+  background-color: var(--color-primary);
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.bgsecondary {
+  background-color: var(--color-secondary);
+}
+
+input[type="file"] {
+
+  all: unset; /* Resetta tutti gli stili di default /
+  display: block; / Assicurati che l'input sia visibile /
+  width: 100%; / Imposta una larghezza predefinita */
+}
+
+
 
 @media (max-width: 862px) {
   .pad-b {

@@ -16,7 +16,7 @@ function SecondBanner() {
         <h2 className="text-2xl font-thin pl-7 pt-5 pb-8">
           Entra a far parte della nostra community di medici specializzati e
           inizia a farti conoscere con{" "}
-          <span className="font-semibold">DR. Bool</span>!
+          <span className="font-semibold">BDoctors</span>!
         </h2>
       </div>
       <img
