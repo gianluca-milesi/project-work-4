@@ -12,7 +12,7 @@ import Footer from "./Footer"
 function DefaultLayout() {
 
     const { isLoading } = useContext(GlobalContext)
-
+    
     return (
         <>
             <Header />
