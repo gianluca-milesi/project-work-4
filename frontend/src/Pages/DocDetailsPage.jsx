@@ -18,12 +18,13 @@ function DocDetailsPage() {
 
   return (
     <section>
-      <h1 className="text-3xl font-bold">{doctorData.nome} {doctorData.cognome}</h1>
-      <p>Specializzazione: {doctorData.specializzazione}</p>
-      <p>Voto medio: {doctorData.avgVote}</p>
-      <img src={doctorData.immagine} alt={`${doctorData.nome}`} className="my-4 rounded-lg" />
-      <h2 className="text-2xl font-bold mt-6">Recensioni:</h2>
-      
+
+      <section className="doc_detail m-5">
+        <div className="container">
+          <DetailDoctorCard item={doctorData} />
+        </div>
+      </section>
+
       {/* REVIEW */}
       <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-10">
         {doctorData.recensioni && doctorData.recensioni.length > 0 ? (
@@ -34,7 +35,7 @@ function DocDetailsPage() {
           <p>Nessuna recensione disponibile.</p>
         )}
       </section>
-      
+
       <AddReviewFinalForm />
     </section>
   );
