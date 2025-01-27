@@ -11,7 +11,7 @@ function index(req, res) {
         `
 
     if (req.query.search) {
-        sql += ` WHERE nome LIKE '%${req.query.search}%' OR cognome LIKE '%${req.query.search}%' OR specializzazione LIKE '%${req.query.search}%'`
+        sql += ` WHERE medici.nome LIKE '%${req.query.search}%' OR medici.cognome LIKE '%${req.query.search}%' OR medici.specializzazione LIKE '%${req.query.search}%'`
     }
 
     sql += ` GROUP BY medici.id`;
