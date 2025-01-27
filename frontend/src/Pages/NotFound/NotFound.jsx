@@ -4,9 +4,9 @@ import notFoundImg from "../../assets/notFound.png"
 
 function NotFound() {
     return (
-        <div className="container flex justify-center items-center absolute inset-0">
+        <div className="container flex flex-col lg:flex-row justify-center items-center absolute inset-0">
             <img src={notFoundImg} alt="notFound" className="w-48"/>
-            <div className="text-center ml-12">
+            <div className="text-center lg:ml-12">
                 <div className="mb-10 font-bold text-4xl">
                     <p>404</p>
                     <p>Pagina non trovata</p>
