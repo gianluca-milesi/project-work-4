@@ -6,6 +6,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 //Components
 import DetailDoctorCard from "../components/DetailDoctorCard/DetailDoctorCard.jsx"
 import ReviewCard from '../components/ReviewCard';
+import StarsRating from "../components/StarsRating.jsx";
 import { AddReviewFinalForm } from '../Components/AddReviewForm';
 
 
@@ -43,6 +44,7 @@ function DocDetailsPage() {
       {/* REVIEW */}
       {/* Aggiungere container, row, cols */}
       <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-10">
+        <StarsRating item={doctorData} />
         {doctorData.recensioni && doctorData.recensioni.length > 0 ? (
           doctorData.recensioni.map((review) => (
             <ReviewCard key={review.id} review={review} />
@@ -53,9 +55,7 @@ function DocDetailsPage() {
       </section>
 
       <section className="form_review">
-        <div className="container">
-          <AddReviewFinalForm />
-        </div>
+        <AddReviewFinalForm />
       </section>
     </>
   );
