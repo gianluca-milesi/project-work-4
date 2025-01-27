@@ -8,10 +8,9 @@ import { styled } from '@mui/material/styles';
 import { SlArrowDown } from "react-icons/sl";
 
 function CustomAccordion( {title} ) {
-    const StyledAccordion = styled(Accordion)(({ theme }) => {
+    const StyledAccordion = styled(Accordion)(() => {
         return {
             boxShadow: 'none',
-            border: `1px solid lightgray`,
             margin: "1rem 0",
             '.MuiAccordionDetails-root': {},
             '.MuiAccordionSummary-root': {},
@@ -20,7 +19,7 @@ function CustomAccordion( {title} ) {
 
     return(
         <StyledAccordion>
-                    <AccordionSummary expandIcon={<SlArrowDown />} aria-controls="panel1-content" id="panel1-header">
+                    <AccordionSummary expandIcon={<SlArrowDown />}>
                         <h1 className="text-2xl font-bold">{title}</h1>
                     </AccordionSummary>
                     <AccordionDetails>
