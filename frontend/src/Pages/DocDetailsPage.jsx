@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ReviewCard from '../components/ReviewCard';
 import { AddReviewFinalForm } from '../Components/AddReviewForm';
+import DetailDoctorCard from "../components/DetailDoctorCard/DetailDoctorCard.jsx"
 
 function DocDetailsPage() {
   const { id: doctorId } = useParams();
