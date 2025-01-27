@@ -1,12 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ReviewCard from '../components/ReviewCard';
 import { AddReviewFinalForm } from '../Components/AddReviewForm';
 import DetailDoctorCard from "../components/DetailDoctorCard/DetailDoctorCard.jsx"
+import { useContext } from "react";
+import GlobalContext from "../contexts/GlobalContext";
 
 function DocDetailsPage() {
   const { id: doctorId } = useParams();
-  const [doctorData, setDoctorData] = useState(null);
+  const {doctorData, setDoctorData} = useContext(GlobalContext)
+
 
   useEffect(() => {
     fetch(`http://localhost:3000/api/doctors/${doctorId}`)
@@ -14,6 +17,7 @@ function DocDetailsPage() {
       .then((data) => setDoctorData(data))
       .catch((error) => console.error('Errore nella chiamata API:', error));
   }, [doctorId]);
+
 
   if (!doctorData) return <p>Caricamento...</p>;
 

@@ -5,7 +5,7 @@
 import {insertDoctorUrl} from "../../utils/utils"
 import { useNavigate } from "react-router";
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
+import { useContext} from "react";
 import GlobalContext from "../../contexts/GlobalContext";
 import { useParams } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ import { useParams } from 'react-router-dom';
 export function WithRegistrationForm(Component){
     return ({data, validation, resetForm, validationRev, ...other})=>{
         const {id} = useParams()
-        const {setMsgToast, setSeeToast} = useContext(GlobalContext)
+        const {setMsgToast, setSeeToast, doctorData, setDoctorData} = useContext(GlobalContext)
     
 
         async function sendDoctor(event){
@@ -53,7 +53,17 @@ export function WithRegistrationForm(Component){
                 setMsgToast(result.msg) 
             }
         }
-        
+
+        async function fetch(){
+            try{
+              const result = await axios.get(`http://localhost:3000/api/doctors/${id}`)
+              setDoctorData(result.data)
+            }catch(err){//se chiamata va male mando a schermo messaggio
+              setSeeToast(true)
+              setMsgToast(err.message) 
+            }  
+        }
+
         async function sendReview(event){
             event.preventDefault()
            
@@ -63,10 +73,11 @@ export function WithRegistrationForm(Component){
                 const result = await axios.post(insertDoctorUrl+`/${id}/review`, data)
                 setSeeToast(true)
                 setMsgToast(result.data.message)
+                fetch()
                 resetForm()
-             }catch({response}){//se chiamata va male mando a schermo messaggio
+             }catch(err){//se chiamata va male mando a schermo messaggio
                 setSeeToast(true)
-                setMsgToast(response.data.message) 
+                setMsgToast(err.message) 
              }
             }else{ //output errore validazione
                 setSeeToast(true)
