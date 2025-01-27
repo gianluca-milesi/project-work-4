@@ -16,7 +16,7 @@ function DetailDoctorCard({ item = {} }) {
     return (
         <div className={`${style.card} sm:flex justify-center`}>
             <figure className={style.doc_figures}>
-                <img className={style.doc_image} src={immagine || placeholderImg} />
+                <img className={style.doc_image} src={immagine} />
             </figure>
 
             <div className={style.card_body}>

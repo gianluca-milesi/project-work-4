@@ -27,6 +27,7 @@ function App() {
   const [msgToast, setMsgToast] = useState('')
   const [doctors, setDoctors] = useState([])
   const [search, setSearch] = useState('')
+  const [doctorData, setDoctorData] = useState([]);
 
   async function fetchDoctor() {
     try{
@@ -51,6 +52,7 @@ function App() {
         msgToast, setMsgToast,
         doctors, setDoctors,
         search, setSearch,
+        doctorData, setDoctorData
       }}>
         <BrowserRouter>
           <Routes>
