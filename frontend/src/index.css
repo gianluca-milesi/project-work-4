@@ -52,7 +52,6 @@ img {
 
 .custom-bg-form{
   background-color: var(--color-primary);
-  color: white;
   width: 55%;
   margin: 0 auto;
   border-radius: 15px;

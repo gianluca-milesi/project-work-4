@@ -30,7 +30,7 @@ export function AddDoctorForm({ data, handlerInput, sender, handleFile }) {
         encType="multipart/form-data"
         onSubmit={(e) => sender(e)}
       >
-        <h1 className="font-medium text-2xl pb-3">Inserisci qui i tuoi dati</h1>
+        <h1 className="font-medium text-white text-2xl pb-3">Inserisci qui i tuoi dati</h1>
 
         <input
           type="text"
