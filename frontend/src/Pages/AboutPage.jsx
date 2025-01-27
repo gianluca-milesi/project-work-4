@@ -2,9 +2,14 @@ import aboutImg from "../assets/about-stock.png";
 import CustomAccordion from "../components/CustomAccordion/CustomAccordion";
 
 function AboutPage() {
-    let faqs = ["Che servizi offriamo?","Come posso registrarmi?","I nostri medici sono verificati?","Posso contattare direttamente il medico?"]
+    const faqs = [
+        { title: '"Che servizi offriamo?', content: 'Content for section 1' },
+        { title: 'Come posso registrarmi?', content: 'Content for section 2' },
+        { title: 'I nostri medici sono verificati?', content: 'Content for section 3' },
+        { title: `Posso contattare direttamente il medico?`, content: 'Content for section 4' }
+    ];
     return (
-        <div className="container flex justify-center my-10 align-center">
+        <div className="container flex justify-center my-10 align-center z-1">
             <div className="hidden lg:block w-6/12">
                 <img src={aboutImg} className="w-8/12"/>
             </div>
@@ -15,7 +20,7 @@ function AboutPage() {
                 </div>
 
                 <p className="text-3xl font-bold">F.A.Q.</p>
-                {faqs.map((faq) => (<CustomAccordion title={faq} key={faq}/>))}
+                <CustomAccordion faqs={faqs}/>
             </div>
         </div>
     )
