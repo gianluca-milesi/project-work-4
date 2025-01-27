@@ -3,7 +3,12 @@ const path = require('path');
 
 //Inde
 function index(req, res) {
-    const sql = `SELECT * FROM medici`
+    let sql = `SELECT * FROM medici`
+
+    if (req.query.search) {
+		sql += ` WHERE nome LIKE '%${req.query.search}%' OR cognome LIKE '%${req.query.search}%' OR specializzazione LIKE '%${req.query.search}%'`
+	}
+    
     connection.query(sql, (err, results) => {
         if (err) return res.status(500).json({ message: err.message })
 
@@ -11,7 +16,6 @@ function index(req, res) {
         results.forEach((medic) => {
             medic.immagine = `${process.env.BE_HOST}/DoctorImg/${medic.immagine}`
         })
-
         res.json(results)
     })
 }
