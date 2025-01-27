@@ -2,8 +2,14 @@ import { Link } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 
 function ReviewCard({ review = {} }) {
-    const { nome, testo, voto, id } = review;
+   
 
+    const { nome, testo, voto, id, data_inserimento } = review;
+    
+    const isoDate = new Date(data_inserimento);
+    const formattedLocalDate = isoDate.toLocaleString("it-IT").replace(",", "");
+
+    
     return (
         <Link to={`/doctor/${id}`} className="block transform transition-all duration-300 hover:scale-105 pointer-events-none">
             <div className="max-w-sm mx-auto sm:max-w-md md:max-w-lg lg:max-w-xl text-white rounded-lg shadow-xl overflow-hidden hover:shadow-2xl">
@@ -20,7 +26,7 @@ function ReviewCard({ review = {} }) {
                     <p className="font-medium text-black mt-2">{testo}</p>
                 </div>
                 <div className="p-4 border-t bg-[rgb(143,211,201)] flex justify-between items-center">
-                    <span className="text-sm text-gray-800">Feb 13, 2021</span>
+                    <span className="text-sm text-gray-800">{formattedLocalDate}</span>
                 </div>
             </div>
         </Link>
