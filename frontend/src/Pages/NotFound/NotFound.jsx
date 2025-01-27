@@ -11,7 +11,9 @@ function NotFound() {
                     <p>404</p>
                     <p>Pagina non trovata</p>
                 </div>
-                <Link to="/" className={`${style.homeLink} text-white px-1.5 py-2.5 b-none rounded-md cursor-pointer font-bold uppercase ease-in-out duration-700 hover:scale-150`}>Torna alla Home</Link>
+                <Link to="/" className={`${style.homeLink} text-white px-1.5 py-2.5 b-none rounded-md cursor-pointer font-bold uppercase ease-in-out duration-700 hover:scale-150`}>
+                Torna alla Home
+                </Link>
             </div>
             
         </div>
