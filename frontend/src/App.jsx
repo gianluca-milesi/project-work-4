@@ -14,7 +14,7 @@ import AboutPage from "./pages/AboutPage.jsx"
 import ContactPage from "./pages/ContactPage.jsx"
 import SearchDocPage from "./pages/SearchDocPage.jsx"
 import DocDetailsPage from "./pages/DocDetailsPage.jsx"
-import DocRegistrationPage from "./pages/DocRegistrationPage.jsx"
+import DocRegistrationPage from "./pages/DocRegistrationPage/DocRegistrationPage.jsx"
 import NotFound from "./pages/NotFound.jsx"
 //Components
 import { Toast } from "./Components/MsgToast.jsx"
