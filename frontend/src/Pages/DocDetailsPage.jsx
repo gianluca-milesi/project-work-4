@@ -18,8 +18,8 @@ function DocDetailsPage() {
   if (!doctorData) return <p>Caricamento...</p>;
 
   return (
-    <section>
-
+    <>
+      {/* CARDS */}
       <section className="doc_detail m-5">
         <div className="container">
           <DetailDoctorCard item={doctorData} />
@@ -38,7 +38,7 @@ function DocDetailsPage() {
       </section>
 
       <AddReviewFinalForm />
-    </section>
+    </>
   );
 }
 
