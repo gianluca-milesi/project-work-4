@@ -101,9 +101,8 @@ img {
 
 input[type="file"] {
 
-  all: unset; /* Resetta tutti gli stili di default /
-  display: block; / Assicurati che l'input sia visibile /
-  width: 100%; / Imposta una larghezza predefinita */
+  all: unset; 
+  cursor: pointer;
 }
 
 
