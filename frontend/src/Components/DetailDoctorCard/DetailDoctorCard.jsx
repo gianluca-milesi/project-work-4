@@ -5,13 +5,15 @@ import { Link } from "react-router-dom";
 import { FiPhone } from "react-icons/fi";
 import { HiOutlineMail } from "react-icons/hi";
 import { TbMapSearch } from "react-icons/tb";
+import StarsRating from "../StarsRating.jsx";
+
 
 
 function DetailDoctorCard({ item = {} }) {
     //per il momento controllo rapido per far caricare i dati e far funzionare tutto
     if (!item) { return <p>Caricamento...</p> }
 
-    const { nome, cognome, immagine, biografia, specializzazione, email, telefono, indirizzo } = item
+    const { nome, cognome, immagine, biografia, specializzazione, email, telefono, indirizzo,avgVote } = item
 
 
     return (
@@ -58,6 +60,9 @@ function DetailDoctorCard({ item = {} }) {
                                 {indirizzo}
                             </Link>
                         </p>
+                        <div className="ml-10 ">
+                            <StarsRating item={{avgVote}}/>
+                        </div>
                     </div>
                 </div>
             </div >

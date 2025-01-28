@@ -40,12 +40,14 @@ function DocDetailsPage() {
           <DetailDoctorCard item={doctorData} />
         </div>
       </section>
-
+      <div>
+        <h1 className="flex justify-center text-3xl mt-10 mb-10 font-semibold">RECENSIONI:</h1>
+      </div>
       {/* REVIEW */}
       {/* Aggiungere container, row, cols */}
       <section className="">
         <div className="container">
-          <StarsRating item={doctorData} />
+          
           <div className="row">
             {doctorData.recensioni && doctorData.recensioni.length > 0 ? (
               doctorData.recensioni.map((review) => (
