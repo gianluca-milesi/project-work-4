@@ -14,7 +14,7 @@ function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <header className="flex justify-between items-center text-white py-6 px-8 md:px-32 background">
+        <nav className="flex justify-between items-center text-white">
             <Link to="/">
                 <img
                     src="https://cdn.discordapp.com/attachments/1330851292913991683/1333389745950162967/logo.png?ex=67996038&is=67980eb8&hm=875b1b96f6880e33053687359d3e11b2e21532de67d9bfa907e0fa13c666b7d0&"
@@ -23,7 +23,7 @@ function Navbar() {
                 />
             </Link>
 
-            <ul className="hidden lg:flex items-center gap-12 font-semibold text-base">
+            <ul className="hidden lg:flex items-center gap-6 font-semibold text-base">
                 <Link to="/">
                     <li className="p-2 hover:bg-green-400 rounded-md transition-all cursor-pointer text-xl">
                         Home
@@ -59,9 +59,8 @@ function Navbar() {
 
             {/* Sidebar Mobile */}
             <div
-                className={`z-40 fixed lg:hidden top-0 right-0 h-screen w-2/4 bgsecondary flex flex-col items-center font-semibold text-lg transform transition-transform ${
-                    isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-                }`}
+                className={`z-40 fixed lg:hidden top-0 right-0 h-screen w-2/4 bgsecondary flex flex-col items-center font-semibold text-lg transform transition-transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+                    }`}
                 style={{ transition: 'transform 0.3s ease-in-out' }}
             >
                 {/* Pulsante per chiudere il menu */}
@@ -102,7 +101,7 @@ function Navbar() {
                     </Link>
                 </div>
             </div>
-        </header>
+        </nav>
     );
 }
 
