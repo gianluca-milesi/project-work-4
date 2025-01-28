@@ -43,15 +43,22 @@ function DocDetailsPage() {
 
       {/* REVIEW */}
       {/* Aggiungere container, row, cols */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-10">
-        <StarsRating item={doctorData} />
-        {doctorData.recensioni && doctorData.recensioni.length > 0 ? (
-          doctorData.recensioni.map((review) => (
-            <ReviewCard key={review.id} review={review} />
-          ))
-        ) : (
-          <p>Nessuna recensione disponibile.</p>
-        )}
+      <section className="">
+        <div className="container">
+          <StarsRating item={doctorData} />
+          <div className="row">
+            {doctorData.recensioni && doctorData.recensioni.length > 0 ? (
+              doctorData.recensioni.map((review) => (
+                <div key={review.id} className="col-6">
+                  <ReviewCard review={review} />
+                </div>
+              ))
+            ) : (
+              <p>Nessuna recensione disponibile.</p>
+            )}
+
+          </div>
+        </div>
       </section>
 
       <section className="form_review">
