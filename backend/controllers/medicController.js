@@ -130,7 +130,5 @@ function storeReview(req, res) {
         res.status(201).json({ message: "Review added" })
     })
 }
-
-
-
+    
 module.exports = { index, show, store, storeReview }

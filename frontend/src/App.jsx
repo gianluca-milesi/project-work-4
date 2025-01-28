@@ -12,11 +12,11 @@ import BlankLayout from "./layouts/BlankLayout.jsx"
 //Pages
 import HomePage from "./pages/HomePage.jsx"
 import AboutPage from "./pages/AboutPage.jsx"
-import ContactPage from "./pages/ContactPage.jsx"
+import ContactPage from "./pages/Contact/ContactPage.jsx"
 import SearchDocPage from "./pages/SearchDocPage.jsx"
 import DocDetailsPage from "./pages/DocDetailsPage.jsx"
+import NotFound from "./pages/NotFound/NotFound.jsx"
 import DocRegistrationPage from "./pages/DocRegistrationPage/DocRegistrationPage.jsx"
-import NotFound from "./pages/NotFound.jsx"
 //Components
 import { Toast } from "./Components/MsgToast.jsx"
 
