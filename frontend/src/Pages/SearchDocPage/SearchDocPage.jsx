@@ -1,8 +1,10 @@
-import Searchbar from "../Components/Searchbar";
+import Searchbar from "../../Components/Searchbar";
 import { useContext, useEffect } from "react";
-import GlobalContext from "../contexts/GlobalContext";
-import DoctorCard from "../components/DoctorCard/DoctorCard";
+import GlobalContext from "../../contexts/GlobalContext";
+import DoctorCard from "../../components/DoctorCard/DoctorCard";
 import { useLocation } from 'react-router-dom';
+import style from './SearchDocPage.module.css';
+
 function SearchDocPage() {
     const { doctors, setSearch } = useContext(GlobalContext)
     const location = useLocation();
@@ -14,9 +16,9 @@ function SearchDocPage() {
 
 
     return (
-        <section className="container flex flex-wrap">
+        <section className="container bgsecondary px-9 pb-9  custom-search-section flex flex-wrap">
             <div className="py-9 w-full flex justify-between items-center">
-                <div>Search Doc Page</div>
+                <div className="text-xl">Ricerca il tuo prossimo dottore!</div>
                 <Searchbar />
             </div>
             <div className="container">

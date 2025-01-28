@@ -94,6 +94,10 @@ img {
   border-bottom-left-radius: 15px;
 }
 
+.bgprimary{
+  background-color: var(--color-primary);
+}
+
 .bgsecondary {
   background-color: var(--color-secondary);
 }
@@ -102,6 +106,10 @@ input[type="file"] {
 
   all: unset; 
   cursor: pointer;
+}
+
+.custom-search-section{
+  border-radius: 15px;
 }
 
 
