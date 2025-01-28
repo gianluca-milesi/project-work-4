@@ -8,7 +8,7 @@ function Searchbar(){
       <div>
          <input 
          onChange={(e)=>{setSearch(e.target.value)}} 
-         className="h-8 bg-slate-500 rounded-md border-2 border-slate-950" 
+         className="h-8 rounded-md border-3 p-2" 
          type="text" 
          value={search}
          placeholder='Cerca'/>
