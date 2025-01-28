@@ -59,8 +59,10 @@ export function WithValidation(Component){
             if(!stringRegEx.test(specializzazione)){
               return {valid: false , msg: 'specializzazione non valida'}  
             }
-            if(!validateImageExtension(immagine)){
-              return { valid: false, msg: "file non valido, inserisci foto" };
+            if(immagine){
+              if(!validateImageExtension(immagine)){
+                return { valid: false, msg: "file non valido, inserisci foto" };
+              }
             }
             if(!(biografia.length<2000 && biografia.length>4)){
              return {valid: false , msg: 'biografia non valida'}

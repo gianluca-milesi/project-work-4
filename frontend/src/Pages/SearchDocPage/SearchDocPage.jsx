@@ -1,24 +1,34 @@
-import Searchbar from "../../Components/Searchbar";
+//Contexts
+import GlobalContext from "../contexts/GlobalContext";
+//Hooks
 import { useContext, useEffect } from "react";
-import GlobalContext from "../../contexts/GlobalContext";
-import DoctorCard from "../../components/DoctorCard/DoctorCard";
-import { useLocation } from 'react-router-dom';
-import style from './SearchDocPage.module.css';
+import { useLocation, useNavigate } from 'react-router-dom';
+//Components
+import Searchbar from "../Components/Searchbar";
+import DoctorCard from "../components/DoctorCard/DoctorCard";
+
 
 function SearchDocPage() {
+
     const { doctors, setSearch } = useContext(GlobalContext)
     const location = useLocation();
 
+    //Navigate
+    const navigate = useNavigate()
+    function goBack() {
+        navigate(-1)
+    }
+
     useEffect(() => {
-        // Resetta il valore della searchbar quando cambia la pagina
-        setSearch('');
+        setSearch(''); // Resetta il valore della searchbar quando cambia la pagina
     }, [location]);
 
 
     return (
+        
         <section className="container bgsecondary px-9 pb-9  custom-search-section flex flex-wrap">
             <div className="py-9 w-full flex justify-between items-center">
-                <div className="text-xl">Ricerca il tuo prossimo dottore!</div>
+                <button onClick={goBack} className="back_button bg-[#00c3a5] text-white rounded font-semibold py-1 px-2">Indietro</button>
                 <Searchbar />
             </div>
             <div className="container">
