@@ -12,7 +12,7 @@ function ReviewCard({ review = {} }) {
     
     return (
         <Link to={`/doctor/${id}`} className="block transform transition-all duration-300 hover:scale-105 pointer-events-none">
-            <div className="max-w-sm mx-auto sm:max-w-md md:max-w-lg lg:max-w-xl text-white rounded-lg shadow-xl overflow-hidden hover:shadow-2xl">
+            <div className=" w-60max-w-sm mx-auto sm:max-w-md md:max-w-lg lg:max-w-xl text-white rounded-lg shadow-xl overflow-hidden hover:shadow-2xl">
                 <div className="p-6 bg-[rgb(244,247,244)] ">
                     <h5 className="text-2xl font-semibold tracking-tight text-black flex gap-3 items-center">
                         <CgProfile className="text-black" /> {nome}
