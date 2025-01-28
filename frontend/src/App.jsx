@@ -11,11 +11,11 @@ import BlankLayout from "./layouts/BlankLayout.jsx"
 //Pages
 import HomePage from "./pages/HomePage.jsx"
 import AboutPage from "./pages/AboutPage.jsx"
-import ContactPage from "./pages/ContactPage.jsx"
+import ContactPage from "./pages/Contact/ContactPage.jsx"
 import SearchDocPage from "./pages/SearchDocPage.jsx"
 import DocDetailsPage from "./pages/DocDetailsPage.jsx"
+import NotFound from "./pages/NotFound/NotFound.jsx"
 import DocRegistrationPage from "./pages/DocRegistrationPage/DocRegistrationPage.jsx"
-import NotFound from "./pages/NotFound.jsx"
 //Components
 import { Toast } from "./Components/MsgToast.jsx"
 import axios from "axios"
@@ -30,10 +30,10 @@ function App() {
   const [doctorData, setDoctorData] = useState([]);
 
   async function fetchDoctor() {
-    try{
-      const result = await axios.get('http://localhost:3000/api/doctors',{params: {search: search}} )
+    try {
+      const result = await axios.get('http://localhost:3000/api/doctors', { params: { search: search } })
       setDoctors(result.data)
-    }catch(error){
+    } catch (error) {
       setSeeToast(true)
       setMsgToast(error.message)
     }
@@ -41,13 +41,13 @@ function App() {
 
   useEffect(() => {
     fetchDoctor()
-  },[search])
+  }, [search])
 
-  
+
   return (
     <>
       <GlobalContext.Provider value={{
-        isLoading, setIsLoading, 
+        isLoading, setIsLoading,
         seeToast, setSeeToast,
         msgToast, setMsgToast,
         doctors, setDoctors,
