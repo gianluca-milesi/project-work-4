@@ -104,7 +104,6 @@ export function AddDoctorForm({ data, handlerInput, sender, handleFile }) {
           className="border-2 rounded-2xl p-3 mx-5 w-11/12"
           placeholder="inserisci biografia..."
           rows="3"
-          required
         />
         <button className="bg-cyan-300 text-2xl custom-button py-3 hover:bg-cyan-600 w-4/12">
           invia

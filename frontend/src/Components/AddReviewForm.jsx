@@ -23,17 +23,13 @@ export function AddReviewForm({data, handlerInput, reviewSender}){
             value={text}
             placeholder="insercisci la tua recensione"
           ></textarea>
-          <input
-            type="number"
-            name="voto"
-            value={voto}
-            onChange={(e) => handlerInput(e)}
-            className="border-2 mx-5 w-3/12"
-            placeholder="inserisci valutazione.."
-            min="1"
-            max="5"
-            required
-          />
+          <select name="voto" selected={voto} onChange={(e) => handlerInput(e)}>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
           <input
             type="text"
             name="nome"
