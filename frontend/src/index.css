@@ -55,7 +55,6 @@ img {
   width: 55%;
   margin: 0 auto;
   border-radius: 15px;
-  margin-top: 2rem;
   padding: 2rem;
 }
 
@@ -112,6 +111,13 @@ input[type="file"] {
   border-radius: 15px;
 }
 
+.custom-review-card{
+  border-radius: 15px;
+}
+.custom-review-date{
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
 
 
 @media (max-width: 862px) {
