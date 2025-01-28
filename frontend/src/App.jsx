@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import axios from "axios"
 //React Router
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 //Context
@@ -18,7 +19,6 @@ import NotFound from "./pages/NotFound/NotFound.jsx"
 import DocRegistrationPage from "./pages/DocRegistrationPage/DocRegistrationPage.jsx"
 //Components
 import { Toast } from "./Components/MsgToast.jsx"
-import axios from "axios"
 
 
 function App() {
