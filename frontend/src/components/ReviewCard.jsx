@@ -5,7 +5,7 @@ function ReviewCard({ review = {} }) {
     const { nome, testo, voto, id } = review;
 
     return (
-        <div className="m-2 text-white rounded-lg shadow-xl overflow-hidden hover:shadow-2xl">
+        <div className="m-2 text-white rounded-lg shadow-xl hover:shadow-2xl">
             <div className="p-6 bg-[rgb(244,247,244)] ">
                 <h5 className="text-2xl font-semibold tracking-tight text-black flex gap-3 items-center">
                     <CgProfile className="text-black" /> {nome}
@@ -16,7 +16,7 @@ function ReviewCard({ review = {} }) {
                     ))}
                     {voto % 1 !== 0 && <span className="text-lg">☆</span>}
                 </div>
-                <p className="font-medium text-black mt-2">"{testo}"</p>
+                <p className="font-medium text-black mt-2 break-words">"{testo}"</p>
             </div>
             <div className="p-4 border-t bg-[rgb(143,211,201)] flex justify-between items-center">
                 <span className="text-sm text-gray-800">Feb 13, 2021</span>
