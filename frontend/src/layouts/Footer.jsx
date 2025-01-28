@@ -14,7 +14,11 @@ function Footer() {
                     <span className="text-blue-600">Lo specialista </span>
                     a portata di click!</h1>
                 <div>
-                    <a className="sm:w-72 w-full sm:mr-5 mr-1 lg:mb-0 mb-4 py-2.5 focus: text-3xl" href="">LOGO</a>
+                <img
+                    src="https://cdn.discordapp.com/attachments/1330851292913991683/1333389745950162967/logo.png?ex=67996038&is=67980eb8&hm=875b1b96f6880e33053687359d3e11b2e21532de67d9bfa907e0fa13c666b7d0&"
+                    alt="logo"
+                    className="logoSize"
+                />
                 </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4 sm:px-12 px-4 py-7 mb-5 text-center cursor-pointer">
