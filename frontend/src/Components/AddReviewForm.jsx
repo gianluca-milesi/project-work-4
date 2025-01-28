@@ -58,7 +58,9 @@ export function AddReviewForm({ data, handlerInput, reviewSender }) {
           value={text}
           placeholder="insercisci la tua recensione"
         ></textarea>
-        <button className="custom-button p-3 w-3/12">invia</button>
+        <button className="custom-button hover:bg-blue-900 p-3 w-3/12">
+          invia
+        </button>
       </form>
     </div>
   );

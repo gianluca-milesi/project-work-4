@@ -47,7 +47,7 @@ function DocDetailsPage() {
           {/* Aggiungere container, row, cols */}
           <section>
             <div className="container">
-              <div className="bg-white rounded-xl p-3 my-3 flex gap-1 justify-center w-fit items-center">
+              <div className="bg-white rounded-xl p-3 my-7 mb-3 flex gap-1 justify-center w-fit items-center">
                 <span>Voto Medio: </span>
                 <StarsRating item={doctorData} />
               </div>
