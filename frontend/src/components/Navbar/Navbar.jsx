@@ -57,7 +57,7 @@ function Navbar() {
             </i>
 
             <div
-                className={`absolute lg:hidden top-24 right-0 h-full w-2/4 bg-white flex flex-col items-center font-semibold text-lg transform transition-transform backgroundTwo ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+                className={`z-40 absolute lg:hidden top-24 right-0 h-full w-2/4 bg-white flex flex-col items-center font-semibold text-lg transform transition-transform backgroundTwo ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
                     }`}
                 style={{ transition: 'transform 0.3s ease-in-out' }}
             >      <div className='mb-20'>
