@@ -41,6 +41,15 @@ function App() {
 
   useEffect(() => {
     fetchDoctor()
+  },[])
+
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      console.log(search)
+      fetchDoctor()
+    }, 500)
+
+    return () => clearTimeout(delayDebounceFn)
   }, [search])
 
 

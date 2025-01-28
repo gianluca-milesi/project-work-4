@@ -6,7 +6,7 @@ const baseForm = {
   nome: "",
   cognome: "",
   email: "",
-  telefono: 0,
+  telefono: "",
   indirizzo: "",
   specializzazione: "",
   biografia: "",
