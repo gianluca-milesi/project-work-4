@@ -8,6 +8,7 @@ import { RiContactsBook2Fill } from "react-icons/ri";
 import { FaCircleInfo } from "react-icons/fa6";
 import { CiLogin } from "react-icons/ci";
 import { MdNewLabel } from "react-icons/md";
+import { IoCloseSharp } from "react-icons/io5"; // Icona per chiudere il menu
 
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -56,11 +57,22 @@ function Navbar() {
                 =
             </i>
 
+            {/* Sidebar Mobile */}
             <div
-                className={`z-40 absolute lg:hidden top-24 right-0 h-full w-2/4 bg-white flex flex-col items-center font-semibold text-lg transform transition-transform backgroundTwo ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-                    }`}
+                className={`z-40 fixed lg:hidden top-0 right-0 h-screen w-2/4 bgsecondary flex flex-col items-center font-semibold text-lg transform transition-transform ${
+                    isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+                }`}
                 style={{ transition: 'transform 0.3s ease-in-out' }}
-            >      <div className='mb-20'>
+            >
+                {/* Pulsante per chiudere il menu */}
+                <button
+                    className="absolute top-4 right-4 text-4xl text-black"
+                    onClick={() => setIsMenuOpen(false)}
+                >
+                    <IoCloseSharp />
+                </button>
+
+                <div className="mb-20 mt-12">
                     <Link to="https://boroktimes.com/storage/2023/07/channels4_profile-1200x1200.jpeg">
                         <li className="list-none w-full text-center p-4 cursor-pointer text-black border-b border-white flex items-center gap-2 justify-center text-2xl">
                             <CiLogin /> Login
@@ -78,15 +90,14 @@ function Navbar() {
                             <FaHome /> Home
                         </li>
                     </Link>
-
                     <Link to="/contact">
                         <li className="list-none w-full text-center p-4 cursor-pointer text-black border-b border-white flex items-center gap-2 justify-center text-2xl">
-                            <RiContactsBook2Fill />Contatti
+                            <RiContactsBook2Fill /> Contatti
                         </li>
                     </Link>
                     <Link to="/about">
                         <li className="list-none w-full text-center p-4 cursor-pointer text-black border-b border-white flex items-center gap-2 justify-center text-2xl">
-                            <FaCircleInfo />About
+                            <FaCircleInfo /> About
                         </li>
                     </Link>
                 </div>
