@@ -1,67 +1,76 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import axios from "axios"
+import axios from "axios";
 //React Router
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 //Context
-import GlobalContext from "./contexts/GlobalContext.js"
+import GlobalContext from "./contexts/GlobalContext.js";
 //Hooks
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 //Layouts
-import DefaultLayout from "./layouts/DefaultLayout.jsx"
-import BlankLayout from "./layouts/BlankLayout.jsx"
+import DefaultLayout from "./layouts/DefaultLayout.jsx";
+import BlankLayout from "./layouts/BlankLayout.jsx";
 //Pages
-import HomePage from "./pages/HomePage.jsx"
-import AboutPage from "./pages/AboutPage.jsx"
-import ContactPage from "./pages/Contact/ContactPage.jsx"
-import SearchDocPage from "./pages/SearchDocPage/SearchDocPage.jsx"
-import DocDetailsPage from "./pages/DocDetailsPage.jsx"
-import NotFound from "./pages/NotFound/NotFound.jsx"
-import DocRegistrationPage from "./pages/DocRegistrationPage/DocRegistrationPage.jsx"
+import HomePage from "./pages/HomePage.jsx";
+import AboutPage from "./pages/AboutPage.jsx";
+import ContactPage from "./pages/Contact/ContactPage.jsx";
+import SearchDocPage from "./pages/SearchDocPage/SearchDocPage.jsx";
+import DocDetailsPage from "./pages/DocDetailsPage.jsx";
+import NotFound from "./pages/NotFound/NotFound.jsx";
+import DocRegistrationPage from "./pages/DocRegistrationPage/DocRegistrationPage.jsx";
 //Components
-import { Toast } from "./Components/MsgToast.jsx"
-
+import { Toast } from "./Components/MsgToast.jsx";
+// ciao
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
-  const [seeToast, setSeeToast] = useState(false)
-  const [msgToast, setMsgToast] = useState('')
-  const [doctors, setDoctors] = useState([])
-  const [search, setSearch] = useState('')
+  const [seeToast, setSeeToast] = useState(false);
+  const [msgToast, setMsgToast] = useState("");
+  const [doctors, setDoctors] = useState([]);
+  const [search, setSearch] = useState("");
   const [doctorData, setDoctorData] = useState([]);
 
   async function fetchDoctor() {
     try {
-      const result = await axios.get('http://localhost:3000/api/doctors', { params: { search: search } })
-      setDoctors(result.data)
+      const result = await axios.get("http://localhost:3000/api/doctors", {
+        params: { search: search },
+      });
+      setDoctors(result.data);
     } catch (error) {
-      setSeeToast(true)
-      setMsgToast(error.message)
+      setSeeToast(true);
+      setMsgToast(error.message);
     }
   }
 
   useEffect(() => {
-    fetchDoctor()
-  },[])
+    fetchDoctor();
+  }, []);
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
-      fetchDoctor()
-    }, 500)
+      fetchDoctor();
+    }, 500);
 
-    return () => clearTimeout(delayDebounceFn)
-  }, [search])
-
+    return () => clearTimeout(delayDebounceFn);
+  }, [search]);
 
   return (
     <>
-      <GlobalContext.Provider value={{
-        isLoading, setIsLoading,
-        seeToast, setSeeToast,
-        msgToast, setMsgToast,
-        doctors, setDoctors,
-        search, setSearch,
-        doctorData, setDoctorData
-      }}>
+      <GlobalContext.Provider
+        value={{
+          isLoading,
+          setIsLoading,
+          seeToast,
+          setSeeToast,
+          msgToast,
+          setMsgToast,
+          doctors,
+          setDoctors,
+          search,
+          setSearch,
+          doctorData,
+          setDoctorData,
+        }}
+      >
         <BrowserRouter>
           <Routes>
             <Route element={<DefaultLayout />}>
