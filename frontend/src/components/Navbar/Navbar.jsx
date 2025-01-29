@@ -9,15 +9,16 @@ import { FaCircleInfo } from "react-icons/fa6";
 import { CiLogin } from "react-icons/ci";
 import { MdNewLabel } from "react-icons/md";
 import { IoCloseSharp } from "react-icons/io5"; // Icona per chiudere il menu
+import logo from "../../assets/logo.png";
 
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
         <nav className="flex justify-between items-center text-white">
-            <Link to="/">
+            <Link to="/" className='fixedSize'>
                 <img
-                    src="https://cdn.discordapp.com/attachments/1330851292913991683/1333389745950162967/logo.png?ex=67996038&is=67980eb8&hm=875b1b96f6880e33053687359d3e11b2e21532de67d9bfa907e0fa13c666b7d0&"
+                    src={logo}
                     alt="logo"
                     className="logoSize"
                 />
@@ -41,7 +42,7 @@ function Navbar() {
                 </Link>
             </ul>
 
-            <div className="relative hidden lg:flex items-center gap-2 font-semibold text-base justify-center">
+            <div className="fixedSize relative hidden lg:flex items-center gap-2 font-semibold text-base justify-center">
                 <button className="py-2 px-5 backgroundTwo text-black rounded-lg focus:bg-slate-300">
                     Log In
                 </button>
