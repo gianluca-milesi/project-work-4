@@ -28,10 +28,10 @@ function DocDetailsPage() {
 
   if (!doctorData) return <p>Caricamento...</p>;
 
+
   return (
     <>
-      {/* CARDS */}
-      <div className="bgprimary">
+      <div className="background bgprimary">
         <div className="container rounded-lg bgsecondary py-3">
           <section className="doc_detail m-5">
             <button
@@ -43,8 +43,6 @@ function DocDetailsPage() {
             <DetailDoctorCard item={doctorData} />
           </section>
 
-          {/* REVIEW */}
-          {/* Aggiungere container, row, cols */}
           <section>
             <div className="container">
               <div className="bg-white rounded-xl p-3 my-7 mb-3 flex gap-1 justify-center w-fit items-center">

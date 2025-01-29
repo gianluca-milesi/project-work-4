@@ -1,4 +1,4 @@
-
+import StarsRating from "./StarsRating";
 import { CgProfile } from "react-icons/cg";
 
 function ReviewCard({ review = {} }) {
@@ -14,14 +14,7 @@ function ReviewCard({ review = {} }) {
           <h5 className="text-2xl font-semibold tracking-tight text-black flex gap-3 items-center">
             <CgProfile className="text-black" /> {nome}
           </h5>
-          <div className="flex items-center gap-1 text-yellow-400 mt-2">
-            {[...Array(voto)].map((_, index) => (
-              <span key={index} className="text-lg">
-                ★
-              </span>
-            ))}
-            {voto % 1 !== 0 && <span className="text-lg">☆</span>}
-          </div>
+          <StarsRating item={{ voto }} />
           <p className="font-medium text-black mt-2 break-words">"{testo}"</p>
         </div>
         <div className="p-4 custom-review-date border-t bg-[rgb(143,211,201)] flex justify-between items-center">
