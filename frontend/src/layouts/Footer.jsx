@@ -3,6 +3,7 @@ import { FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaTiktok } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
+import logo from "../../public/logo.png"
 
 import { Link } from "react-router-dom";
 
@@ -17,7 +18,7 @@ function Footer() {
         <div className="flex justify-center">
           <div className="logoSize">
             <img
-              src="https://cdn.discordapp.com/attachments/1330851292913991683/1333389745950162967/logo.png?ex=67996038&is=67980eb8&hm=875b1b96f6880e33053687359d3e11b2e21532de67d9bfa907e0fa13c666b7d0&"
+              src={logo}
               alt="logo"
             />
           </div>
