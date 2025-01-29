@@ -25,7 +25,7 @@ export function AddReviewForm({ data, handlerInput, reviewSender }) {
             name="nome"
             value={nome}
             onChange={(e) => handlerInput(e)}
-            className="border-2 rounded-md p-2 w-5/12"
+            className="border-2 rounded-2xl p-2 w-5/12"
             placeholder="Nome..."
             required
           />
@@ -38,7 +38,7 @@ export function AddReviewForm({ data, handlerInput, reviewSender }) {
               name="voto"
               value={voto}
               onChange={(e) => handlerInput(e)}
-              className="border-2 rounded-md mx-5 p-2 text-center"
+              className="border-2 rounded-2xl mx-5 p-2 text-center"
               placeholder=""
               required
             >
