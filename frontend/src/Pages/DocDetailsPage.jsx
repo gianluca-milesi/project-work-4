@@ -43,7 +43,7 @@ function DocDetailsPage() {
             <DetailDoctorCard item={doctorData} />
           </section>
 
-          <section>
+          <section className="reviews">
             <div className="container">
               <div className="bg-white rounded-xl p-3 my-7 mb-3 flex gap-1 justify-center w-fit items-center">
                 <span>Voto Medio: </span>
@@ -52,7 +52,7 @@ function DocDetailsPage() {
               <div className="row">
                 {doctorData.recensioni && doctorData.recensioni.length > 0 ? (
                   doctorData.recensioni.map((review) => (
-                    <div key={review.id} className="col-6">
+                    <div key={review.id} className="col-12 md:col-6">
                       <ReviewCard review={review} />
                     </div>
                   ))
