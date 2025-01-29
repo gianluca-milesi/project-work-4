@@ -16,7 +16,7 @@ function Navbar() {
 
     return (
         <nav className="flex justify-between items-center text-white">
-            <Link to="/">
+            <Link to="/" className='fixedSize'>
                 <img
                     src={logo}
                     alt="logo"
@@ -42,7 +42,7 @@ function Navbar() {
                 </Link>
             </ul>
 
-            <div className="relative hidden lg:flex items-center gap-2 font-semibold text-base justify-center">
+            <div className="fixedSize relative hidden lg:flex items-center gap-2 font-semibold text-base justify-center">
                 <button className="py-2 px-5 backgroundTwo text-black rounded-lg focus:bg-slate-300">
                     Log In
                 </button>

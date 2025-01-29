@@ -5,3 +5,11 @@
 .backgroundTwo{
     background-color: var(--color-secondary);
 }
+
+.logoSize{
+    width: 75px;
+}
+
+.fixedSize{
+    width: 200px;
+}
