@@ -40,7 +40,9 @@ function DocDetailsPage() {
             >
               Indietro
             </button>
-            <DetailDoctorCard item={doctorData} />
+            {doctorData &&
+              <DetailDoctorCard item={doctorData} />
+            }
           </section>
 
           <section className="reviews">
