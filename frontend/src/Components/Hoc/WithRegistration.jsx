@@ -14,7 +14,7 @@ export function WithRegistrationForm(Component){
     return ({data, validation, resetForm, validationRev, ...other})=>{
         const {id} = useParams()
         const {setMsgToast, setSeeToast, doctorData, setDoctorData} = useContext(GlobalContext)
-    
+        const navigator = useNavigate()
 
         async function sendDoctor(event){
             event.preventDefault()
@@ -43,6 +43,7 @@ export function WithRegistrationForm(Component){
                 },})
                 setSeeToast(true)
                 setMsgToast(result.data.message)
+                navigator('/')
                 resetForm()
              }catch({response}){//se chiamata va male mando a schermo messaggio
                 setSeeToast(true)

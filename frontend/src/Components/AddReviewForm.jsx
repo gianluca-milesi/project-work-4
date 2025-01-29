@@ -5,13 +5,14 @@ import { WithValidation } from "./Hoc/WithValidation";
 
 const baseForm={
     text:"",
-    voto:"",
+    voto:1,
     nome:""
 }
 
 export function AddReviewForm({data, handlerInput, reviewSender}){
 
     const {text, voto, nome} = data
+    console.log(text, voto, nome)
     return(
         <div className="container">
         <form className="flex flex-col gap-4 justify-center items-center my-10" encType="multipart/form-data" onSubmit={(e)=>reviewSender(e)}>
@@ -24,7 +25,7 @@ export function AddReviewForm({data, handlerInput, reviewSender}){
             placeholder="insercisci la tua recensione"
           ></textarea>
           <select name="voto" selected={voto} onChange={(e) => handlerInput(e)}>
-            <option value="1">1</option>
+            <option value="1" defaultValue={voto}>1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
