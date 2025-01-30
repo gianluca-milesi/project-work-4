@@ -3,11 +3,11 @@ import { WithHandlerForm } from "./Hoc/WithHandlerForm";
 import { WithRegistrationForm } from "./Hoc/WithRegistration";
 import { WithValidation } from "./Hoc/WithValidation";
 
-const baseForm = {
-  text: "",
-  voto: "",
-  nome: "",
-};
+const baseForm={
+    text:"",
+    voto:1,
+    nome:""
+}
 
 export function AddReviewForm({ data, handlerInput, reviewSender }) {
   const { text, voto, nome } = data;

@@ -14,7 +14,7 @@ export function WithRegistrationForm(Component){
     return ({data, validation, resetForm, validationRev, ...other})=>{
         const {id} = useParams()
         const {setMsgToast, setSeeToast, doctorData, setDoctorData} = useContext(GlobalContext)
-    
+        const navigator = useNavigate()
 
         async function sendDoctor(event){
             event.preventDefault()
@@ -43,6 +43,7 @@ export function WithRegistrationForm(Component){
                 },})
                 setSeeToast(true)
                 setMsgToast(result.data.message)
+                navigator('/')
                 resetForm()
              }catch({response}){//se chiamata va male mando a schermo messaggio
                 setSeeToast(true)
@@ -58,9 +59,9 @@ export function WithRegistrationForm(Component){
             try{
               const result = await axios.get(`http://localhost:3000/api/doctors/${id}`)
               setDoctorData(result.data)
-            }catch(err){//se chiamata va male mando a schermo messaggio
+            }catch({response}){//se chiamata va male mando a schermo messaggio
               setSeeToast(true)
-              setMsgToast(err.message) 
+              setMsgToast(response.data.message)  
             }  
         }
 
@@ -75,9 +76,9 @@ export function WithRegistrationForm(Component){
                 setMsgToast(result.data.message)
                 fetch()
                 resetForm()
-             }catch(err){//se chiamata va male mando a schermo messaggio
+             }catch({response}){//se chiamata va male mando a schermo messaggio
                 setSeeToast(true)
-                setMsgToast(err.message) 
+                setMsgToast(response.data.message)  
              }
             }else{ //output errore validazione
                 setSeeToast(true)
