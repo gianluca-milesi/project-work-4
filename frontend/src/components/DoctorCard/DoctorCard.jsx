@@ -8,11 +8,10 @@ import StarsRating from "../StarsRating"
 
 function DoctorCard({ item = {} }) {
 
-  const { nome, cognome, biografia, specializzazione, immagine, id, avgVote } = item
-
-
+  const { nome, cognome, biografia, specializzazione, immagine, id, avgVote} = item
+  const slug = `${nome}-${cognome}`.toLowerCase()
   return (
-    <Link to={`/doctor/${id}`}>
+    <Link to={`/doctor/${id}/${slug}`}>
       <div className={`${style.card} sm:h-full lg:flex lg:items-center lg:h-auto`}>
         <figure className={style.doc_figures}>
           <img className={style.doc_image} src={immagine} />
