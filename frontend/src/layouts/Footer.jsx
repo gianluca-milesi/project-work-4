@@ -33,13 +33,13 @@ function Footer() {
           <Link to="/about">
             <li className="font-bold  underline">About us</li>
           </Link>
-          <li className="font-bold underline">Note legali</li>
+          <li className="font-bold underline"><a href="https://www.europarl.europa.eu/legal-notice/it/" target="_blank">Note legali</a></li>
         </ul>
         <ul>
-          <li className="font-bold underline">Lavora con noi!</li>
-          <li className="font-bold underline">Privacy</li>
-          <li className="font-bold underline">Termini di servizio</li>
-          <li className="font-bold underline">Sostieni la ricerca</li>
+          <Link to='/registration'><li className="font-bold underline">Lavora con noi!</li></Link>
+          <li className="font-bold underline"><a href="https://it.wikipedia.org/wiki/Privacy" target="_blank">Privacy</a></li>
+          <li className="font-bold underline"><a href="https://it.wikipedia.org/wiki/Termini_di_servizio#:~:text=I%20termini%20di%20servizio%20(oppure,ad%20accettarli%20per%20poterne%20usufruire." target="_blank">Termini di servizio</a></li>
+          <li className="font-bold underline"><a href="https://partecipa.telethon.it/donazionionline-new-2/?codiceCampagna=2024_07_ZZW_BL_ADVCPCMARKET&gad_source=1&gclid=Cj0KCQiA4-y8BhC3ARIsAHmjC_G4wq6PIJE9S3kiDOj3AigKJJ8WDkdHCBaTS21jfOLLvmplDKm2cJIaAu6wEALw_wcB" target="_blank">Sostieni la ricerca</a></li>
         </ul>
       </div>
       <hr className="mb-10 " />
@@ -53,16 +53,16 @@ function Footer() {
           >
             <FaFacebook />
           </a>
-          <a className="text-2xl" href="https://www.instagram.com/?hl=en">
+          <a className="text-2xl" target="_blank" href="https://www.instagram.com/?hl=en">
             <FaInstagram />
           </a>
-          <a className="text-2xl" href="https://x.com/?lang=en&mx=2">
+          <a className="text-2xl" target="_blank" href="https://x.com/?lang=en&mx=2">
             <FaXTwitter />
           </a>
-          <a className="text-2xl" href="https://www.tiktok.com/?lang=en">
+          <a className="text-2xl" target="_blank" href="https://www.tiktok.com/?lang=en">
             <FaTiktok />
           </a>
-          <a className="text-2xl" href="https://www.youtube.com">
+          <a className="text-2xl" target="_blank" href="https://www.youtube.com">
             <FaYoutube />
           </a>
         </div>
