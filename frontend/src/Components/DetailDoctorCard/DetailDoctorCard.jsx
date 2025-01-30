@@ -10,8 +10,6 @@ import StarsRating from "../StarsRating.jsx";
 
 
 function DetailDoctorCard({ item = {} }) {
-    //per il momento controllo rapido per far caricare i dati e far funzionare tutto
-    if (!item) { return <p>Caricamento...</p> }
 
     const { nome, cognome, immagine, biografia, specializzazione, email, telefono, indirizzo,avgVote } = item
 
@@ -41,7 +39,7 @@ function DetailDoctorCard({ item = {} }) {
                         </div>
                         <div className="text-sm flex items-center gap-0.5">
                             <FiPhone />
-                            <p><span className="italic text-neutral-500">Telefono: </span><Link to="https://play-lh.googleusercontent.com/N8k1v59v30l3G4d7tEBRQZqHIMpUVyDyFzb0B4sxOwJqCBL-OsWYCT1dJaZhzNvrnr4=w240-h480-rw">{telefono}</Link></p>
+                            <p><span className="italic text-neutral-500">Telefono: </span><Link to="https://play-lh.googleusercontent.com/N8k1v59v30l3G4d7tEBRQZqHIMpUVyDyFzb0B4sxOwJqCBL-OsWYCT1dJaZhzNvrnr4=w240-h480-rw" target="_blank">{telefono}</Link></p>
                         </div>
                     </div>
                 </div>

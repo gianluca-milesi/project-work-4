@@ -6,11 +6,11 @@ export function WithHandlerForm(Component, baseForm){
         // eslint-disable-next-line react-hooks/rules-of-hooks
         const [data, setData] = useState(baseForm)
         function changeHandler(event) {
-          
+          let value = event.target.type === 'select' ? event.target.selected : event.target.value
             setData((review) => {
             return {
               ...review,
-              [event.target.name]: event.target.value,
+              [event.target.name]: value,
             };
           });
         }

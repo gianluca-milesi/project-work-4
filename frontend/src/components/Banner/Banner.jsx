@@ -8,11 +8,11 @@ function Banner(){
         <div className={`${style.banner} p-0 mx-auto flex justify-between items-center`}>
             <img src="http://localhost:3000/StockImg/banner_stock.png" className={`w-2/12`}/>
             <Link to="/registration" className={`${textResponsive} ${style.registration} inline-block px-1.5 py-2.5 b-none rounded-md cursor-pointer font-bold uppercase text-white ease-in-out duration-500 hover:scale-125`}>
-                unisciti
+                unisciti a noi
             </Link>
             <div className={`${textResponsive} pr-4 font-bold text-right`}>
                 <p>Sei un professionista?</p>
-                <p>Unisciti a noi</p>
+                <p>Registrati su BDoctors</p>
             </div>
         </div>
     )
