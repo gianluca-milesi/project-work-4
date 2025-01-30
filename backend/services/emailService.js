@@ -1,22 +1,28 @@
 const nodemailer = require("nodemailer");
 
+// Configura il trasportatore per Gmail
 const transporter = nodemailer.createTransport({
-  service: "gmail", // Puoi usare altri servizi come Outlook, Yahoo, ecc.
+  service: "gmail",  // Usa il servizio di Gmail
   auth: {
-    user: "your-email@gmail.com",
-    pass: "your-email-password",
+    user: process.env.EMAIL_USER,  // Il tuo indirizzo Gmail
+    pass: process.env.EMAIL_PASS,  // La tua App Password di Google
   },
 });
 
-const sendEmail = (to, subject, text) => {
-  const mailOptions = {
-    from: "your-email@gmail.com",
-    to,
-    subject,
-    text,
-  };
+// Funzione per inviare l'email
+const sendEmail = async (to, subject, text) => {
+  try {
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,  // L'email del mittente (quella che invia)
+      to: to,                       // Destinatario
+      subject: subject,             // Oggetto dell'email
+      text: text,                   // Corpo dell'email
+    });
 
-  return transporter.sendMail(mailOptions);
+    console.log("Email inviata con successo!");
+  } catch (error) {
+    console.error("Errore nell'invio dell'email: ", error);
+  }
 };
 
 module.exports = { sendEmail };

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-function EmailForm({ doctorEmail }) {
+function EmailForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -11,23 +11,22 @@ function EmailForm({ doctorEmail }) {
     e.preventDefault();
 
     try {
-      // Invia l'email al professionista
-      await axios.post("/api/doctors/send-email", {
-        to: doctorEmail, // Email del dottore passato come prop
-        subject: "Nuovo interessato",
-        text: `Nome: ${name}\nEmail: ${email}\nTelefono: ${phone}\nMessaggio: ${message}`,
-      });
-
-      // Invia l'email di cortesia all'utente
-      await axios.post("/api/doctors/send-courtesy-email", {
+      // Invia SOLO l'email di cortesia all'utente
+      await axios.post("http://localhost:3000/api/doctors/send-courtesy-email", {
         to: email,
         subject: "Conferma di contatto",
-        text: "Grazie per aver contattato il medico. Il medico è stato avvisato e ti contatterà a breve.",
+        text: "Grazie per aver compilato il form. Il tuo messaggio è stato ricevuto correttamente.",
       });
 
-      alert("Email inviata con successo");
+      // Svuota i campi dopo l'invio
+      setName("");
+      setEmail("");
+      setPhone("");
+      setMessage("");
+
+      alert("Email di conferma inviata con successo!");
     } catch (error) {
-      alert("Errore nell'invio dell'email");
+      alert("Errore nell'invio dell'email di conferma");
     }
   };
 
@@ -68,7 +67,7 @@ function EmailForm({ doctorEmail }) {
           required
         />
       </div>
-      <button className="custom-button" type="submit">Invia Email</button>
+      <button className="custom-button" type="submit">Invia</button>
     </form>
   );
 }

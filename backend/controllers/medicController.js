@@ -3,7 +3,6 @@ const path = require('path');
 const { sendEmail } = require("../services/emailService");
 
 
-
 //Index
 function index(req, res) {
 
@@ -29,7 +28,6 @@ function index(req, res) {
         res.json(results)
     })
 }
-
 
 //Show
 function show(req, res) {
@@ -67,7 +65,6 @@ function show(req, res) {
         })
     })
 }
-
 
 function store(req, res) {
     const { email, nome, cognome, telefono, indirizzo, specializzazione, biografia } = req.body;
@@ -112,33 +109,23 @@ function storeReview(req, res) {
     })
 }
 
-const sendEmailToProfessional = async (req, res) => {
-  const { to, subject, text } = req.body;
-
-  try {
-    await sendEmail(to, subject, text);
-    res.status(200).send("Email inviata con successo");
-  } catch (error) {
-    res.status(500).send("Errore nell'invio dell'email");
-  }
-};
-
 const sendCourtesyEmail = async (req, res) => {
-  const { to, subject, text } = req.body;
+    const { to, subject, text } = req.body;
 
-  try {
-    await sendEmail(to, subject, text);
-    res.status(200).send("Email di cortesia inviata con successo");
-  } catch (error) {
-    res.status(500).send("Errore nell'invio dell'email di cortesia");
-  }
+    try {
+        await sendEmail(to, subject, text);
+        res.status(200).send("Email di cortesia inviata con successo");
+    } catch (error) {
+        console.error("Errore nell'invio dell'email di cortesia:", error);
+        res.status(500).send("Errore nell'invio dell'email di cortesia");
+    }
 };
-    
+
+
 module.exports = {
-  index,
-  show,
-  store,
-  storeReview,
-  sendEmailToProfessional,
-  sendCourtesyEmail
+    index,
+    show,
+    store,
+    storeReview,
+    sendCourtesyEmail
 };
