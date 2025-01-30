@@ -43,7 +43,7 @@ export function WithRegistrationForm(Component){
                 },})
                 setSeeToast(true)
                 setMsgToast(result.data.message)
-                navigator('/')
+                navigator('/search')
                 resetForm()
              }catch({response}){//se chiamata va male mando a schermo messaggio
                 setSeeToast(true)
