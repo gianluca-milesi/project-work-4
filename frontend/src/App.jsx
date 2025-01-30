@@ -80,7 +80,7 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/search" element={<SearchDocPage />} />
-              <Route path="/doctor/:id" element={<DocDetailsPage />} />
+              <Route path="/doctor/:id/:slug" element={<DocDetailsPage />} />
               <Route path="/registration" element={<DocRegistrationPage />} />
             </Route>
             <Route element={<BlankLayout />}>

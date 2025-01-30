@@ -37,7 +37,7 @@ function show(req, res) {
         FROM medici
         left JOIN recensioni
         ON medici.id = recensioni.medico_id
-        WHERE medici.id = ?
+        WHERE medici.id = ? 
         GROUP BY medici.id;
     `
     connection.query(sql, [id], (err, results) => {
@@ -65,28 +65,6 @@ function show(req, res) {
     })
 }
 
-
-// //Store
-// function store(req, res) {
-//     const { email, nome, cognome, telefono, indirizzo, specializzazione} = req.body
-//     const {immagine} = req.files
-//     const uploadsPath = __dirname + '/public/DoctorImg'
-//     console.log(uploadsPath)
-//     const sql = "INSERT INTO medici (email, nome, cognome, telefono, indirizzo, specializzazione, immagine) VALUES (?, ?, ?, ?, ?, ?, ?)"
-//     connection.query(sql, [email, nome, cognome, telefono, indirizzo, specializzazione, immagine[0].name], (err, results) => {
-//         if (err) return res.status(500).json({ message: err.message })
-
-//         const imagefinalPath = uploadsPath +"/"+ immagine[0].name
-
-//         console.log(imagefinalPath)
-//         immagine[0].mv(imagefinalPath, (err)=>{
-//             if (err) return res.status(500).json({ message: "err.message2" })
-
-//             res.status(201).json({ message: "Medic added" })
-//         })
-
-//     })
-// }
 
 function store(req, res) {
     const { email, nome, cognome, telefono, indirizzo, specializzazione, biografia } = req.body;
