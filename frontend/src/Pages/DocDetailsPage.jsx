@@ -11,7 +11,7 @@ import { AddReviewFinalForm } from "../Components/AddReviewForm";
 
 function DocDetailsPage() {
   const { id: doctorId } = useParams();
-  const { doctorData, setDoctorData } = useContext(GlobalContext);
+  const { doctorData, setDoctorData, setIsLoading } = useContext(GlobalContext);
 
   //Navigate
   const navigate = useNavigate();
@@ -20,10 +20,16 @@ function DocDetailsPage() {
   }
 
   useEffect(() => {
+
+    setIsLoading(true)
+
     fetch(`http://localhost:3000/api/doctors/${doctorId}`)
       .then((response) => response.json())
       .then((data) => setDoctorData(data))
-      .catch((error) => console.error("Errore nella chiamata API:", error));
+      .catch((error) => console.error("Errore nella chiamata API:", error))
+      .finally(() => {
+        setIsLoading(false)
+      })
   }, [doctorId]);
 
   if (!doctorData) return <p>Caricamento...</p>;
