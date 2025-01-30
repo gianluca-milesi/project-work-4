@@ -8,8 +8,6 @@ import { TbMapSearch } from "react-icons/tb";
 
 
 function DetailDoctorCard({ item = {} }) {
-    //per il momento controllo rapido per far caricare i dati e far funzionare tutto
-    if (!item) { return <p>Caricamento...</p> }
 
     const { nome, cognome, immagine, biografia, specializzazione, email, telefono, indirizzo } = item
 
@@ -39,7 +37,7 @@ function DetailDoctorCard({ item = {} }) {
                         </div>
                         <div className="text-sm flex items-center gap-0.5">
                             <FiPhone />
-                            <p><span className="italic text-neutral-500">Telefono: </span><Link to="https://image.spreadshirtmedia.com/image-server/v1/compositions/T1367A2PA2791PT32X47Y12D1050561323W15629H25000/views/1,width=550,height=550,appearanceId=2,backgroundColor=000000,noPt=true/john-pork-is-calling-shirt-john-pork-meme-wo-cotton-drawstring-bag.jpg" target="_blank" className="hover:text-blue-500" title="Chiama">{telefono}</Link></p>
+                            <p><span className="italic text-neutral-500">Telefono: </span><Link to="https://play-lh.googleusercontent.com/N8k1v59v30l3G4d7tEBRQZqHIMpUVyDyFzb0B4sxOwJqCBL-OsWYCT1dJaZhzNvrnr4=w240-h480-rw" target="_blank">{telefono}</Link></p>
                         </div>
                     </div>
                 </div>
