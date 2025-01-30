@@ -1,4 +1,3 @@
-//Contexts
 import GlobalContext from "../contexts/GlobalContext";
 //Hooks
 import { useEffect, useContext } from "react";
@@ -8,6 +7,7 @@ import DetailDoctorCard from "../components/DetailDoctorCard/DetailDoctorCard.js
 import ReviewCard from "../components/ReviewCard";
 import StarsRating from "../components/StarsRating.jsx";
 import { AddReviewFinalForm } from "../Components/AddReviewForm";
+import EmailForm from "../components/FormEmail"; // Importa il componente EmailForm
 
 function DocDetailsPage() {
   const { id: doctorId } = useParams();
@@ -34,7 +34,6 @@ function DocDetailsPage() {
 
   if (!doctorData) return <p>Caricamento...</p>;
 
-
   return (
     <>
       <div className="background bgprimary">
@@ -46,9 +45,7 @@ function DocDetailsPage() {
             >
               Indietro
             </button>
-            {doctorData &&
-              <DetailDoctorCard item={doctorData} />
-            }
+            {doctorData && <DetailDoctorCard item={doctorData} />}
           </section>
 
           <section className="reviews">
@@ -73,6 +70,11 @@ function DocDetailsPage() {
 
           <section className="form_review">
             <AddReviewFinalForm />
+          </section>
+
+          {/* Aggiungi il form EmailForm in basso */}
+          <section className="contact_form">
+            {doctorData && <EmailForm doctorEmail={doctorData.email} />}
           </section>
         </div>
       </div>

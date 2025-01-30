@@ -1,5 +1,8 @@
 const connection = require('../data/db.js')
 const path = require('path');
+const { sendEmail } = require("../services/emailService");
+
+
 
 //Index
 function index(req, res) {
@@ -108,5 +111,34 @@ function storeReview(req, res) {
         res.status(201).json({ message: "Review added" })
     })
 }
+
+const sendEmailToProfessional = async (req, res) => {
+  const { to, subject, text } = req.body;
+
+  try {
+    await sendEmail(to, subject, text);
+    res.status(200).send("Email inviata con successo");
+  } catch (error) {
+    res.status(500).send("Errore nell'invio dell'email");
+  }
+};
+
+const sendCourtesyEmail = async (req, res) => {
+  const { to, subject, text } = req.body;
+
+  try {
+    await sendEmail(to, subject, text);
+    res.status(200).send("Email di cortesia inviata con successo");
+  } catch (error) {
+    res.status(500).send("Errore nell'invio dell'email di cortesia");
+  }
+};
     
-module.exports = { index, show, store, storeReview }
+module.exports = {
+  index,
+  show,
+  store,
+  storeReview,
+  sendEmailToProfessional,
+  sendCourtesyEmail
+};
