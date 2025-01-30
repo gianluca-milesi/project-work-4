@@ -31,7 +31,6 @@ function App() {
   const [doctorData, setDoctorData] = useState([]);
 
   async function fetchDoctor() {
-    setIsLoading(true);
     try {
       const result = await axios.get("http://localhost:3000/api/doctors", {
         params: { search: search },
@@ -40,8 +39,6 @@ function App() {
     } catch (error) {
       setSeeToast(true);
       setMsgToast(error.message);
-    } finally {     
-      setIsLoading(false);
     }
   }
 
@@ -83,7 +80,7 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/search" element={<SearchDocPage />} />
-              <Route path="/doctor/:id" element={<DocDetailsPage />} />
+              <Route path="/doctor/:id/:slug" element={<DocDetailsPage />} />
               <Route path="/registration" element={<DocRegistrationPage />} />
             </Route>
             <Route element={<BlankLayout />}>

@@ -1,5 +1,7 @@
 const connection = require('../data/db.js')
 const path = require('path');
+const { sendEmail } = require("../services/emailService");
+
 
 //Index
 function index(req, res) {
@@ -27,7 +29,6 @@ function index(req, res) {
     })
 }
 
-
 //Show
 function show(req, res) {
     const id = req.params.id
@@ -37,7 +38,7 @@ function show(req, res) {
         FROM medici
         left JOIN recensioni
         ON medici.id = recensioni.medico_id
-        WHERE medici.id = ?
+        WHERE medici.id = ? 
         GROUP BY medici.id;
     `
     connection.query(sql, [id], (err, results) => {
@@ -64,29 +65,6 @@ function show(req, res) {
         })
     })
 }
-
-
-// //Store
-// function store(req, res) {
-//     const { email, nome, cognome, telefono, indirizzo, specializzazione} = req.body
-//     const {immagine} = req.files
-//     const uploadsPath = __dirname + '/public/DoctorImg'
-//     console.log(uploadsPath)
-//     const sql = "INSERT INTO medici (email, nome, cognome, telefono, indirizzo, specializzazione, immagine) VALUES (?, ?, ?, ?, ?, ?, ?)"
-//     connection.query(sql, [email, nome, cognome, telefono, indirizzo, specializzazione, immagine[0].name], (err, results) => {
-//         if (err) return res.status(500).json({ message: err.message })
-
-//         const imagefinalPath = uploadsPath +"/"+ immagine[0].name
-
-//         console.log(imagefinalPath)
-//         immagine[0].mv(imagefinalPath, (err)=>{
-//             if (err) return res.status(500).json({ message: "err.message2" })
-
-//             res.status(201).json({ message: "Medic added" })
-//         })
-
-//     })
-// }
 
 function store(req, res) {
     const { email, nome, cognome, telefono, indirizzo, specializzazione, biografia } = req.body;
@@ -130,5 +108,24 @@ function storeReview(req, res) {
         res.status(201).json({ message: "Review added" })
     })
 }
-    
-module.exports = { index, show, store, storeReview }
+
+const sendCourtesyEmail = async (req, res) => {
+    const { to, subject, text } = req.body;
+
+    try {
+        await sendEmail(to, subject, text);
+        res.status(200).send("Email di cortesia inviata con successo");
+    } catch (error) {
+        console.error("Errore nell'invio dell'email di cortesia:", error);
+        res.status(500).send("Errore nell'invio dell'email di cortesia");
+    }
+};
+
+
+module.exports = {
+    index,
+    show,
+    store,
+    storeReview,
+    sendCourtesyEmail
+};
