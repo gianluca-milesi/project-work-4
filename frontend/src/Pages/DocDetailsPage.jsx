@@ -2,7 +2,7 @@
 import GlobalContext from "../contexts/GlobalContext";
 //Hooks
 import { useEffect, useContext } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate} from "react-router-dom";
 //Components
 import DetailDoctorCard from "../components/DetailDoctorCard/DetailDoctorCard.jsx";
 import ReviewCard from "../components/ReviewCard";
