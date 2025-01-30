@@ -1,6 +1,6 @@
 const connection = require('../data/db.js')
 const path = require('path');
-const { sendEmail } = require("../services/emailService");
+const { sendEmail, sendEmailDoc } = require("../services/emailService");
 
 
 //Index
@@ -110,10 +110,11 @@ function storeReview(req, res) {
 }
 
 const sendCourtesyEmail = async (req, res) => {
-    const { to, subject, text } = req.body;
+    const { to, subject, text, doctorEmail, name } = req.body;
 
     try {
         await sendEmail(to, subject, text);
+        await sendEmailDoc(to, subject, text, doctorEmail, name);
         res.status(200).send("Email di cortesia inviata con successo");
     } catch (error) {
         console.error("Errore nell'invio dell'email di cortesia:", error);

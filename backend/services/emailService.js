@@ -13,11 +13,26 @@ const transporter = nodemailer.createTransport({
 });
 
 // Funzione per inviare l'email
-const sendEmail = async (to, subject, text) => {
+const sendEmail = async (to) => {
   try {
     await transporter.sendMail({
       from: process.env.EMAIL_USER,  // L'email del mittente (quella che invia)
       to: to,                       // Destinatario
+      subject: "Conferma di contatto",             // Oggetto dell'email
+      text: "Grazie per aver compilato il form. Il tuo messaggio è stato ricevuto correttamente.",                   // Corpo dell'email
+    });
+  } catch (error) {
+    console.error("Errore nell'invio dell'email: ", error);
+  }
+};
+
+const sendEmailDoc = async (to, subject, text, doctorEmail, name) => {
+  console.log(to, subject, text, doctorEmail, name)
+  try {
+    await transporter.sendMail({
+      from: `${name} <${to}>`,  // L'email del mittente (quella che invia)
+      replyTo: to,
+      to: doctorEmail,                       // Destinatario
       subject: subject,             // Oggetto dell'email
       text: text,                   // Corpo dell'email
     });
@@ -28,4 +43,4 @@ const sendEmail = async (to, subject, text) => {
   }
 };
 
-module.exports = { sendEmail };
+module.exports = { sendEmail, sendEmailDoc };
