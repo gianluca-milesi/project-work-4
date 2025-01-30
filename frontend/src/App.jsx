@@ -19,7 +19,8 @@ import NotFound from "./pages/NotFound/NotFound.jsx";
 import DocRegistrationPage from "./pages/DocRegistrationPage/DocRegistrationPage.jsx";
 //Components
 import { Toast } from "./Components/MsgToast.jsx";
-// ciao
+import ScrollToTop from "./Utils/ScrollToTop.js";
+
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -75,6 +76,7 @@ function App() {
         }}
       >
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route element={<DefaultLayout />}>
               <Route path="/" element={<HomePage />} />
