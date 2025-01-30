@@ -37,11 +37,11 @@ function DocDetailsPage() {
   return (
     <>
       <div className="background bgprimary">
-        <div className="container rounded-lg bgsecondary py-3">
+        <div className="container rounded-3xl bgsecondary py-3">
           <section className="doc_detail m-5">
             <button
               onClick={goBack}
-              className="back_button mb-5 bg-[#00c3a5] text-white rounded font-semibold py-1 px-2"
+              className="back_button custom-button mb-5 bg-[#00c3a5] text-white rounded-2xl font-semibold py-1 px-2"
             >
               Indietro
             </button>
