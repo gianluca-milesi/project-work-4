@@ -6,20 +6,20 @@ function EmailForm({ doctorEmail }) {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
-
+  console.log(doctorEmail);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       // Invia l'email al professionista
-      await axios.post("/api/doctors/send-email", {
+      await axios.post("http://localhost:3000/api/doctors/send-email", {
         to: doctorEmail, // Email del dottore passato come prop
         subject: "Nuovo interessato",
         text: `Nome: ${name}\nEmail: ${email}\nTelefono: ${phone}\nMessaggio: ${message}`,
       });
 
       // Invia l'email di cortesia all'utente
-      await axios.post("/api/doctors/send-courtesy-email", {
+      await axios.post("http://localhost:3000/api/doctors/send-courtesy-email", {
         to: email,
         subject: "Conferma di contatto",
         text: "Grazie per aver contattato il medico. Il medico è stato avvisato e ti contatterà a breve.",

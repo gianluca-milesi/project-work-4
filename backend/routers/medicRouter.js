@@ -38,10 +38,4 @@ router.post(
   medicController.storeReview
 );
 
-// Send Email to Professional
-router.post("/send-email", medicController.sendEmailToProfessional);
-
-// Send Courtesy Email
-router.post("/send-courtesy-email", medicController.sendCourtesyEmail);
-
 module.exports = router;

@@ -1,10 +1,10 @@
 const nodemailer = require("nodemailer");
-
+ 
 const transporter = nodemailer.createTransport({
   service: "gmail", // Puoi usare altri servizi come Outlook, Yahoo, ecc.
   auth: {
-    user: "your-email@gmail.com",
-    pass: "your-email-password",
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
 });
 
