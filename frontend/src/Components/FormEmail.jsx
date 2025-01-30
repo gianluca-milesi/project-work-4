@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 function EmailForm() {
@@ -6,7 +6,7 @@ function EmailForm() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
-  console.log(doctorEmail);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
