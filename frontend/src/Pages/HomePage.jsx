@@ -3,6 +3,7 @@ import axios from "axios"
 import GlobalContext from "../contexts/GlobalContext";
 //Hooks
 import { useState, useEffect } from "react";
+import { useContext } from "react";
 //Components
 import Hero from "../layouts/Hero";
 import DoctorCard from "../components/DoctorCard/DoctorCard";
@@ -12,8 +13,12 @@ import Banner from "../components/Banner/Banner"
 function HomePage() {
 
   const [doctors, setDoctors] = useState([])
+  const { setIsLoading } = useContext(GlobalContext)
 
   function fetchDoctors() {
+
+    setIsLoading(true)
+
     axios.get(`http://localhost:3000/api/doctors`)
       .then(res => {
         // setDoctors(res.data)
@@ -24,6 +29,9 @@ function HomePage() {
       })
       .catch(err => {
         console.error(err)
+      })
+      .finally(() => {
+        setIsLoading(false)
       })
   }
 
