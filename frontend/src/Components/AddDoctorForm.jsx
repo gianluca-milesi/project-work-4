@@ -2,6 +2,9 @@
 import { WithHandlerForm } from "./Hoc/WithHandlerForm";
 import { WithValidation } from "./Hoc/WithValidation";
 import { WithRegistrationForm } from "./Hoc/WithRegistration";
+
+import {useState} from "react";
+
 const baseForm = {
   nome: "",
   cognome: "",
@@ -13,7 +16,18 @@ const baseForm = {
   immagine: null,
 };
 
+
+
 export function AddDoctorForm({ data, handlerInput, sender, handleFile }) {
+  const [fileName, setFileName] = useState("Nessun file selezionato");
+  const handleFileChange = (e) => {
+    if (e.target.files.length > 0) {
+      setFileName(e.target.files[0].name);
+    } else {
+      setFileName("Nessun file selezionato");
+    }
+    handleFile(e);
+  };
   const {
     nome,
     cognome,
@@ -26,7 +40,7 @@ export function AddDoctorForm({ data, handlerInput, sender, handleFile }) {
   return (
     <div className="container text-black">
       <form
-        className="flex flex-col gap-4 justify-center items-center custom-bg-form"
+        className="lg:w-1/2 flex flex-col gap-4 justify-center items-center custom-bg-form"
         encType="multipart/form-data"
         onSubmit={(e) => sender(e)}
       >
@@ -38,7 +52,7 @@ export function AddDoctorForm({ data, handlerInput, sender, handleFile }) {
           value={nome}
           onChange={(e) => handlerInput(e)}
           className="border-2 rounded-2xl p-3 mx-5 w-11/12"
-          placeholder="inserisci nome..."
+          placeholder="Inserisci nome..."
           minLength="4"
           required
         />
@@ -48,7 +62,7 @@ export function AddDoctorForm({ data, handlerInput, sender, handleFile }) {
           value={cognome}
           onChange={(e) => handlerInput(e)}
           className="border-2 rounded-2xl p-3 mx-5 w-11/12"
-          placeholder="inserisci cognome.."
+          placeholder="Inserisci cognome.."
           minLength="4"
           required
         />
@@ -58,7 +72,7 @@ export function AddDoctorForm({ data, handlerInput, sender, handleFile }) {
           value={email}
           onChange={(e) => handlerInput(e)}
           className="border-2 rounded-2xl p-3 mx-5 w-11/12"
-          placeholder="inserisci email..."
+          placeholder="Inserisci email..."
           required
         />
         <input
@@ -67,7 +81,7 @@ export function AddDoctorForm({ data, handlerInput, sender, handleFile }) {
           value={telefono}
           onChange={(e) => handlerInput(e)}
           className="border-2 rounded-2xl text-black p-3 mx-5 w-11/12"
-          placeholder="inserisci telefono..."
+          placeholder="Inserisci telefono..."
           pattern="\d{10}"
           required
         />
@@ -77,7 +91,7 @@ export function AddDoctorForm({ data, handlerInput, sender, handleFile }) {
           value={indirizzo}
           onChange={(e) => handlerInput(e)}
           className="border-2 rounded-2xl p-3 mx-5 w-11/12"
-          placeholder="via, piazza... numero civico, citta"
+          placeholder="Via, Piazza... numero civico, Città"
           required
         />
         <input
@@ -86,26 +100,27 @@ export function AddDoctorForm({ data, handlerInput, sender, handleFile }) {
           value={specializzazione}
           onChange={(e) => handlerInput(e)}
           className="border-2 rounded-2xl p-3 mx-5 w-11/12"
-          placeholder="inserisci specializzazione..."
+          placeholder="Inserisci specializzazione..."
           required
         />
+        <label htmlFor="hideDefaultUpload" className="customUpload">Inserisci immagine...</label>
         <input
           type="file"
           name="immagine"
-          onChange={(e) => handleFile(e)}
-          className="border-2 rounded-2xl mx-5 w-10/12"
-          placeholder="inserisci immagine..."
+          id="hideDefaultUpload"
+          onChange={(e) => handleFileChange(e)}
         />
+        <p className="text-white d-block text-center mb-1">{fileName}</p>
         <textarea
           type="text"
           name="biografia"
           value={biografia}
           onChange={(e) => handlerInput(e)}
           className="border-2 rounded-2xl p-3 mx-5 w-11/12"
-          placeholder="inserisci biografia..."
+          placeholder="Inserisci biografia..."
           rows="3"
         />
-        <button className="bg-cyan-300 text-2xl custom-button py-3 hover:bg-cyan-600 w-4/12">
+        <button className="uppercase text-2xl custom-button py-3 w-4/12">
           invia
         </button>
       </form>

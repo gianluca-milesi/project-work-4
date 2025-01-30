@@ -23,7 +23,7 @@ import ScrollToTop from "./Utils/ScrollToTop.js";
 
 
 function App() {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [seeToast, setSeeToast] = useState(false);
   const [msgToast, setMsgToast] = useState("");
   const [doctors, setDoctors] = useState([]);
@@ -31,6 +31,7 @@ function App() {
   const [doctorData, setDoctorData] = useState([]);
 
   async function fetchDoctor() {
+    setIsLoading(true);
     try {
       const result = await axios.get("http://localhost:3000/api/doctors", {
         params: { search: search },
@@ -39,6 +40,8 @@ function App() {
     } catch (error) {
       setSeeToast(true);
       setMsgToast(error.message);
+    } finally {     
+      setIsLoading(false);
     }
   }
 
