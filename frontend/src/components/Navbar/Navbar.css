@@ -1,15 +1,11 @@
-.background{
+.background {
     background-color: var(--color-primary)
 }
 
-.backgroundTwo{
+.backgroundTwo {
     background-color: var(--color-secondary);
 }
 
-.logoSize{
-    width: 75px;
-}
-
-.fixedSize{
+.fixedSize {
     width: 200px;
 }

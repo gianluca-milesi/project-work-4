@@ -28,10 +28,10 @@ function DocDetailsPage() {
 
   if (!doctorData) return <p>Caricamento...</p>;
 
+
   return (
     <>
-      {/* CARDS */}
-      <div className="bgprimary">
+      <div className="background bgprimary">
         <div className="container rounded-lg bgsecondary py-3">
           <section className="doc_detail m-5">
             <button
@@ -40,12 +40,12 @@ function DocDetailsPage() {
             >
               Indietro
             </button>
-            <DetailDoctorCard item={doctorData} />
+            {doctorData &&
+              <DetailDoctorCard item={doctorData} />
+            }
           </section>
 
-          {/* REVIEW */}
-          {/* Aggiungere container, row, cols */}
-          <section>
+          <section className="reviews">
             <div className="container">
               <div className="bg-white rounded-xl p-3 my-7 mb-3 flex gap-1 justify-center w-fit items-center">
                 <span>Voto Medio: </span>
@@ -54,7 +54,7 @@ function DocDetailsPage() {
               <div className="row">
                 {doctorData.recensioni && doctorData.recensioni.length > 0 ? (
                   doctorData.recensioni.map((review) => (
-                    <div key={review.id} className="col-6">
+                    <div key={review.id} className="col-12 md:col-6">
                       <ReviewCard review={review} />
                     </div>
                   ))
