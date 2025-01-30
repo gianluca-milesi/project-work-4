@@ -2,6 +2,9 @@
 import { WithHandlerForm } from "./Hoc/WithHandlerForm";
 import { WithValidation } from "./Hoc/WithValidation";
 import { WithRegistrationForm } from "./Hoc/WithRegistration";
+
+import {useState} from "react";
+
 const baseForm = {
   nome: "",
   cognome: "",
@@ -13,7 +16,18 @@ const baseForm = {
   immagine: null,
 };
 
+
+
 export function AddDoctorForm({ data, handlerInput, sender, handleFile }) {
+  const [fileName, setFileName] = useState("Nessun file selezionato");
+  const handleFileChange = (e) => {
+    if (e.target.files.length > 0) {
+      setFileName(e.target.files[0].name);
+    } else {
+      setFileName("Nessun file selezionato");
+    }
+    handleFile(e);
+  };
   const {
     nome,
     cognome,
@@ -89,13 +103,14 @@ export function AddDoctorForm({ data, handlerInput, sender, handleFile }) {
           placeholder="Inserisci specializzazione..."
           required
         />
-        <label for="hideDefaultUpload" className="customUpload">Inserisci immagine...</label>
+        <label htmlFor="hideDefaultUpload" className="customUpload">Inserisci immagine...</label>
         <input
           type="file"
           name="immagine"
           id="hideDefaultUpload"
-          onChange={(e) => handleFile(e)}
+          onChange={(e) => handleFileChange(e)}
         />
+        <p className="text-white d-block text-center mb-1">{fileName}</p>
         <textarea
           type="text"
           name="biografia"
