@@ -7,6 +7,9 @@ const transporter = nodemailer.createTransport({
     user: process.env.EMAIL_USER,  // Il tuo indirizzo Gmail
     pass: process.env.EMAIL_PASS,  // La tua App Password di Google
   },
+  tls: {
+    rejectUnauthorized: false, // Disabilita la verifica dei certificati non validi
+  },
 });
 
 // Funzione per inviare l'email
