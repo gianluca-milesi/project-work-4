@@ -9,7 +9,7 @@ import { FaCircleInfo } from "react-icons/fa6";
 import { CiLogin } from "react-icons/ci";
 import { MdNewLabel } from "react-icons/md";
 import { IoCloseSharp } from "react-icons/io5"; // Icona per chiudere il menu
-import logo from "../../../public/logo.png"
+import logo from "/logo.png"
 
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);

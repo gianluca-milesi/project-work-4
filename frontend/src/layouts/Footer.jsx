@@ -3,7 +3,7 @@ import { FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaTiktok } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
-import logo from "../../public/logo.png"
+import logo from "/logo.png"
 
 import { Link } from "react-router-dom";
 
