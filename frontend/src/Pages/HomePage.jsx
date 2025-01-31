@@ -23,7 +23,7 @@ function HomePage() {
       .then(res => {
         const topDoctors = res.data
           .sort((a, b) => b.avgVote - a.avgVote) // Ordina in maniera decrescente
-          .slice(0, 4); // Prende solo i primi 4
+          .slice(0, 9); // Prende solo i primi 4
         setDoctors(topDoctors);
       })
       .catch(err => {
@@ -40,21 +40,21 @@ function HomePage() {
 
   // Impostazioni per il carosello
   const settings = {
-    dots: true, 
-    infinite: true, 
-    speed: 500, 
-    slidesToShow: 3, 
-    slidesToScroll: 1, 
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
     responsive: [
       {
-        breakpoint: 1024, 
+        breakpoint: 1024,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 600, 
+        breakpoint: 600,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -74,11 +74,11 @@ function HomePage() {
           <h2 className="text-4xl pb-3">I nostri migliori medici</h2>
           <Slider {...settings}>
             {doctors.map((doc) => (
-              <div key={doc.id} className="px-2"> 
+              <div key={doc.id} className="px-2">
                 <DoctorCard item={doc} />
               </div>
             ))}
-          </Slider>
+          </Slider >
         </div>
       </section>
 
