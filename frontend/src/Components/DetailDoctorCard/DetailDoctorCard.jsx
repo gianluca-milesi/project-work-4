@@ -5,9 +5,7 @@ import { Link } from "react-router-dom";
 import { FiPhone } from "react-icons/fi";
 import { HiOutlineMail } from "react-icons/hi";
 import { TbMapSearch } from "react-icons/tb";
-
 import { MdOutlineEmail } from "react-icons/md";
-import DocEmail from "../../Pages/DocEmail.jsx";
 
 
 function DetailDoctorCard({ item = {} }) {
@@ -16,7 +14,7 @@ function DetailDoctorCard({ item = {} }) {
 
 
     return (
-        <div className={`${style.card} sm:flex justify-center`}>
+        <div className="card sm:flex justify-center">
             <figure className={style.doc_figures}>
                 <img className={style.doc_image} src={immagine} />
             </figure>
@@ -28,7 +26,7 @@ function DetailDoctorCard({ item = {} }) {
                         <p className="text-sm text-neutral-500 italic">{biografia}</p>
                     </div>
                     <div className={`${style.doc_specialization} text-sm`}>
-                        <p className="lg:font-normal text-lg"><span className="hidden lg:inline font-semibold">Specializzazione</span><span className="hidden lg:inline">: </span>{specializzazione}</p>
+                        <p className="font-semibold lg:font-normal text-base"><span className="hidden lg:inline font-semibold">Specializzazione</span><span className="hidden lg:inline">: </span>{specializzazione}</p>
                     </div>
                 </div >
                 <div className={style.doc_contacts}>
@@ -60,9 +58,9 @@ function DetailDoctorCard({ item = {} }) {
                             </Link>
                         </p>
                         <Link to={`/doctor/${item.id}/email`}>
-                            <button className="custom-button hover:bg-blue-900 p-3 w-full  ml-10 flex items-center justify-center gap-3">
+                            <button className={`${style.contact_button} custom-button hover:bg-blue-900 p-3 flex items-center justify-center gap-3`}>
                                 <MdOutlineEmail className="text-xl sm:text-2xl" />
-                                <span className="hidden sm:inline">Contatta ora!</span>
+                                <span>Contatta ora!</span>
                             </button>
                         </Link>
                     </div>
