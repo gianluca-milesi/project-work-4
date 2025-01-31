@@ -3,7 +3,7 @@ import GlobalContext from "../contexts/GlobalContext";
 import { useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 //Components
-import DetailDoctorCard from "../components/DetailDoctorCard/DetailDoctorCard.jsx";
+import DetailDoctorCardEmail from "../components/DetailDoctorCardEmail/DetailDoctorCardEmail";
 import { FinalEmailForm } from "../components/FormEmail";
 
 function DocEmail() {
@@ -40,15 +40,9 @@ function DocEmail() {
             >
               Indietro
             </button>
-            {doctorData && <DetailDoctorCard item={doctorData} />}
+            {doctorData && <DetailDoctorCardEmail item={doctorData} />}
           </section>
-
-          <section className="reviews">
-            <div className="container">
-              <div className="row"></div>
-            </div>
-          </section>
-          <div className="container flex justify-center">
+          <div className="container">
             <FinalEmailForm doctorEmail={doctorData.email} />
           </div>
         </div>
