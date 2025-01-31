@@ -37,7 +37,7 @@ function SearchDocPage() {
         </div>
         <div className="container">
           <div className="row">
-            {doctors ? (
+            {doctors.length > 0 ? (
               doctors.map((doc, i) => {
                 return (
                   <div key={i} className="col-12 sm:col-6 lg:p-0">
