@@ -1,6 +1,6 @@
 import style from "./DetailDoctorCard.module.css"
 //Hooks
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 //Icons
 import { FiPhone } from "react-icons/fi";
 import { HiOutlineMail } from "react-icons/hi";
@@ -11,6 +11,7 @@ import { MdOutlineEmail } from "react-icons/md";
 function DetailDoctorCard({ item = {} }) {
 
     const { nome, cognome, immagine, biografia, specializzazione, email, telefono, indirizzo } = item
+    const location = useLocation()
 
 
     return (
@@ -57,12 +58,14 @@ function DetailDoctorCard({ item = {} }) {
                                 {indirizzo}
                             </Link>
                         </p>
-                        <Link to={`/doctor/${item.id}/email`}>
-                            <button className={`${style.contact_button} custom-button hover:bg-blue-900 p-3 flex items-center justify-center gap-3`}>
-                                <MdOutlineEmail className="text-xl sm:text-2xl" />
-                                <span>Contatta ora!</span>
-                            </button>
-                        </Link>
+                        {location.pathname !== `/doctor/${item.id}/email` &&
+                            <Link to={`/doctor/${item.id}/email`}>
+                                <button className={`${style.contact_button} custom-button hover:bg-blue-900 p-3 flex items-center justify-center gap-3`}>
+                                    <MdOutlineEmail className="text-xl sm:text-2xl" />
+                                    <span>Contatta ora!</span>
+                                </button>
+                            </Link>
+                        }
                     </div>
                 </div>
             </div >
