@@ -227,10 +227,10 @@ button.slick-arrow.slick-prev {
   }
 
   button.slick-arrow.slick-prev {
-    left: -10px;
+    left: -15px;
   }
 
   .slick-arrow.slick-next {
-    right: -10px;
+    right: -15px;
   }
 }
