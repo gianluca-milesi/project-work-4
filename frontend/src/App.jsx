@@ -24,7 +24,7 @@ import ScrollToTop from "./Utils/ScrollToTop.js";
 
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [seeToast, setSeeToast] = useState(false);
   const [msgToast, setMsgToast] = useState("");
   const [doctors, setDoctors] = useState([]);
