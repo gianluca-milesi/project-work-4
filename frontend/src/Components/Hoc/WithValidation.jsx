@@ -7,7 +7,7 @@ import isEmail from 'validator/lib/isEmail';
 
 export function WithValidation(Component){
     return ({data, ...other}) =>{
-      const {nome, cognome, email, telefono, indirizzo, specializzazione, immagine, biografia, text, voto} = data
+      const {nome, cognome, email, telefono, indirizzo, specializzazione, immagine, biografia, text, voto, name, message, subject} = data
         const nameSurnameRegEx = /^[A-Za-zÀ-ÿ']+([ -][A-Za-zÀ-ÿ']+)*$/;                                
         const stringRegEx = /^[a-zA-ZàèéìòùÀÈÉÌÒÙ\s]+$/;
 
@@ -86,6 +86,23 @@ export function WithValidation(Component){
           return {valid:true, msg:'tutto ok'}
         }
 
-        return <Component validation={inputValidation} validationRev={inputReviewValidation} data = {data} {...other}/>
+        function emailDocValidation(){
+          console.log(name, message, subject, email)
+          if(!nameSurnameRegEx.test(name)){
+            return {valid: false , msg: 'nome non valido'}
+          }
+          if(!(subject.length<2000 && subject.length>4)){
+            return {valid: false , msg: 'object non valido'}
+          }
+          if(!(message.length<2000 && message.length>4)){
+           return {valid: false ,msg: 'testo non valido'}
+          }
+          if(!isEmail(email)){
+            return {valid: false , msg: 'email non valida'}  
+          }
+          return {valid:true, msg:'tutto ok'}
+        }
+
+        return <Component validation={inputValidation} validationRev={inputReviewValidation} emailDocValidation={emailDocValidation} data = {data} {...other}/>
     }
 }

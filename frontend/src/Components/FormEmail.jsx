@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { WithHandlerForm } from "./Hoc/WithHandlerForm";
 import { WithRegistrationForm } from "./Hoc/WithRegistration";
-
+import { WithValidation } from "./Hoc/WithValidation";
 const baseForm = {
   name: "",
   email: "",
@@ -67,5 +67,5 @@ function EmailForm({ data, handlerInput, emailSender, doctorEmail}) {
   );
 }
 
-const FinalEmailForm = WithHandlerForm(WithRegistrationForm(EmailForm), baseForm);
+const FinalEmailForm = WithHandlerForm(WithValidation(WithRegistrationForm(EmailForm)), baseForm);
 export {FinalEmailForm}
