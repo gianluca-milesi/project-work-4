@@ -5,20 +5,14 @@ import { Link } from "react-router-dom";
 import { FiPhone } from "react-icons/fi";
 import { HiOutlineMail } from "react-icons/hi";
 import { TbMapSearch } from "react-icons/tb";
-import StarsRating from "../StarsRating.jsx";
+
 import { MdOutlineEmail } from "react-icons/md";
 import DocEmail from "../../Pages/DocEmail.jsx";
 
-function scrollToBottom() {
-    window.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: "smooth"
-    });
-}
 
 function DetailDoctorCard({ item = {} }) {
 
-    const { nome, cognome, immagine, biografia, specializzazione, email, telefono, indirizzo, avgVote } = item
+    const { nome, cognome, immagine, biografia, specializzazione, email, telefono, indirizzo } = item
 
 
     return (
@@ -34,7 +28,7 @@ function DetailDoctorCard({ item = {} }) {
                         <p className="text-sm text-neutral-500 italic">{biografia}</p>
                     </div>
                     <div className={`${style.doc_specialization} text-sm`}>
-                        <p className="font-semibold lg:font-normal"><span className="hidden lg:inline font-semibold">Specializzazione</span><span className="hidden lg:inline">: </span>{specializzazione}</p>
+                        <p className="lg:font-normal text-lg"><span className="hidden lg:inline font-semibold">Specializzazione</span><span className="hidden lg:inline">: </span>{specializzazione}</p>
                     </div>
                 </div >
                 <div className={style.doc_contacts}>

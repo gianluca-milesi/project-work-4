@@ -16,7 +16,6 @@ function Searchbar() {
         placeholder='Cerca' />
     </div>
   )
-
 }
 
 export default Searchbar;
