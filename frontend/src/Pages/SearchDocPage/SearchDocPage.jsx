@@ -21,6 +21,7 @@ function SearchDocPage() {
     setSearch(""); // Resetta il valore della searchbar quando cambia la pagina
   }, [location]);
 
+
   return (
     <>
       <div className="bgprimary">
