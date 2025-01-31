@@ -85,6 +85,30 @@ export function WithRegistrationForm(Component){
                 setMsgToast(result.msg) 
             }
         }
-        return <Component sender={sendDoctor} reviewSender={sendReview} data={data} {...other}/>
+
+
+        async function emailSender(e, doctorEmail){
+            e.preventDefault();
+            const emailInfo={
+                name: data.name,
+                doctorEmail: doctorEmail,
+                to: data.email,
+                subject: data.subject,
+                text: data.message,
+            }
+
+            try {
+              // Invia SOLO l'email di cortesia all'utente
+              await axios.post("http://localhost:3000/api/doctors/send-courtesy-email", emailInfo);
+              resetForm()
+              setSeeToast(true)
+              setMsgToast("Email di conferma inviata con successo!");
+            } catch (error) {
+              setSeeToast(true)
+              setMsgToast("Errore nell'invio dell'email di conferma");
+            }
+        };
+
+        return <Component sender={sendDoctor} reviewSender={sendReview} emailSender={emailSender} data={data} {...other}/>
     }
 }

@@ -1,43 +1,26 @@
-import React, { useState } from "react";
-import axios from "axios";
+/* eslint-disable react/prop-types */
+import { WithHandlerForm } from "./Hoc/WithHandlerForm";
+import { WithRegistrationForm } from "./Hoc/WithRegistration";
 
-function EmailForm() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [message, setMessage] = useState("");
+const baseForm = {
+  name: "",
+  email: "",
+  message: "",
+  subject: ""
+};
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      // Invia SOLO l'email di cortesia all'utente
-      await axios.post("http://localhost:3000/api/doctors/send-courtesy-email", {
-        to: email,
-        subject: "Conferma di contatto",
-        text: "Grazie per aver compilato il form. Il tuo messaggio è stato ricevuto correttamente.",
-      });
-
-      // Svuota i campi dopo l'invio
-      setName("");
-      setEmail("");
-      setPhone("");
-      setMessage("");
-
-      alert("Email di conferma inviata con successo!");
-    } catch (error) {
-      alert("Errore nell'invio dell'email di conferma");
-    }
-  };
+function EmailForm({ data, handlerInput, emailSender, doctorEmail}) {
+ const { name, email, message, subject} = data;
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div  className="flex flex-col">
-        <label className="text-gray-700">Nome</label>
+    <form onSubmit={(e)=>emailSender(e, doctorEmail)}>
+      <div>
+        <label>Nome:</label>
         <input
           type="text"
+          name="name"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => handlerInput(e)}
           required
           className="border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
         />
@@ -46,19 +29,21 @@ function EmailForm() {
         <label className="text-gray-700">Email</label>
         <input
           type="email"
+          name="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => handlerInput(e)}
           required
           className="border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
 
         />
       </div>
-      <div  className="flex flex-col">
-        <label className="text-gray-700">Telefono</label>
+      <div>
+        <label>object:</label>
         <input
-          type="tel"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
+          type="text"
+          name="subject"
+          value={subject}
+          onChange={(e) => handlerInput(e)}
           required
           className="border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
 
@@ -67,8 +52,9 @@ function EmailForm() {
       <div  className="flex flex-col">
         <label className="text-gray-700">Messaggio</label>
         <textarea
+          name="message"
           value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          onChange={(e) => handlerInput(e)}
           required
           className="border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
 
@@ -79,4 +65,5 @@ function EmailForm() {
   );
 }
 
-export default EmailForm;
+const FinalEmailForm = WithHandlerForm(WithRegistrationForm(EmailForm), baseForm);
+export {FinalEmailForm}

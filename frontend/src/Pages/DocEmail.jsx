@@ -4,7 +4,7 @@ import { useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 //Components
 import DetailDoctorCard from "../components/DetailDoctorCard/DetailDoctorCard.jsx";
-import EmailForm from "../components/FormEmail";
+import {FinalEmailForm} from "../components/FormEmail";
 
 function DocEmail() {
     const { id: doctorId } = useParams();
@@ -50,7 +50,7 @@ function DocEmail() {
                         </div>
                     </section>
                     <div className="container flex justify-center">
-                        <EmailForm />
+                        <FinalEmailForm doctorEmail={doctorData.email}/>
                     </div>
                 </div>
             </div>
