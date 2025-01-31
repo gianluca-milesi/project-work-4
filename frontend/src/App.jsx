@@ -17,6 +17,7 @@ import SearchDocPage from "./pages/SearchDocPage/SearchDocPage.jsx";
 import DocDetailsPage from "./pages/DocDetailsPage.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import DocRegistrationPage from "./pages/DocRegistrationPage/DocRegistrationPage.jsx";
+import DocEmail from "./pages/DocEmail.jsx";
 //Components
 import { Toast } from "./Components/MsgToast.jsx";
 import ScrollToTop from "./Utils/ScrollToTop.js";
@@ -81,6 +82,7 @@ function App() {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/search" element={<SearchDocPage />} />
               <Route path="/doctor/:id/:slug" element={<DocDetailsPage />} />
+              <Route path="/doctor/:id/email" element={<DocEmail />} />
               <Route path="/registration" element={<DocRegistrationPage />} />
             </Route>
             <Route element={<BlankLayout />}>
