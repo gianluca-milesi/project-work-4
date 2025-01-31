@@ -27,7 +27,6 @@ app.use("/api/doctors", medicRouter)
 app.use(errorsHandler)
 app.use(notFound)
 
-
 app.listen(port, () => {
     console.log(`Server port: ${port}`)
 })

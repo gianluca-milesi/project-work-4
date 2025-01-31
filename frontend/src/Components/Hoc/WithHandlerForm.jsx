@@ -7,6 +7,7 @@ export function WithHandlerForm(Component, baseForm){
         const [data, setData] = useState(baseForm)
         function changeHandler(event) {
           let value = event.target.type === 'select' ? event.target.selected : event.target.value
+          
             setData((review) => {
             return {
               ...review,
