@@ -14,8 +14,8 @@ function EmailForm({ data, handlerInput, emailSender, doctorEmail}) {
 
   return (
     <form onSubmit={(e)=>emailSender(e, doctorEmail)}>
-      <div>
-        <label>Nome:</label>
+      <div className="flex flex-col">
+        <label className="text-gray-700">Nome</label>
         <input
           type="text"
           name="name"
@@ -25,7 +25,7 @@ function EmailForm({ data, handlerInput, emailSender, doctorEmail}) {
           className="border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
         />
       </div>
-      <div  className="flex flex-col">
+      <div className="flex flex-col">
         <label className="text-gray-700">Email</label>
         <input
           type="email"
@@ -37,8 +37,8 @@ function EmailForm({ data, handlerInput, emailSender, doctorEmail}) {
 
         />
       </div>
-      <div>
-        <label>object:</label>
+      <div className="flex flex-col">
+        <label className="text-gray-700">Oggetto</label>
         <input
           type="text"
           name="subject"
