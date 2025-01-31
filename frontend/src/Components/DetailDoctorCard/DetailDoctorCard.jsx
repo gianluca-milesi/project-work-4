@@ -6,12 +6,19 @@ import { FiPhone } from "react-icons/fi";
 import { HiOutlineMail } from "react-icons/hi";
 import { TbMapSearch } from "react-icons/tb";
 import StarsRating from "../StarsRating.jsx";
+import { MdOutlineEmail } from "react-icons/md";
+import DocEmail from "../../Pages/DocEmail.jsx";
 
-
+function scrollToBottom() {
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+}
 
 function DetailDoctorCard({ item = {} }) {
 
-    const { nome, cognome, immagine, biografia, specializzazione, email, telefono, indirizzo,avgVote } = item
+    const { nome, cognome, immagine, biografia, specializzazione, email, telefono, indirizzo, avgVote } = item
 
 
     return (
@@ -58,9 +65,12 @@ function DetailDoctorCard({ item = {} }) {
                                 {indirizzo}
                             </Link>
                         </p>
-                        <div className="ml-10 ">
-                            <StarsRating item={{avgVote}}/>
-                        </div>
+                        <Link to={`/doctor/${item.id}/email`}>
+                            <button className="custom-button hover:bg-blue-900 p-3 w-full  ml-10 flex items-center justify-center gap-3">
+                                <MdOutlineEmail className="text-xl sm:text-2xl" />
+                                <span className="hidden sm:inline">Contatta ora!</span>
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div >
