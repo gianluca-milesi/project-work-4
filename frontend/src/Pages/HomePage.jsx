@@ -45,12 +45,19 @@ function HomePage() {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
+    autoplay: true, 
+    autoplaySpeed: 5000, 
+    arrows: true, 
+    draggable: false, 
+    swipe: true, 
+    pauseOnHover: false, 
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
+          swipe: true, 
         },
       },
       {
@@ -58,10 +65,12 @@ function HomePage() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          swipe: true, 
         },
       },
     ],
   };
+  
 
   return (
     <div className="bgsecondary">
