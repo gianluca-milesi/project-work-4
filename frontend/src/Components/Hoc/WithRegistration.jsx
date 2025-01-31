@@ -13,7 +13,7 @@ import { useParams } from 'react-router-dom';
 export function WithRegistrationForm(Component){
     return ({data, validation, resetForm, validationRev, ...other})=>{
         const {id} = useParams()
-        const {setMsgToast, setSeeToast, doctorData, setDoctorData} = useContext(GlobalContext)
+        const {setMsgToast, setSeeToast, setDoctorData, setDoctors} = useContext(GlobalContext)
         const navigator = useNavigate()
 
         async function sendDoctor(event){
@@ -43,6 +43,7 @@ export function WithRegistrationForm(Component){
                 },})
                 setSeeToast(true)
                 setMsgToast(result.data.message)
+                fetchDoctors()
                 navigator('/search')
                 resetForm()
              }catch({response}){//se chiamata va male mando a schermo messaggio
@@ -55,10 +56,19 @@ export function WithRegistrationForm(Component){
             }
         }
 
-        async function fetch(){
+        async function fetchDoctor(){
             try{
               const result = await axios.get(`http://localhost:3000/api/doctors/${id}`)
               setDoctorData(result.data)
+            }catch({response}){//se chiamata va male mando a schermo messaggio
+              setSeeToast(true)
+              setMsgToast(response.data.message)  
+            }  
+        }
+        async function fetchDoctors(){
+            try{
+              const result = await axios.get(`http://localhost:3000/api/doctors/`)
+              setDoctors(result.data)
             }catch({response}){//se chiamata va male mando a schermo messaggio
               setSeeToast(true)
               setMsgToast(response.data.message)  
@@ -74,7 +84,7 @@ export function WithRegistrationForm(Component){
                 const result = await axios.post(insertDoctorUrl+`/${id}/review`, data)
                 setSeeToast(true)
                 setMsgToast(result.data.message)
-                fetch()
+                fetchDoctor()
                 resetForm()
              }catch({response}){//se chiamata va male mando a schermo messaggio
                 setSeeToast(true)

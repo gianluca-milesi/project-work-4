@@ -27,7 +27,6 @@ const sendEmail = async (to) => {
 };
 
 const sendEmailDoc = async (to, subject, text, doctorEmail, name) => {
-  console.log(to, subject, text, doctorEmail, name)
   try {
     await transporter.sendMail({
       from: `${name} <${to}>`,  // L'email del mittente (quella che invia)
