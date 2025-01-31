@@ -91,7 +91,7 @@ function ContactPage() {
                   type="submit"
                   className={`custom-button hover:bg-blue-900 w-full text-white py-3 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-600`}
                 >
-                  {formSubmitted ? "Message Sent" : "Send Message"}
+                  {formSubmitted ? "Form inviato" : "Invia form"}
                 </button>
               </form>
             </div>

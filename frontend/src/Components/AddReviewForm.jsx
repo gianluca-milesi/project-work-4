@@ -56,9 +56,9 @@ export function AddReviewForm({ data, handlerInput, reviewSender }) {
           onChange={(e) => handlerInput(e)}
           className="border-2 rounded-2xl p-3 mx-5 w-full"
           value={text}
-          placeholder="insercisci la tua recensione"
+          placeholder="Inserisci la tua recensione"
         ></textarea>
-        <button className="custom-button hover:bg-blue-900 p-3 w-3/12">
+        <button className="custom-button hover:bg-blue-900 p-3 w-3/12 uppercase">
           invia
         </button>
       </form>

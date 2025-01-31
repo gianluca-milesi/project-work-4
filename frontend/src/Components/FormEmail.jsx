@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { WithHandlerForm } from "./Hoc/WithHandlerForm";
 import { WithRegistrationForm } from "./Hoc/WithRegistration";
-
+import { WithValidation } from "./Hoc/WithValidation";
 const baseForm = {
   name: "",
   email: "",
