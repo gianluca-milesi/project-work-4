@@ -68,5 +68,6 @@ function EmailForm({ data, handlerInput, emailSender, doctorEmail}) {
   );
 }
 
+
 const FinalEmailForm = WithHandlerForm(WithValidation(WithRegistrationForm(EmailForm)), baseForm);
 export {FinalEmailForm}
