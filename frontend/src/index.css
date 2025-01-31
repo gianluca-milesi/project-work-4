@@ -57,7 +57,7 @@ img {
 
 .custom-button {
   background-color: var(--color-buttons);
-  border-radius: 999px;
+  border-radius: 8px;
   color: white;
 }
 
