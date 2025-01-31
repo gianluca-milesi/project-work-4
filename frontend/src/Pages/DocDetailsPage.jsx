@@ -7,7 +7,7 @@ import DetailDoctorCard from "../components/DetailDoctorCard/DetailDoctorCard.js
 import ReviewCard from "../components/ReviewCard";
 import StarsRating from "../components/StarsRating.jsx";
 import { AddReviewFinalForm } from "../Components/AddReviewForm";
-import EmailForm from "../components/FormEmail"; // Importa il componente EmailForm
+
 
 function DocDetailsPage() {
   const { id: doctorId } = useParams();
