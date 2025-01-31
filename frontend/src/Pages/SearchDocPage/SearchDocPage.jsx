@@ -5,14 +5,14 @@ import { useContext, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 //Components
 import Searchbar from "../../components/Searchbar";
-import DoctorCard from "../../components/DoctorCard/DoctorCard";
+import DoctorCard from "../../components/DoctorCard/DoctorCard.jsx";
 
 
 function SearchDocPage() {
   const { doctors, setSearch, search, } = useContext(GlobalContext);
   const location = useLocation();
   const navigate = useNavigate();
-  
+
   function goBack() {
     navigate('/');
     setSearch("")

@@ -5,7 +5,7 @@ import GlobalContext from "../contexts/GlobalContext";
 import { useState, useEffect, useContext } from "react";
 // Components
 import Hero from "../layouts/Hero";
-import DoctorCard from "../components/DoctorCard/DoctorCard";
+import DoctorCard from "../components/DoctorCardCarousel/DoctorCardCarousel";
 import Banner from "../components/Banner/Banner";
 // Carousel
 import Slider from 'react-slick';
