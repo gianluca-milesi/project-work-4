@@ -11,7 +11,7 @@ import { useParams } from 'react-router-dom';
 
 
 export function WithRegistrationForm(Component){
-    return ({data, validation, resetForm, validationRev, ...other})=>{
+    return ({data, validation, resetForm, validationRev, emailDocValidation,  ...other})=>{
         const {id} = useParams()
         const {setMsgToast, setSeeToast, setDoctorData, setDoctors} = useContext(GlobalContext)
         const navigator = useNavigate()
@@ -106,16 +106,21 @@ export function WithRegistrationForm(Component){
                 subject: data.subject,
                 text: data.message,
             }
-
-            try {
-              // Invia SOLO l'email di cortesia all'utente
-              await axios.post("http://localhost:3000/api/doctors/send-courtesy-email", emailInfo);
-              resetForm()
-              setSeeToast(true)
-              setMsgToast("Email di conferma inviata con successo!");
-            } catch (error) {
-              setSeeToast(true)
-              setMsgToast("Errore nell'invio dell'email di conferma");
+            const result = emailDocValidation()
+            if(result.valid){
+             try {
+               // Invia SOLO l'email di cortesia all'utente
+               await axios.post("http://localhost:3000/api/doctors/send-courtesy-email", emailInfo);
+               resetForm()
+               setSeeToast(true)
+               setMsgToast("Email di conferma inviata con successo!");
+             } catch (error) {
+               setSeeToast(true)
+               setMsgToast("Errore nell'invio dell'email di conferma");
+             }
+            }else{ //output errore validazione
+                setSeeToast(true)
+                setMsgToast(result.msg) 
             }
         };
 

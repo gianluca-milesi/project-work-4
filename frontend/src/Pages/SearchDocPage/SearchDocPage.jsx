@@ -8,19 +8,24 @@ import Searchbar from "../../components/Searchbar";
 import DoctorCard from "../../components/DoctorCard/DoctorCard";
 
 function SearchDocPage() {
-  const { doctors, setSearch } = useContext(GlobalContext);
+  const { doctors, setSearch, search, } = useContext(GlobalContext);
   const location = useLocation();
-
-  //Navigate
   const navigate = useNavigate();
+  
   function goBack() {
-    navigate(-1);
+    navigate('/');
+    setSearch("")
   }
 
   useEffect(() => {
-    setSearch(""); // Resetta il valore della searchbar quando cambia la pagina
-  }, [location]);
+    const delayDebounceFn = setTimeout(() => {
+      const queryParams = new URLSearchParams(location.search);
+      queryParams.set("search", search);
+      navigate(`${location.pathname}?${queryParams.toString()}`);
+    }, 500);
 
+    return () => clearTimeout(delayDebounceFn);
+  }, [search, location.pathname, navigate]);
 
   return (
     <>
