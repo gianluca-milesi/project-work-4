@@ -41,7 +41,7 @@ function DocDetailsPage() {
           <section className="doc_detail m-5">
             <button
               onClick={goBack}
-              className="back_button custom-button mb-5 bg-[#00c3a5] text-white rounded-2xl font-semibold py-1 px-2"
+              className="back_button mb-5 font-semibold  custom-button py-1 px-3"
             >
               Indietro
             </button>
@@ -54,13 +54,12 @@ function DocDetailsPage() {
                 <h1 className="text-2xl font-semibold text-center mb-5">
                   RECENSIONI:
                 </h1>
-                <div className="flex justify-center">
-                  <div className="bg-white rounded-xl p-3 mb-5 flex gap-1 justify-center  items-center text-center">
+                <div className="flex">
+                  <div className="bg-white rounded-2xl p-3 mb-5 flex gap-1 justify-center items-center text-center shadow-xl">
                     <span>Voto Medio: </span>
                     <StarsRating item={doctorData} />
                   </div>
                 </div>
-
               </div>
               <div className="row">
                 {doctorData.recensioni && doctorData.recensioni.length > 0 ? (
