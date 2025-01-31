@@ -211,6 +211,16 @@ button.slick-arrow.slick-prev {
   left: -42px;
 }
 
+ul.slick-dots>li>button::before {
+  color: var(--color-primary);
+}
+
+.slick-dots li.slick-active button::before {
+  color: #009982 !important;
+  opacity: 1;
+  font-size: 8px;
+}
+
 @media (max-width: 850px) {
 
   button.slick-arrow.slick-next::before,
