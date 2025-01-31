@@ -57,7 +57,7 @@ img {
 
 .custom-button {
   background-color: var(--color-buttons);
-  border-radius: 999px;
+  border-radius: 8px;
   color: white;
 }
 
@@ -110,6 +110,7 @@ input[type="file"] {
 .custom-review-card {
   border-radius: 15px;
 }
+
 .custom-review-date {
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
@@ -159,7 +160,7 @@ input[type="file"] {
 }
 
 
-.color-foot{
+.color-foot {
   color: var(--color-buttons);
 }
 
@@ -170,18 +171,66 @@ input[type="file"] {
   .pad-b {
     padding-bottom: 30px;
   }
+
   .hide-on-mobile {
     display: none;
   }
+
   .layout-mediaQ {
     justify-content: center;
     margin: 20px;
   }
+
   .hero__subtitle {
     font-size: 0.9rem;
   }
+
   .hero__title {
     font-size: 1.9rem;
     padding-bottom: 5px;
+  }
+}
+
+
+/* CAROSELLO */
+.slick-arrow.slick-next::before,
+.slick-arrow.slick-prev::before {
+  font-size: 40px;
+  color: var(--color-primary);
+}
+
+.slick-arrow {
+  transition: 0.2s;
+}
+
+.slick-arrow:hover {
+  scale: 1.15;
+}
+
+button.slick-arrow.slick-prev {
+  left: -42px;
+}
+
+@media (max-width: 850px) {
+
+  button.slick-arrow.slick-next::before,
+  button.slick-arrow.slick-prev::before {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) and (max-width:1100px) {
+
+  .slick-arrow.slick-next::before,
+  .slick-arrow.slick-prev::before {
+    font-size: 20px;
+  }
+
+  button.slick-arrow.slick-prev {
+    left: -10px;
+  }
+
+  .slick-arrow.slick-next {
+    right: -10px;
   }
 }

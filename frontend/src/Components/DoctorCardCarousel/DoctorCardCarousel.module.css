@@ -5,6 +5,10 @@
     cursor: pointer;
     transition: 0.2s;
     border-radius: 15px;
+    height: 400px; 
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
 }
 
 .card:hover {
@@ -17,8 +21,7 @@
     overflow: hidden;
     display: block;
     position: relative;
-    border-bottom-left-radius: 15px;
-    border-top-left-radius: 15px;
+    border-radius: 0;
 }
 
 .doc_image {
@@ -32,10 +35,11 @@
 .card_body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between; 
     gap: 0.25rem;
     padding: 0.5rem 1rem;
     width: 100%;
+    flex-grow: 1; 
 }
 
 .details_button {
@@ -53,12 +57,11 @@
     .card {
         margin: 0.5rem;
         border-radius: 10px;
+        height: 350px; 
     }
 
     .doc_figures {
-        border-top-right-radius: 10px;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 0px;
+        border-radius: 0;
     }
 
     .card_body {
@@ -68,11 +71,5 @@
     .details_button {
         padding: 0.2rem 0.4rem;
         border-radius: 8px;
-    }
-}
-
-@media (min-width: 1024px) and (max-width: 1280px) {
-    .doc_figures {
-        aspect-ratio: 1/1;
     }
 }

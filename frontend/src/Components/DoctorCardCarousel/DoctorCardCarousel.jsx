@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
-import style from "./DoctorCard.module.css"
+import style from "./DoctorCardCarousel.module.css"
 //Hooks
 import { Link } from "react-router-dom"
 //Components
 import StarsRating from "../StarsRating"
 
 
-function DoctorCard({ item = {} }) {
+function DoctorCardCarousel({ item = {} }) {
 
   const { nome, cognome, biografia, specializzazione, immagine, id, avgVote } = item
   const slug = `${nome}-${cognome}`.toLowerCase()
@@ -32,4 +32,4 @@ function DoctorCard({ item = {} }) {
     </Link>
   );
 }
-export default DoctorCard;
+export default DoctorCardCarousel;

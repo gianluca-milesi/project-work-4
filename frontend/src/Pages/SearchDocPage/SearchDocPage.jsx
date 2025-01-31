@@ -5,14 +5,14 @@ import { useContext, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 //Components
 import Searchbar from "../../components/Searchbar";
-import DoctorCard from "../../components/DoctorCard/DoctorCard";
+import DoctorCard from "../../components/DoctorCard/DoctorCard.jsx";
 
 
 function SearchDocPage() {
   const { doctors, setSearch, search, } = useContext(GlobalContext);
   const location = useLocation();
   const navigate = useNavigate();
-  
+
   function goBack() {
     navigate('/');
     setSearch("")
@@ -34,7 +34,7 @@ function SearchDocPage() {
         <div className="py-9 w-full flex justify-between items-center">
           <button
             onClick={goBack}
-            className="back_button bg-[#00c3a5] text-white rounded font-semibold py-1 px-2"
+            className="back_button custom-button font-semibold py-1 px-2"
           >
             Indietro
           </button>
