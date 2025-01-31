@@ -1,7 +1,7 @@
 import GlobalContext from "../contexts/GlobalContext";
 //Hooks
 import { useEffect, useContext } from "react";
-import { useParams, useNavigate} from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 //Components
 import DetailDoctorCard from "../components/DetailDoctorCard/DetailDoctorCard.jsx";
 import ReviewCard from "../components/ReviewCard";
@@ -50,9 +50,17 @@ function DocDetailsPage() {
 
           <section className="reviews">
             <div className="container">
-              <div className="bg-white rounded-xl p-3 my-7 mb-3 flex gap-1 justify-center w-fit items-center">
-                <span>Voto Medio: </span>
-                <StarsRating item={doctorData} />
+              <div>
+                <h1 className="text-2xl font-semibold text-center mb-5">
+                  RECENSIONI:
+                </h1>
+                <div className="flex justify-center">
+                  <div className="bg-white rounded-xl p-3 mb-5 flex gap-1 justify-center  items-center text-center">
+                    <span>Voto Medio: </span>
+                    <StarsRating item={doctorData} />
+                  </div>
+                </div>
+
               </div>
               <div className="row">
                 {doctorData.recensioni && doctorData.recensioni.length > 0 ? (
@@ -70,11 +78,6 @@ function DocDetailsPage() {
 
           <section className="form_review">
             <AddReviewFinalForm />
-          </section>
-
-          {/* Aggiungi il form EmailForm in basso */}
-          <section className="contact_form">
-            {doctorData && <EmailForm doctorEmail={doctorData.email} />}
           </section>
         </div>
       </div>
