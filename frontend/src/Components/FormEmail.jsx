@@ -32,42 +32,49 @@ function EmailForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <label>Nome:</label>
+      <div  className="flex flex-col">
+        <label className="text-gray-700">Nome</label>
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
+          className="border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
         />
       </div>
-      <div>
-        <label>Email:</label>
+      <div  className="flex flex-col">
+        <label className="text-gray-700">Email</label>
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          className="border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
+
         />
       </div>
-      <div>
-        <label>Telefono:</label>
+      <div  className="flex flex-col">
+        <label className="text-gray-700">Telefono</label>
         <input
           type="tel"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           required
+          className="border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
+
         />
       </div>
-      <div>
-        <label>Messaggio:</label>
+      <div  className="flex flex-col">
+        <label className="text-gray-700">Messaggio</label>
         <textarea
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           required
+          className="border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
+
         />
       </div>
-      <button className="custom-button" type="submit">Invia</button>
+      <button className="custom-button px-3 mt-2" type="submit">Invia</button>
     </form>
   );
 }
