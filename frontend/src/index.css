@@ -4,12 +4,21 @@
 @tailwind utilities;
 
 /* variables */
-:root {
+
+/* Colori iniziali {
   --color-primary: rgb(0, 195, 165);
   --color-secondary: rgb(224, 247, 244);
+} */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #F8F9FA;
   --color-tertiary: rgb(213, 213, 213);
   --color-buttons: rgb(47, 87, 174);
   font-family: "Inter", serif;
+}
+
+body {
+  background-color: #F8F9FA;
 }
 
 /* reset rules */

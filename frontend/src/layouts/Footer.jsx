@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <footer className="bg-slate-600 text-white text-center">
-      <div className="md:flex md:justify-between md:items-center sm:px-12 px-4 background py-7 ">
+      <div className="md:flex md:justify-between md:items-center background py-[0.5rem] px-[2rem]">
         <h1 className="lg:text-4xl text-2xl md:mb-0 mb-6 lg:leading-normal font-semibold">
           <span className="color-foot">Lo specialista </span>a portata di
           click!

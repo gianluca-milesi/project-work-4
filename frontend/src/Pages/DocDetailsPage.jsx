@@ -75,7 +75,7 @@ function DocDetailsPage() {
             </div>
           </section>
 
-          <section className="form_review">
+          <section className="form_review mt-5">
             <AddReviewFinalForm />
           </section>
         </div>
