@@ -36,7 +36,7 @@ function DocEmail() {
           <section className="doc_detail m-5">
             <button
               onClick={goBack}
-              className="custom-button mb-5"
+              className="custom-button !font-normal mb-5"
             >
               Indietro
             </button>

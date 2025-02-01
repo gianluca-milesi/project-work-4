@@ -81,7 +81,7 @@ function HomePage() {
         <NewHero />
       </section>
 
-      <section className="card_section my-10">
+      <section className="card_section mt-10 mb-20">
         <div className="container">
           <h2 className="text-4xl pb-3">I nostri migliori medici</h2>
           <Slider {...settings}>
