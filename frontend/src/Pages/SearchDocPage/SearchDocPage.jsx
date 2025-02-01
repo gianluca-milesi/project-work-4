@@ -34,7 +34,7 @@ function SearchDocPage() {
         <div className="py-9 w-full flex justify-between items-center">
           <button
             onClick={goBack}
-            className="back_button custom-button font-semibold py-1 px-2"
+            className="custom-button !font-normal"
           >
             Indietro
           </button>

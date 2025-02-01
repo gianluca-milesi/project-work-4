@@ -9,6 +9,7 @@
   --color-secondary: rgb(224, 247, 244);
   --color-tertiary: rgb(213, 213, 213);
   --color-buttons: rgb(47, 87, 174);
+  font-family: "Inter", serif;
 }
 
 /* reset rules */
@@ -59,6 +60,9 @@ img {
   background-color: var(--color-buttons);
   border-radius: 8px;
   color: white;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  transition: 0.1s;
 }
 
 .button-hero-container {
@@ -162,6 +166,12 @@ input[type="file"] {
 
 .color-foot {
   color: var(--color-buttons);
+}
+
+.active>li {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 

@@ -58,8 +58,8 @@ export function AddReviewForm({ data, handlerInput, reviewSender }) {
           value={text}
           placeholder="Inserisci la tua recensione"
         ></textarea>
-        <button className="custom-button hover:bg-blue-900 p-3 w-3/12 uppercase">
-          invia
+        <button className="custom-button !px-4 !py-1 bgprimary">
+          Invia
         </button>
       </form>
     </div>

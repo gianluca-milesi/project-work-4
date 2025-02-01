@@ -60,7 +60,7 @@ function DetailDoctorCard({ item = {} }) {
                         </p>
                         {location.pathname !== `/doctor/${item.id}/email` &&
                             <Link to={`/doctor/${item.id}/email`}>
-                                <button className={`${style.contact_button} custom-button hover:bg-blue-900 p-3 flex items-center justify-center gap-3`}>
+                                <button className={`${style.contact_button} custom-button !p-3 flex items-center justify-center gap-3`}>
                                     <MdOutlineEmail className="text-xl sm:text-2xl" />
                                     <span>Contatta ora!</span>
                                 </button>

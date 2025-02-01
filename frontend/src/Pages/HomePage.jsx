@@ -4,7 +4,7 @@ import GlobalContext from "../contexts/GlobalContext";
 // Hooks
 import { useState, useEffect, useContext } from "react";
 // Components
-import Hero from "../layouts/Hero";
+import NewHero from "../layouts/NewHero/NewHero.jsx";
 import Banner from "../components/Banner/Banner";
 import DoctorCardCarousel from "../components/DoctorCardCarousel/DoctorCardCarousel";
 // Carousel
@@ -76,13 +76,13 @@ function HomePage() {
 
 
   return (
-    <div className="bgsecondary">
+    <>
       <section className="hero">
-        <Hero />
+        <NewHero />
       </section>
 
-      <section className="card_section bgsecondary">
-        <div className="container my-10">
+      <section className="card_section my-10">
+        <div className="container">
           <h2 className="text-4xl pb-3">I nostri migliori medici</h2>
           <Slider {...settings}>
             {doctors.map((doc) => (
@@ -97,7 +97,7 @@ function HomePage() {
           <Banner />
         </div>
       </section>
-    </div>
+    </>
   );
 }
 

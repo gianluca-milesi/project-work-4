@@ -41,7 +41,7 @@ function DocDetailsPage() {
           <section className="doc_detail m-5">
             <button
               onClick={goBack}
-              className="back_button mb-5 font-semibold custom-button py-1 px-2"
+              className="custom-button !font-normal mb-5"
             >
               Indietro
             </button>

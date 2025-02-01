@@ -1,0 +1,44 @@
+.hero {
+    background-image: url(../../../public/HeroImage.jpg);
+    background-size: cover;
+    background-position: center 25%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0 3rem;
+    transform: scaleX(-1);
+}
+
+/* Background per l'opacità */
+.hero::before {
+    content: "";
+    background-color: #e0f7f430;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero_body,
+.hero h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    z-index: 10;
+    transform: scaleX(-1);
+}
+
+.hero h1{
+    line-height: 0.9;
+}
+
+@media (max-width: 800px){
+    .hero::before{
+        background-color: #e0f7f480;
+    }
+}

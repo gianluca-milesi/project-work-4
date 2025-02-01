@@ -28,7 +28,7 @@ function DocRegistrationPage() {
       <section className="form_add_doctor m-5">
         <button
           onClick={goBack}
-          className="back_button mb-5 rounded font-semibold  custom-button py-1 px-3"
+          className="custom-button !font-normal mb-5"
         >
           Indietro
         </button>
