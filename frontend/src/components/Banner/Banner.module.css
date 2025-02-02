@@ -1,7 +1,15 @@
-.banner{
-    background-color: var(--color-secondary);    
+.banner {
+    background-color: var(--color-secondary);
+    position: relative;
 }
 
-.registration{
+.join_button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.registration {
     background-color: var(--color-primary);
 }

@@ -13,9 +13,9 @@ export function AddReviewForm({ data, handlerInput, reviewSender }) {
   const { text, voto, nome } = data;
   return (
     <div className="container bgsecondary rounded-lg">
-      <h1 className="p-6 text-center text-2xl">Aggiungi una Recensione</h1>
+      <h1 className="text-center text-2xl">Aggiungi una Recensione</h1>
       <form
-        className="flex flex-col gap-4 justify-center items-center p-5"
+        className="flex flex-col gap-4 justify-center items-center px-5 py-2"
         encType="multipart/form-data"
         onSubmit={(e) => reviewSender(e)}
       >
@@ -58,8 +58,8 @@ export function AddReviewForm({ data, handlerInput, reviewSender }) {
           value={text}
           placeholder="Inserisci la tua recensione"
         ></textarea>
-        <button className="custom-button hover:bg-blue-900 p-3 w-3/12 uppercase">
-          invia
+        <button className="custom-button !px-4 !py-1 bgprimary">
+          Invia
         </button>
       </form>
     </div>

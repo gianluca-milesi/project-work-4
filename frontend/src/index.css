@@ -4,11 +4,21 @@
 @tailwind utilities;
 
 /* variables */
-:root {
+
+/* Colori iniziali {
   --color-primary: rgb(0, 195, 165);
   --color-secondary: rgb(224, 247, 244);
+} */
+:root {
+  --color-primary: #009688;
+  --color-secondary: #F8F9FA;
   --color-tertiary: rgb(213, 213, 213);
   --color-buttons: rgb(47, 87, 174);
+  font-family: "Inter", serif;
+}
+
+body {
+  background-color: #F8F9FA;
 }
 
 /* reset rules */
@@ -59,6 +69,9 @@ img {
   background-color: var(--color-buttons);
   border-radius: 8px;
   color: white;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  transition: 0.1s;
 }
 
 .button-hero-container {
@@ -103,9 +116,9 @@ input[type="file"] {
   cursor: pointer;
 }
 
-.custom-search-section {
+/* .custom-search-section {
   border-radius: 15px;
-}
+} */
 
 .custom-review-card {
   border-radius: 15px;
@@ -164,6 +177,12 @@ input[type="file"] {
   color: var(--color-buttons);
 }
 
+.active>li {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
 
 /* media Q */
 
@@ -211,6 +230,16 @@ button.slick-arrow.slick-prev {
   left: -42px;
 }
 
+ul.slick-dots>li>button::before {
+  color: var(--color-primary);
+}
+
+.slick-dots li.slick-active button::before {
+  color: #009982 !important;
+  opacity: 1;
+  font-size: 8px;
+}
+
 @media (max-width: 850px) {
 
   button.slick-arrow.slick-next::before,
@@ -227,10 +256,10 @@ button.slick-arrow.slick-prev {
   }
 
   button.slick-arrow.slick-prev {
-    left: -10px;
+    left: -15px;
   }
 
   .slick-arrow.slick-next {
-    right: -10px;
+    right: -15px;
   }
 }

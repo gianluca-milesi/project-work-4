@@ -30,11 +30,11 @@ function SearchDocPage() {
 
   return (
     <div className="bgprimary">
-      <section className="container bgsecondary px-9 pb-9  custom-search-section flex flex-wrap">
+      <section className="bgsecondary px-9 pb-9 custom-search-section flex flex-wrap">
         <div className="py-9 w-full flex justify-between items-center">
           <button
             onClick={goBack}
-            className="back_button custom-button font-semibold py-1 px-2"
+            className="custom-button !font-normal"
           >
             Indietro
           </button>
