@@ -3,7 +3,7 @@ import GlobalContext from "../contexts/GlobalContext";
 import { useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 //Components
-import DetailDoctorCardEmail from "../components/DetailDoctorCardEmail/DetailDoctorCardEmail";
+import DetailDoctorCard from "../components/DetailDoctorCard/DetailDoctorCard.jsx";
 import { FinalEmailForm } from "../components/FormEmail";
 
 function DocEmail() {
@@ -36,11 +36,11 @@ function DocEmail() {
           <section className="doc_detail m-5">
             <button
               onClick={goBack}
-              className="back_button custom-button mb-5 font-semibold py-1 px-2"
+              className="custom-button !font-normal mb-5"
             >
               Indietro
             </button>
-            {doctorData && <DetailDoctorCardEmail item={doctorData} />}
+            {doctorData && <DetailDoctorCard item={doctorData} />}
           </section>
           <div className="container">
             <FinalEmailForm doctorEmail={doctorData.email} />

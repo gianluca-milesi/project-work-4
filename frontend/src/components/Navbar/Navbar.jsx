@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Navbar.css';
 import { useState } from 'react';
 
@@ -6,8 +6,6 @@ import { useState } from 'react';
 import { FaHome } from "react-icons/fa";
 import { RiContactsBook2Fill } from "react-icons/ri";
 import { FaCircleInfo } from "react-icons/fa6";
-import { CiLogin } from "react-icons/ci";
-import { MdNewLabel } from "react-icons/md";
 import { IoCloseSharp } from "react-icons/io5"; // Icona per chiudere il menu
 import logo from "/logo.png"
 
@@ -16,35 +14,35 @@ function Navbar() {
 
     return (
         <nav className="flex justify-between items-center text-white">
-            <Link to="/" className='fixedSize'>
+            <NavLink to="/" className='fixedSize'>
                 <img
                     src={logo}
                     alt="logo"
                     className="logoSize"
                 />
-            </Link>
+            </NavLink>
 
-            <ul className="hidden lg:flex items-center gap-6 font-semibold text-base">
-                <Link to="/">
-                    <li className="p-2 hover:bg-green-400 rounded-md transition-all cursor-pointer text-xl">
+            <ul className="hidden md:flex items-center gap-4 font-semibold text-base">
+                <NavLink to="/">
+                    <li className="p-2 hover:font-bold font-normal rounded-md transition-all cursor-pointer text-xl">
                         Home
                     </li>
-                </Link>
-                <Link to="/contact">
-                    <li className="p-2 hover:bg-green-400 rounded-md transition-all cursor-pointer text-xl">
+                </NavLink>
+                <NavLink to="/contact">
+                    <li className="p-2 hover:font-bold font-normal rounded-md transition-all cursor-pointer text-xl">
                         Contatti
                     </li>
-                </Link>
-                <Link to="/about">
-                    <li className="p-2 hover:bg-green-400 rounded-md transition-all cursor-pointer text-xl">
+                </NavLink>
+                <NavLink to="/about">
+                    <li className="p-2 hover:font-bold font-normal rounded-md transition-all cursor-pointer text-xl">
                         About
                     </li>
-                </Link>
+                </NavLink>
             </ul>
 
 
             <i
-                className="bx bx-menu lg:hidden block text-5xl cursor-pointer"
+                className="bx bx-menu sm:block md:hidden block text-5xl cursor-pointer"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
                 =
@@ -52,7 +50,7 @@ function Navbar() {
 
             {/* Sidebar Mobile */}
             <div
-                className={`z-40 fixed lg:hidden top-0 right-0 h-screen w-2/4 bgsecondary flex flex-col items-center font-semibold text-lg transform transition-transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+                className={`z-40 fixed sm:block md:hidden top-0 right-0 h-screen w-2/4 bgsecondary flex flex-col items-center font-semibold text-lg transform transition-transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
                     }`}
                 style={{ transition: 'transform 0.3s ease-in-out' }}
             >

@@ -4,13 +4,14 @@ import GlobalContext from "../contexts/GlobalContext";
 // Hooks
 import { useState, useEffect, useContext } from "react";
 // Components
-import Hero from "../layouts/Hero";
-import DoctorCard from "../components/DoctorCardCarousel/DoctorCardCarousel";
+import NewHero from "../layouts/NewHero/NewHero.jsx";
 import Banner from "../components/Banner/Banner";
+import DoctorCardCarousel from "../components/DoctorCardCarousel/DoctorCardCarousel";
 // Carousel
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
 
 function HomePage() {
   const [doctors, setDoctors] = useState([]);
@@ -45,13 +46,13 @@ function HomePage() {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
-    autoplay: true, 
-    autoplaySpeed: 5000, 
-    arrows: true, 
-    draggable: false, 
-    swipe: true, 
-    pauseOnHover: false, 
-    waitForAnimate: false, 
+    autoplay: true,
+    autoplaySpeed: 5000,
+    arrows: true,
+    draggable: false,
+    swipe: true,
+    pauseOnHover: false,
+    waitForAnimate: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -71,23 +72,21 @@ function HomePage() {
       },
     ],
   };
-  
-  
+
+
 
   return (
-    <div className="bgsecondary">
+    <>
       <section className="hero">
-        <Hero />
+        <NewHero />
       </section>
 
-      <section className="card_section bgsecondary">
-        <div className="container py-10">
+      <section className="card_section mt-10 mb-20">
+        <div className="container">
           <h2 className="text-4xl pb-3">I nostri migliori medici</h2>
           <Slider {...settings}>
             {doctors.map((doc) => (
-              <div key={doc.id} className="px-2">
-                <DoctorCard item={doc} />
-              </div>
+              <DoctorCardCarousel key={doc.id} item={doc} />
             ))}
           </Slider >
         </div>
@@ -98,7 +97,7 @@ function HomePage() {
           <Banner />
         </div>
       </section>
-    </div>
+    </>
   );
 }
 
