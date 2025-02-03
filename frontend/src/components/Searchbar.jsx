@@ -7,10 +7,10 @@ function Searchbar() {
 
 
   return (
-    <div>
+    <div className="shadow-md rounded-lg">
       <input
         onChange={(e) => { setSearch(e.target.value) }}
-        className="h-8 rounded-md border-3 p-2"
+        className="h-8 rounded-md border-3  p-3"
         type="text"
         value={search}
         placeholder='Cerca' />

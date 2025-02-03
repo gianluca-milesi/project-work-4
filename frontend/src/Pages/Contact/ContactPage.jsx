@@ -52,7 +52,7 @@ function ContactPage() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full mt-1 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full mt-1 p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600"
                     required
                   />
                 </div>
@@ -67,7 +67,7 @@ function ContactPage() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full mt-1 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full mt-1 p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600"
                     required
                   />
                 </div>
@@ -82,16 +82,16 @@ function ContactPage() {
                     value={formData.message}
                     onChange={handleChange}
                     rows="4"
-                    className="w-full mt-1 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full mt-1 p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600"
                     required
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className={`custom-button hover:bg-blue-900 w-full text-white py-3 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-600`}
+                  className={`custom-button hover:bg-blue-900 w-full text-white !py-3 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-600`}
                 >
-                  {formSubmitted ? "Form inviato" : "Invia form"}
+                  {formSubmitted ? "Form inviato" : "Invia feedback"}
                 </button>
               </form>
             </div>
