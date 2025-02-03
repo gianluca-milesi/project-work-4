@@ -3,17 +3,17 @@ import { WithHandlerForm } from "./Hoc/WithHandlerForm";
 import { WithRegistrationForm } from "./Hoc/WithRegistration";
 import { WithValidation } from "./Hoc/WithValidation";
 
-const baseForm={
-    text:"",
-    voto:1,
-    nome:""
-}
+const baseForm = {
+  text: "",
+  voto: 1,
+  nome: "",
+};
 
 export function AddReviewForm({ data, handlerInput, reviewSender }) {
   const { text, voto, nome } = data;
   return (
     <div className="container bgsecondary rounded-lg">
-      <h1 className="text-center text-2xl">Aggiungi una Recensione</h1>
+      <h1 className="text-center pb-6 text-2xl">Aggiungi una Recensione</h1>
       <form
         className="flex flex-col gap-4 justify-center items-center px-5 py-2"
         encType="multipart/form-data"
@@ -44,6 +44,7 @@ export function AddReviewForm({ data, handlerInput, reviewSender }) {
             >
               {[1, 2, 3, 4, 5].map((val) => (
                 <option key={val} value={val}>
+                  <span className="bg-yellow-400">⭐ </span>
                   {val}
                 </option>
               ))}
@@ -58,9 +59,7 @@ export function AddReviewForm({ data, handlerInput, reviewSender }) {
           value={text}
           placeholder="Inserisci la tua recensione"
         ></textarea>
-        <button className="custom-button !px-4 !py-1 bgprimary">
-          Invia
-        </button>
+        <button className="custom-button !px-16 !py-2">Invia</button>
       </form>
     </div>
   );
