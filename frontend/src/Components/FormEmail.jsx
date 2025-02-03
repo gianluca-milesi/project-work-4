@@ -70,7 +70,6 @@ function EmailForm({ data, handlerInput, emailSender, doctorEmail}) {
           Invia
         </button>
       </div>
-      <button className="custom-button px-3 mt-2" type="submit">Invia</button>
     </form>
   );
 }
