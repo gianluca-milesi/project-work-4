@@ -26,7 +26,7 @@ function AboutPage() {
   ];
   return (
     <div className="bgprimary py-3">
-      <div className="container bgsecondary p-6 custom-search-section ">
+      <div className="container bgsecondary p-7 custom-search-section ">
         <div className="flex justify-center align-center z-1">
           <div className="hidden lg:block w-5/12">
             <img src={aboutImg} className="w-11/12" />

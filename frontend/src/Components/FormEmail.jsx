@@ -64,7 +64,7 @@ function EmailForm({ data, handlerInput, emailSender, doctorEmail }) {
             name="message"
             value={message}
             onChange={(e) => handlerInput(e)}
-            rows={5}
+            rows={6}
             required
             className="border p-2 border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-slate-950"
           />
