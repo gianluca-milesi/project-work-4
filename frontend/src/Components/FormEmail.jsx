@@ -7,17 +7,20 @@ const baseForm = {
   name: "",
   email: "",
   message: "",
-  subject: ""
+  subject: "",
 };
 
-function EmailForm({ data, handlerInput, emailSender, doctorEmail}) {
- const { name, email, message, subject} = data;
+function EmailForm({ data, handlerInput, emailSender, doctorEmail }) {
+  const { name, email, message, subject } = data;
 
   return (
-    <form onSubmit={(e)=>emailSender(e, doctorEmail)}>
-      <div className="flex flex-wrap gap-4 mb-4">      
+    <form
+      className="sm:flex mt-16 justify-between"
+      onSubmit={(e) => emailSender(e, doctorEmail)}
+    >
+      <div className="sm:w-2/5">
         <div className="flex flex-col">
-          <label className="text-gray-700">Nome</label>
+          <label className="text-gray-700 pb-2">Nome</label>
           <input
             placeholder="Inserisci il tuo nome"
             type="text"
@@ -28,8 +31,8 @@ function EmailForm({ data, handlerInput, emailSender, doctorEmail}) {
             className="border p-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600"
           />
         </div>
-        <div className="flex flex-col">
-          <label className="text-gray-700">Email</label>
+        <div className="flex flex-col my-5">
+          <label className="text-gray-700 pb-2">Email</label>
           <input
             placeholder="Inserisci la tua email"
             type="email"
@@ -40,8 +43,8 @@ function EmailForm({ data, handlerInput, emailSender, doctorEmail}) {
             className="border p-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600"
           />
         </div>
-        <div className="flex flex-col">
-          <label className="text-gray-700">Oggetto</label>
+        <div className="flex flex-col my-5">
+          <label className="text-gray-700 pb-2">Oggetto</label>
           <input
             placeholder="Inserisci l'oggetto della mail"
             type="text"
@@ -74,6 +77,5 @@ function EmailForm({ data, handlerInput, emailSender, doctorEmail}) {
   );
 }
 
-
 const FinalEmailForm = WithHandlerForm(WithValidation(WithRegistrationForm(EmailForm)), baseForm);
-export {FinalEmailForm}
+export { FinalEmailForm };
